@@ -7,5 +7,7 @@ animalRoute.post('/add', AnimalController.add)
 animalRoute.get('/delete/:id', AnimalController.delete)
 animalRoute.get('/update/:id', AnimalController.updatePage)// update page
 animalRoute.post('/update/:id', AnimalController.update)
+animalRoute.get('/foods/:id', AnimalController.getAnimalFood)
+
 
 module.exports = animalRoute;
