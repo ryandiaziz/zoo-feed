@@ -18,7 +18,7 @@ module.exports = {
       sex: {
         type: Sequelize.STRING
       },
-      classId: {
+      classTypeId: {
         type: Sequelize.INTEGER
       },
       habitatId: {
