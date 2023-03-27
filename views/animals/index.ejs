@@ -1,7 +1,33 @@
 <%- include('../layout/header') %>
-    <h1>ANIMAL</h1>
-    <a class="btn" href="/animals/add">Add</a>
-    <table class="table">
+  <h1>ANIMAL</h1>
+  <a class="btn" href="/animals/add">Add</a>
+  <div class="container">
+    <div class="row">
+      <% result.forEach(animal=>{ %>
+        <div class="card m-2" style="width: 16rem;">
+          <img src="<%= animal.imageUrl%>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= animal.name%>
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Age : <%= animal.age%>
+            </li>
+            <li class="list-group-item">Sex : <%= animal.sex%>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">Detail</a>
+            <a href="/animals/update/<%=animal.id%>" class="btn btn-warning">Update</a>
+            <a href="/animals/delete/<%= animal.id%>" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+        <%}) %>
+    </div>
+  </div>
+
+  <!-- <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -41,5 +67,5 @@
                 </tr>
                 <%}) %>
         </tbody>
-    </table>
-    <%- include('../layout/footer') %>
+    </table> -->
+  <%- include('../layout/footer') %>

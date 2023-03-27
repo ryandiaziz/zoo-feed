@@ -1,9 +1,10 @@
 <%- include('../layout/header') %>
+    <!-- <h1>UPDATE ANIMAL</h1> -->
     <div class="container">
-        <form action="/animals/add" method="post">
+        <form action="/animals/update/id" method="post">
             <div class="mb-3">
                 <label class="form-label">Name</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="name" value="<%=animal.name%>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Age</label>

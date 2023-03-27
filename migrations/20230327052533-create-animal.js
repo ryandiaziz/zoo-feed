@@ -18,6 +18,9 @@ module.exports = {
       sex: {
         type: Sequelize.STRING
       },
+      imageUrl: {
+        type: Sequelize.STRING
+      },
       classTypeId: {
         type: Sequelize.INTEGER
       },

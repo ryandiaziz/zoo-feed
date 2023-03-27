@@ -33,12 +33,12 @@ class AnimalController {
     static async add(req, res) {
         try {
             // console.log(req.body);
-            const { name, age, sex, classTypeId, habitatId } = req.body;
+            const { name, age, sex, imageUrl, classTypeId, habitatId } = req.body;
             // // // let age = +ageS;
             // // // let classTypeId = +classTypeIdS;
             // // // let habitatId = +habitatIdS;
             let result = await animal.create(
-                { name, age, sex, classTypeId, habitatId }
+                { name, age, sex, imageUrl, classTypeId, habitatId }
             )
             // // res.json(result);
             res.redirect('/animals');
@@ -57,13 +57,21 @@ class AnimalController {
                     animalId: id
                 }
             })
-            req.json(result)
+            res.redirect('/animals');
         }
         catch (err) {
             res.json(err)
         }
     }
-    static async updatePage(req, res) { }
+    static async updatePage(req, res) {
+        try {
+            const id = +req.params.id;
+            let animalData = await animal.findByPk(id);
+            // res.render('animals/updatePage.ejs')
+        } catch (error) {
+            res.json(error)
+        }
+    }
     static async update(req, res) {
         try {
             const id = Number(req.params.id)
