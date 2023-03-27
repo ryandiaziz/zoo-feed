@@ -1,22 +1,28 @@
 <%- include('../layout/header') %>
     <!-- <h1>UPDATE ANIMAL</h1> -->
     <div class="container">
-        <form action="/animals/update/id" method="post">
+        <form action="/animals/update/<%=animalData.id%>" method="post">
+            <fieldset disabled>
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">ID</label>
+                    <input type="text" id="disabledTextInput" class="form-control" name="id" value="<%=animalData.id%>">
+                </div>
+            </fieldset>
             <div class="mb-3">
                 <label class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" value="<%=animal.name%>">
+                <input type="text" class="form-control" name="name" value="<%=animalData.name%>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Age</label>
-                <input type="text" class="form-control" name="age">
+                <input type="text" class="form-control" name="age" value="<%=animalData.age%>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Sex</label>
-                <input type="text" class="form-control" name="sex">
+                <input type="text" class="form-control" name="sex" value="<%=animalData.sex%>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Image</label>
-                <input type="text" class="form-control" name="imageUrl">
+                <input type="text" class="form-control" name="imageUrl" value="<%=animalData.imageUrl%>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Class Type</label>

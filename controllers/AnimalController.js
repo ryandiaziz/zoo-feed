@@ -6,19 +6,9 @@ class AnimalController {
             let result = await animal.findAll({
                 include: [classType, habitat]
             })
-            // res.json(result)
             res.render('animals/index.ejs', { result });
         } catch (err) {
             res.json(err)
-        }
-    }
-    static async getAnimalDetail(req, res) {
-        try {
-            const id = req.params.id;
-            let result = await animal.findByPk(id);
-            res.json(result);
-        } catch (error) {
-            res.json(error);
         }
     }
     static async addPage(req, res) {
@@ -32,15 +22,10 @@ class AnimalController {
     }
     static async add(req, res) {
         try {
-            // console.log(req.body);
             const { name, age, sex, imageUrl, classTypeId, habitatId } = req.body;
-            // // // let age = +ageS;
-            // // // let classTypeId = +classTypeIdS;
-            // // // let habitatId = +habitatIdS;
             let result = await animal.create(
                 { name, age, sex, imageUrl, classTypeId, habitatId }
             )
-            // // res.json(result);
             res.redirect('/animals');
         } catch (err) {
             res.json(err)
@@ -67,30 +52,29 @@ class AnimalController {
         try {
             const id = +req.params.id;
             let animalData = await animal.findByPk(id);
-            // res.render('animals/updatePage.ejs')
+            let classTypes = await classType.findAll();
+            let habitats = await habitat.findAll();
+            res.render('animals/updatePage.ejs', { animalData, classTypes, habitats });
         } catch (error) {
             res.json(error)
         }
     }
     static async update(req, res) {
         try {
-            const id = Number(req.params.id)
-            const { name, age, sex, classTypeId, habitatId } = req.body
-
+            const id = +req.params.id;
+            console.log(req.body);
+            const { name, age, sex, imageUrl, classTypeId, habitatId } = req.body
             const result = await animal.update({
-                name, age, sex, classTypeId, habitatId
+                name, age, sex, imageUrl, classTypeId, habitatId
             }, {
                 where: { id }
             })
-            result[0] === 1 ?
-                res.json({ message: `Berhasil update ${id}` })
-                :
-                res.json({ message: `gagal update ${id}` })
+            res.redirect('/animals');
         } catch (error) {
             res.json(error)
         }
     }
-    static async getAnimalFood(req, res) {
+    static async getAnimalDetail(req, res) {
         try {
             const id = +req.params.id
             let result = await animalFood.findAll({
@@ -99,11 +83,11 @@ class AnimalController {
                 },
                 include: [animal, food]
             })
-            let resultPI = {}
+            let resultAF = {}
             let foods = []
             if (result.length === 0) {
                 result = await animal.findByPk(id)
-                resultPI = {
+                resultAF = {
                     ...result.dataValues,
                     foods: foods
                 }
@@ -111,12 +95,12 @@ class AnimalController {
                 foods = result.map(el => {
                     return el.food.dataValues
                 })
-                resultPI = {
+                resultAF = {
                     ...result[0].animal.dataValues,
                     foods: foods
                 }
             }
-            res.json(resultPI)
+            res.render('animals/detailPage.ejs', { resultAF });
         } catch (err) {
             res.json(err)
         }

@@ -1,0 +1,36 @@
+<%- include('../layout/header') %>
+    <h1>DETAIL</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Class</th>
+                <th>Habitat</th>
+                <th>Food</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <%= resultAF.id%>
+                </td>
+                <td>
+                    <img src="<%= resultAF.imageUrl%>" class="card-img-top" alt="...">
+                </td>
+                <td>
+                    <%= resultAF.name%>
+                </td>
+                <td>
+                    <%= resultAF.age%>
+                </td>
+                <td>
+                    <%= resultAF.sex%>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <%- include('../layout/footer') %>
