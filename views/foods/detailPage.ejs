@@ -1,0 +1,21 @@
+<%- include('../layout/header') %>
+<% animals.forEach(animal=>{ %>
+    <option value="<%= animal.id%>">
+        <%= animal.name%>
+    </option>
+    <%})%>
+    <h1> </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <%- include('../layout/footer') %>

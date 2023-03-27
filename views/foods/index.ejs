@@ -1,3 +1,35 @@
 <%- include('../layout/header') %>
     <h1>FOOD</h1>
+    <a class="btn btn-success" href="/foods/add">Add</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% result.forEach(food=>{ %>
+                <tr>
+                    <td>
+                        <%= food.id%>
+                    </td>
+                    <td>
+                        <%= food.name%>
+                    </td>
+                    <td>
+                        <%= food.type%>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="/foods/delete/<%= food.id %>"> Delete</a>
+                        <a class="btn btn-sm btn-success" href="/foods/update/<%= food.id %>"> Update</a>
+                        <a class="btn btn-sm btn-info" href="/foods/detail/<%= food.id %>"> Detail</a>
+                        </a>
+                    </td>
+                </tr>
+                <%}) %>
+        </tbody>
+    </table>
     <%- include('../layout/footer') %>
