@@ -23,10 +23,11 @@ class FoodController {
 
   static async add(req, res) {
     try {
-      const { name, type, animalId } = req.body;
+      const { name, type,imageUrl, animalId } = req.body;
       const resultfood = await food.create({
         name,
         type,
+        imageUrl,
       });
 
       const foodId = resultfood.id;
@@ -34,6 +35,7 @@ class FoodController {
         animalId: animalId,
         foodId: foodId,
       });
+
 
       res.redirect('/foods')
     } catch (error) {
@@ -55,8 +57,10 @@ class FoodController {
 
   static async updatePage(req, res) {
     try {
+        const id = +req.params.id;
         let animals = await animal.findAll();
-        res.render("foods/updatePage.ejs", { animals });
+        let foods = await food.findByPk(id);
+        res.render("foods/updatePage.ejs", { animals,foods });
       } catch (error) {
         res.json(error);
       }
@@ -85,8 +89,44 @@ class FoodController {
 
   static async detailPage(req, res) {
     try {
-        let animals = await animal.findAll();
-        res.render("foods/detailPage.ejs", { animals });
+        const id = +req.params.id
+        
+        
+        let result = await animalFood.findAll({
+            where: {
+                foodId: id
+            },
+            include: [animal, food]
+        })
+        let resultAF = {}
+        let animals = []
+        if (result.length === 0) {
+            result = await food.findByPk(id)
+            resultAF = {
+                ...result.dataValues,
+                animals: animals
+            }
+        } else {
+            animals = result.map(el => {
+                return el.animal.dataValues
+            })
+            resultAF = {
+                ...result[0].food.dataValues,
+                animals: animals
+            }
+        }
+        
+        let consumed = resultAF.animals.map(animal => {
+            return animal
+        });
+
+        consumed.forEach(consume => {
+          console.log(consume.name)
+        });
+        
+        res.render("foods/detailPage.ejs", { resultAF ,consumed});
+
+
       } catch (error) {
         res.json(error);
       }

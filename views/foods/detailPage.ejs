@@ -1,21 +1,35 @@
 <%- include('../layout/header') %>
-<% animals.forEach(animal=>{ %>
-    <option value="<%= animal.id%>">
-        <%= animal.name%>
-    </option>
-    <%})%>
-    <h1> </h1>
-    <table class="table">
+    <h1>DETAIL</h1>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Type</th>
-                <th>Action</th>
+                <th>Consumes by</th>
             </tr>
         </thead>
         <tbody>
-            
+            <tr>
+                <td>
+                    <%= resultAF.id%>
+                </td>
+                <td>
+                    <img src="<%= resultAF.imageUrl%>" class="object-fit-cover border rounded" alt="..." style="width: 200px; height: 200px;">
+                </td>
+                <td>
+                    <%= resultAF.name%>
+                </td>
+                <td>
+                    <%= resultAF.type%>
+                </td>
+                <td>
+                    <% consumed.forEach(animal=>{ %>
+                        <a href="/animals/<%= animal.id%>" class="list-group-item" ><%= animal.name%></a>
+                        <%})%>
+                </td>
+            </tr>
         </tbody>
     </table>
     <%- include('../layout/footer') %>
