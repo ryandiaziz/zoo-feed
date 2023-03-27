@@ -1,0 +1,45 @@
+<%- include('../layout/header') %>
+    <h1>ANIMAL</h1>
+    <a class="btn" href="/animals/add">Add</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Sex</th>
+                <th>Age</th>
+                <th>Class</th>
+                <th>Habitat</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% result.forEach(animal=>{ %>
+                <tr>
+                    <td>
+                        <%= animal.id%>
+                    </td>
+                    <td>
+                        <%= animal.name%>
+                    </td>
+                    <td>
+                        <%= animal.sex%>
+                    </td>
+                    <td>
+                        <%= animal.age%>
+                    </td>
+                    <td>
+                        <%= animal.classType.name%>
+                    </td>
+                    <td>
+                        <%= animal.habitat.name%>
+                    </td>
+                    <td>
+                        Remove the pirate
+                        </a>
+                    </td>
+                </tr>
+                <%}) %>
+        </tbody>
+    </table>
+    <%- include('../layout/footer') %>

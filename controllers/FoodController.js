@@ -3,7 +3,8 @@ class FoodController {
     static async getFood(req, res) {
         try {
             let result = await food.findAll();
-            res.json(result);
+            // res.json(result);
+            res.render('foods/index.ejs');
         } catch (error) {
             res.json(error);
         }

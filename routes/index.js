@@ -7,9 +7,7 @@ const HabitatRoutes = require('./habitatRoutes');
 const route = require('express').Router();
 
 route.get('/', (req, res) => {
-    res.json({
-        message: 'HOME'
-    })
+    res.render('index.ejs');
 })
 
 route.use('/animals', animalRoutes);
