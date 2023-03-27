@@ -1,6 +1,6 @@
 <%- include('../layout/header') %>
     <h1>FOOD</h1>
-    <a class="btn" href="/foods/add">Add</a>
+    <a class="btn btn-success" href="/foods/add">Add</a>
     <table class="table">
         <thead>
             <tr>
@@ -23,7 +23,9 @@
                         <%= food.type%>
                     </td>
                     <td>
-                        Remove the pirate
+                        <a class="btn btn-sm btn-danger" href="/foods/delete/<%= food.id %>"> Delete</a>
+                        <a class="btn btn-sm btn-success" href="/foods/update/<%= food.id %>"> Update</a>
+                        <a class="btn btn-sm btn-info" href="/foods/detail/<%= food.id %>"> Detail</a>
                         </a>
                     </td>
                 </tr>

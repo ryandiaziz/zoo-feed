@@ -35,7 +35,7 @@ class FoodController {
         foodId: foodId,
       });
 
-      res.json(resultfood);
+      res.redirect('/foods')
     } catch (error) {
       res.json(error);
     }
@@ -47,14 +47,21 @@ class FoodController {
       const result = await food.destroy({
         where: { id },
       });
-      result === 1
-        ? res.json({ message: `Berhasil delete ${id}` })
-        : res.json({ message: `gagal delete ${id}` });
+      res.redirect('/foods')
     } catch (error) {
       res.json(error);
     }
   }
-  static updatePage(req, res) {}
+
+  static async updatePage(req, res) {
+    try {
+        let animals = await animal.findAll();
+        res.render("foods/addPage.ejs", { animals });
+      } catch (error) {
+        res.json(error);
+      }
+
+  }
   static async update(req, res) {
     try {
       const id = Number(req.params.id);
@@ -69,13 +76,22 @@ class FoodController {
           where: { id },
         }
       );
-      result[0] === 1
-        ? res.json({ message: `Berhasil update ${id}` })
-        : res.json({ message: `gagal update ${id}` });
+      res.redirect('/foods')
     } catch (error) {
       res.json(error);
     }
   }
+
+  static async detailPage(req, res) {
+    try {
+        let animals = await animal.findAll();
+        res.render("foods/detailPage.ejs", { animals });
+      } catch (error) {
+        res.json(error);
+      }
+    }
+
+
 }
 
 module.exports = FoodController;
