@@ -1,7 +1,56 @@
 <%- include('../layout/header') %>
     <h1>FOOD</h1>
-    <a class="btn btn-success" href="/foods/add">Add</a>
-    <table class="table">
+    
+
+
+    <div class="container">
+        <div class="row">
+          <% result.forEach(food=>{ %>
+            <div class="card m-2" style="width: 16rem;">
+              <img src="<%= food.imageUrl%>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= food.name%>
+                </h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Type : <%= food.type%>
+                </li>
+              </ul>
+              <div class="card-body">
+                <a href="/foods/detail/<%=food.id%>" class="btn btn-primary">Detail</a>
+                <a href="/foods/update/<%=food.id%>" class="btn btn-warning">Update</a>
+                <a href="/foods/delete/<%= food.id%>" class="btn btn-danger">Delete</a>
+              </div>
+            </div>
+            <%}) %>
+
+            <div class="card m-2" style="width: 16rem;">
+                <div class="card-body">
+                  <h5 class="card-title">
+                  </h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="d-grid gap-2 col-6 mx-auto" href="/foods/add">
+                        <a class="btn btn-success" href="/foods/add">Add</a>
+                      </div>
+                  </li>
+                </ul>
+                <div class="card-body">
+                </div>
+
+        </div>
+
+        
+      </div>
+
+
+
+
+
+
+    <!-- <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -31,5 +80,5 @@
                 </tr>
                 <%}) %>
         </tbody>
-    </table>
+    </table> -->
     <%- include('../layout/footer') %>

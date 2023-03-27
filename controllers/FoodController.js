@@ -4,7 +4,7 @@ class FoodController {
   static async getFood(req, res) {
     try {
       let result = await food.findAll({
-        include: [animal],
+        include: [animal]
       });
       res.render("foods/index.ejs", { result });
     } catch (error) {
@@ -56,7 +56,7 @@ class FoodController {
   static async updatePage(req, res) {
     try {
         let animals = await animal.findAll();
-        res.render("foods/addPage.ejs", { animals });
+        res.render("foods/updatePage.ejs", { animals });
       } catch (error) {
         res.json(error);
       }
@@ -65,12 +65,13 @@ class FoodController {
   static async update(req, res) {
     try {
       const id = Number(req.params.id);
-      const { name, type } = req.body;
+      const { name, type , imageUrl} = req.body;
 
       const result = await food.update(
         {
           name,
           type,
+          imageUrl
         },
         {
           where: { id },
