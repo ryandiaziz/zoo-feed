@@ -16,7 +16,7 @@ class AnimalController {
             console.log("masuk")
             let classTypes = await classType.findAll();
             let habitats = await habitat.findAll();
-            res.render('animals/addPage.ejs',{classTypes,habitats});
+            res.render('animals/addPage.ejs', { classTypes, habitats });
         } catch (error) {
             res.json(error)
         }
@@ -25,7 +25,7 @@ class AnimalController {
         try {
             const { name, age, sex, imageUrl, classTypeId, habitatId } = req.body;
             let result = await animal.create(
-                { name : name, age : +age, sex : sex, imageUrl : imageUrl, classTypeId : +classTypeId, habitatId: +habitatId }
+                { name: name, age: +age, sex: sex, imageUrl: imageUrl, classTypeId: +classTypeId, habitatId: +habitatId }
             )
             res.redirect('/animals');
         } catch (err) {
@@ -77,7 +77,7 @@ class AnimalController {
     }
     static async getAnimalDetail(req, res) {
         try {
-            const id = +req.params.id
+            const id = +req.params.id;
             let result = await animalFood.findAll({
                 where: {
                     animalId: id
@@ -101,7 +101,17 @@ class AnimalController {
                     foods: foods
                 }
             }
-            res.render('animals/detailPage.ejs', { resultAF });
+            let classTypes = await classType.findAll({
+                where: {
+                    id: resultAF.classTypeId
+                }
+            });
+            let habitats = await habitat.findAll({
+                where: {
+                    id: resultAF.habitatId
+                }
+            });
+            res.render('animals/detailPage.ejs', { resultAF, classTypes, habitats });
         } catch (err) {
             res.json(err)
         }

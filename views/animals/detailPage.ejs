@@ -1,7 +1,6 @@
 <%- include('../layout/header') %>
-    <h1>DETAIL</h1>
     <div class="container">
-        <div class="fs-1 fw-bold text-center">
+        <div class="fs-1 fw-bold text-center m-4">
             <%=resultAF.name%>
         </div>
         <div class="row">
@@ -22,6 +21,20 @@
                         <td>=</td>
                         <td>
                             <%=resultAF.sex%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Class Type</td>
+                        <td>=</td>
+                        <td>
+                            <%=classTypes[0].name%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Habitat</td>
+                        <td>=</td>
+                        <td>
+                            <%=habitats[0].name%>
                         </td>
                     </tr>
                     <tr>
