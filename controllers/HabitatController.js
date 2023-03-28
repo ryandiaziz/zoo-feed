@@ -24,7 +24,7 @@ class HabitatController {
     }
     static async delete(req, res) {
         try {
-            const id = req.params.id
+            const id = +req.params.id
             let result = await habitat.destroy({
                 where: { id }
             })

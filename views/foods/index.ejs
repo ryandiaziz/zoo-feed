@@ -12,7 +12,12 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Type : <%= food.type%></li>
       </ul>
-      <div class="card-body">
+
+      <div
+        class="btn-group m-2"
+        role="group"
+        aria-label="Basic mixed styles example"
+      >
         <a href="/foods/<%=food.id%>" class="btn btn-primary">Detail</a>
         <a href="/foods/update/<%=food.id%>" class="btn btn-warning">Update</a>
         <a href="/foods/delete/<%= food.id%>" class="btn btn-danger">Delete</a>
@@ -35,6 +40,5 @@
     </div>
   </div>
 
-  
   <%- include('../layout/footer') %>
 </div>

@@ -8,7 +8,6 @@ animalRoute.post('/add', AnimalController.add)
 animalRoute.get('/delete/:id', AnimalController.delete)
 animalRoute.get('/update/:id', AnimalController.updatePage)// update page
 animalRoute.post('/update/:id', AnimalController.update)
-// animalRoute.get('/:id/foods', AnimalController.getAnimalFood)
 
 
 module.exports = animalRoute;

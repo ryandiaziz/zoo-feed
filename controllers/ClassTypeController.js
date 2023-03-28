@@ -3,11 +3,7 @@ const { animal, classType, habitat } = require("../models");
 class ClassTypeController {
     static async getClass(req, res) {
         try {
-            let result = await classType.findAll(
-                //     {
-                //     include:[animal]
-                // }
-            )
+            let result = await classType.findAll()
             res.json(result)
 
         } catch (err) {
@@ -31,7 +27,7 @@ class ClassTypeController {
 
     static async delete(req, res) {
         try {
-            const id = req.params.id
+            const id = +req.params.id
             let result = await classType.destroy({
                 where: { id }
             })

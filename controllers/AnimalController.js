@@ -13,9 +13,10 @@ class AnimalController {
     }
     static async addPage(req, res) {
         try {
+            console.log("masuk")
             let classTypes = await classType.findAll();
             let habitats = await habitat.findAll();
-            res.render('animals/addPage.ejs', { classTypes, habitats });
+            res.render('animals/addPage.ejs',{classTypes,habitats});
         } catch (error) {
             res.json(error)
         }
@@ -24,7 +25,7 @@ class AnimalController {
         try {
             const { name, age, sex, imageUrl, classTypeId, habitatId } = req.body;
             let result = await animal.create(
-                { name, age, sex, imageUrl, classTypeId, habitatId }
+                { name : name, age : +age, sex : sex, imageUrl : imageUrl, classTypeId : +classTypeId, habitatId: +habitatId }
             )
             res.redirect('/animals');
         } catch (err) {
@@ -33,7 +34,7 @@ class AnimalController {
     }
     static async delete(req, res) {
         try {
-            const id = req.params.id
+            const id = +req.params.id
             let resultAnimal = await animal.destroy({
                 where: { id }
             })

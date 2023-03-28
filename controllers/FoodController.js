@@ -30,10 +30,10 @@ class FoodController {
         imageUrl,
       });
 
-      const foodId = resultfood.id;
+      const foodId = +resultfood.id;
       const resultanimalfood = await animalFood.create({
-        animalId: animalId,
-        foodId: foodId,
+        animalId: +animalId,
+        foodId: +foodId,
       });
 
 
@@ -46,9 +46,16 @@ class FoodController {
   static async delete(req, res) {
     try {
       const id = +req.params.id;
-      const result = await food.destroy({
+      const resultfood = await food.destroy({
         where: { id },
       });
+
+      let resultAF = await animalFood.destroy({
+        where: {
+            foodId: id
+        }
+    })
+
       res.redirect('/foods')
     } catch (error) {
       res.json(error);
@@ -81,6 +88,7 @@ class FoodController {
           where: { id },
         }
       );
+
       res.redirect('/foods')
     } catch (error) {
       res.json(error);
