@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "Habitat air tawar (freshwater habitat)"
+    },
+    {
+      "id": 2,
+      "name": "Habitat laut (marine habitat)"
+    },
+    {
+      "id": 3,
+      "name": "Habitat hutan (forest habitat)"
+    },
+    {
+      "id": 4,
+      "name": "Habitat padang rumput (grassland habitat)"
+    },
+    {
+      "id": 5,
+      "name": "Habitat gurun (desert habitat)"
+    },
+    {
+      "id": 6,
+      "name": "Habitat sungai (river habitat)"
+    },
+    {
+      "id": 7,
+      "name": "Habitat pegunungan (mountain habitat)"
+    }
+  ]

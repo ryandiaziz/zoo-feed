@@ -20,7 +20,7 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.redirect(`foods/${foodId}`);
+      res.redirect(`/foods/${foodId}`);
     } catch (err) {
       res.json(err);
     }
@@ -37,6 +37,22 @@ class AnimalFoodController {
     }
   }
 
+  static async deleteFA(req, res) {
+    try {
+      const foodId = +req.params.id1;
+      const animalId = +req.params.id2;
+
+      let resultAF = await animalFood.destroy({
+        where: { foodId: foodId, animalId: animalId },
+      });
+
+      res.redirect(`/foods/${foodId}`)
+
+    } catch (err) {
+      res.json(err);
+    }
+  }
+
   static async addAF(req, res) {
     try {
       const animalId = +req.params.id;
@@ -46,7 +62,7 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.json(result);
+      res.redirect(`/animals/${animalId}`);
     } catch (err) {
       res.json(err);
     }
@@ -54,8 +70,31 @@ class AnimalFoodController {
 
   static async addPageAF(req, res) {
     try {
-    } catch {}
+      const id = +req.params.id;
+      let foods = await food.findAll();
+      let animals = await animal.findByPk(id);
+      res.render("animalfood/animalfood.ejs", { animals, foods });
+    } catch {
+      res.json(err);
+    }
   }
+
+  static async deleteAF(req, res) {
+    try {
+      const animalId = +req.params.id1;
+      const foodId = +req.params.id2;
+
+      let resultAF = await animalFood.destroy({
+        where: { foodId: foodId, animalId: animalId },
+      });
+
+      res.redirect(`/animals/${animalId}`)
+
+    } catch (err) {
+      res.json(err);
+    }
+  }
+
 }
 
 module.exports = AnimalFoodController;

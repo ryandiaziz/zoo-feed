@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "Mamalia (Mammalia)"
+    },
+    {
+      "id": 2,
+      "name": "Ikan (Pisces)"
+    },
+    {
+      "id": 3,
+      "name": "Reptil (Reptilia)"
+    },
+    {
+      "id": 4,
+      "name": "Burung (Aves)"
+    },
+    {
+      "id": 5,
+      "name": "Amfibi (Amphibia)"
+    },
+    {
+      "id": 6,
+      "name": "Arthropoda (Arthropoda)"
+    },
+    {
+      "id": 7,
+      "name": "Insekta (Insecta)"
+    },
+    {
+      "id": 8,
+      "name": "Moluska (Mollusca)"
+    },
+    {
+      "id": 9,
+      "name": "Echinodermata (Echinodermata)"
+    }
+  ]
