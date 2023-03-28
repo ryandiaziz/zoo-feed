@@ -1,11 +1,11 @@
 <%- include('../layout/header') %>
   <h1>ANIMAL</h1>
   <a class="btn" href="/animals/add">Add</a>
-  <div class="container">
+  <div class="container-xl">
     <div class="row">
       <% result.forEach(animal=>{ %>
         <div class="card m-2" style="width: 16rem;">
-          <img src="<%= animal.imageUrl%>" class="card-img-top" alt="...">
+          <img src="<%= animal.imageUrl%>" class="img-fluid" alt="...">
           <div class="card-body">
             <h5 class="card-title">
               <%= animal.name%>
