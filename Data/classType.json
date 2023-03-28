@@ -1,38 +1,56 @@
 [
     {
       "id": 1,
-      "name": "Mamalia (Mammalia)"
+      "name": "Mamalia (Mammalia)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 2,
-      "name": "Ikan (Pisces)"
+      "name": "Ikan (Pisces)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 3,
-      "name": "Reptil (Reptilia)"
+      "name": "Reptil (Reptilia)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 4,
-      "name": "Burung (Aves)"
+      "name": "Burung (Aves)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 5,
-      "name": "Amfibi (Amphibia)"
+      "name": "Amfibi (Amphibia)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 6,
-      "name": "Arthropoda (Arthropoda)"
+      "name": "Arthropoda (Arthropoda)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 7,
-      "name": "Insekta (Insecta)"
+      "name": "Insekta (Insecta)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 8,
-      "name": "Moluska (Mollusca)"
+      "name": "Moluska (Mollusca)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 9,
-      "name": "Echinodermata (Echinodermata)"
+      "name": "Echinodermata (Echinodermata)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
     }
   ]
