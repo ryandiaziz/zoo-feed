@@ -1,6 +1,8 @@
 <%- include('../layout/header') %>
-<h1>FOOD</h1>
-
+<h1 class="text-center">FOODS</h1>
+<a href="/foods/add" class="float">
+  <i class="fa-solid fa-plus my-float"></i>
+</a>
 <div class="container">
   <div class="row">
     <% result.forEach(food=>{ %>
@@ -25,19 +27,7 @@
     </div>
     <%}) %>
 
-    <div class="card m-2" style="width: 16rem">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <div class="d-grid gap-2 col-6 mx-auto" href="/foods/add">
-            <a class="btn btn-success" href="/foods/add">Add</a>
-          </div>
-        </li>
-      </ul>
-      <div class="card-body"></div>
-    </div>
+  
   </div>
 
   <%- include('../layout/footer') %>

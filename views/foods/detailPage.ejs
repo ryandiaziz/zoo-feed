@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include('../layout/header') %>
   <h1>DETAIL</h1>
   <table class="table table-bordered">
@@ -40,3 +41,51 @@
     </tbody>
   </table>
   <%- include('../layout/footer') %>
+=======
+
+<%- include('../layout/header') %>
+<div class="container">
+    <div class="fs-1 fw-bold text-center m-4">
+        <%=resultAF.name%>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <img src="<%=resultAF.imageUrl%>" alt="" width="500">
+        </div>
+        <div class="col-sm">
+            <table class="table">
+                <tr>
+                    <td>Type</td>
+                    <td>:</td>
+                    <td>
+                        <%=resultAF.type%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Consumes by</td>
+                    <td>:</td>
+                    <td>
+                        <ul class="list-group">
+                            <%consumed.forEach(animal=>{%>
+                               
+                                    <a href="/animals/detail/<%= animal.id%>" class="list-group-item text-center" > <%=animal.name%> </a>
+                                    <a class="btn btn-sm btn-danger" href="/animalfoods/FA/delete/<%= resultAF.id %>/<%= animal.id %>">- Delete</a>
+
+                                <%})%>
+    
+                               
+                        </ul>
+                        
+                        <a class="btn btn-sm btn-success m-1 " href="/animalfoods/FA/add/<%= resultAF.id %>">+ Add</a>
+                        
+                        
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../layout/footer') %>
+>>>>>>> azzam-dev
