@@ -128,9 +128,6 @@ class FoodController {
             return animal
         });
 
-        consumed.forEach(consume => {
-          console.log(consume.name)
-        });
         
         res.render("foods/detailPage.ejs", { resultAF ,consumed});
 

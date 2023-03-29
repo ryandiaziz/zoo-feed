@@ -28,6 +28,7 @@
         <a href="/animals/<%= animal.id%>" class="list-group-item"
           ><%= animal.name%></a
         >
+        <a class="btn btn-sm btn-danger" href="/animalfoods/FA/delete/<%= resultAF.id %>/<%= animal.id %>">- Delete</a>
         <%})%>
 
         <a class="btn btn-sm btn-success" href="/animalfoods/FA/add/<%= resultAF.id %>">+ Add</a>

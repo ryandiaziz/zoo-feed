@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "name": "Habitat air tawar (freshwater habitat)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Habitat laut (marine habitat)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Habitat hutan (forest habitat)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Habitat padang rumput (grassland habitat)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "name": "Habitat gurun (desert habitat)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "Habitat sungai (river habitat)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "name": "Habitat pegunungan (mountain habitat)",
+      "createdAt": "2023-03-28T10:00:00.000Z",
+      "updatedAt": "2023-03-28T10:00:00.000Z"
+    }
+  ]
