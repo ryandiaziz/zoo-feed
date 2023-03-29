@@ -7,5 +7,5 @@ foodRoute.post('/add', FoodController.add)
 foodRoute.get('/delete/:id', FoodController.delete)
 foodRoute.get('/update/:id', FoodController.updatePage) // Update page
 foodRoute.post('/update/:id', FoodController.update)
-foodRoute.get('/:id', FoodController.detailPage) // detail page
+foodRoute.get('/detail/:id', FoodController.detailPage) // detail page
 module.exports = foodRoute;

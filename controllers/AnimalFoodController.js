@@ -20,7 +20,7 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.redirect(`/foods/${foodId}`);
+      res.redirect(`/foods/detail/${foodId}`);
     } catch (err) {
       res.json(err);
     }
@@ -46,7 +46,7 @@ class AnimalFoodController {
         where: { foodId: foodId, animalId: animalId },
       });
 
-      res.redirect(`/foods/${foodId}`)
+      res.redirect(`/foods/detail/${foodId}`)
 
     } catch (err) {
       res.json(err);
@@ -62,7 +62,7 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.redirect(`/animals/${animalId}`);
+      res.redirect(`/animals/detail/${animalId}`);
     } catch (err) {
       res.json(err);
     }
@@ -88,7 +88,7 @@ class AnimalFoodController {
         where: { foodId: foodId, animalId: animalId },
       });
 
-      res.redirect(`/animals/${animalId}`)
+      res.redirect(`/animals/detail/${animalId}`)
 
     } catch (err) {
       res.json(err);
