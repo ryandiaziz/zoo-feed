@@ -4,7 +4,7 @@ class HabitatController {
     static async getHabitat(req, res) {
         try {
             let result = await habitat.findAll()
-            res.json(result)
+            res.render('Habitats/index.ejs',{result})
         } catch (err) {
             res.json(err)
         }

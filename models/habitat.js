@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   habitat.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    imageUrl: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'habitat',

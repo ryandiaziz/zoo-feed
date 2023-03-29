@@ -34,3 +34,9 @@ div.card {
 .nav-link{
 	color: #FFF;
 }
+.kotak {
+	opacity: 1;
+	background-color: #00000070; 
+	color: #ffffff; 
+	padding: 5px;
+ }
