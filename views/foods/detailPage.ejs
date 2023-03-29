@@ -1,48 +1,3 @@
-<<<<<<< HEAD
-<%- include('../layout/header') %>
-  <h1>DETAIL</h1>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Consumes by</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <%= resultAF.id%>
-        </td>
-        <td>
-          <img src="<%= resultAF.imageUrl%>" class="object-fit-cover border rounded" alt="..."
-            style="width: 200px; height: 200px" />
-        </td>
-        <td>
-          <%= resultAF.name%>
-        </td>
-        <td>
-          <%= resultAF.type%>
-        </td>
-        <td>
-          <% consumed.forEach(animal=>{ %>
-            <a href="/animals/detail/<%= animal.id%>" class="list-group-item">
-              <%= animal.name%>
-            </a>
-            <a class="btn btn-sm btn-danger" href="/animalfoods/FA/delete/<%= resultAF.id %>/<%= animal.id %>">-
-              Delete</a>
-            <%})%>
-
-              <a class="btn btn-sm btn-success" href="/animalfoods/FA/add/<%= resultAF.id %>">+ Add</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <%- include('../layout/footer') %>
-=======
-
 <%- include('../layout/header') %>
 <div class="container">
     <div class="fs-1 fw-bold text-center m-4">
@@ -68,8 +23,11 @@
                         <ul class="list-group">
                             <%consumed.forEach(animal=>{%>
                                
-                                    <a href="/animals/detail/<%= animal.id%>" class="list-group-item text-center" > <%=animal.name%> </a>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="/animals/detail/<%= animal.id%>" class="list-group-item list-group-item-action list-group-item-light" > <%=animal.name%> </a>
                                     <a class="btn btn-sm btn-danger" href="/animalfoods/FA/delete/<%= resultAF.id %>/<%= animal.id %>">- Delete</a>
+                                </li>
+                                    
 
                                 <%})%>
     
@@ -88,4 +46,4 @@
 </div>
 
 <%- include('../layout/footer') %>
->>>>>>> azzam-dev
+
