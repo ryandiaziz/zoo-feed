@@ -45,6 +45,9 @@
                                 <%resultAF.foods.forEach(food=>{%>
                                     <li class="list-group-item">
                                         <%=food.name%>
+                                            <a class="btn btn-sm btn-danger"
+                                                href="/animalfoods/AF/delete/<%= resultAF.id %>/<%= food.id %>">-
+                                                Delete</a>
                                     </li>
                                     <%})%>
                             </ul>
