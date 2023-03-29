@@ -3,11 +3,11 @@
 <a href="/foods/add" class="float">
   <i class="fa-solid fa-plus my-float"></i>
 </a>
-<div class="container">
+<div class="container my-4">
   <div class="row">
     <% result.forEach(food=>{ %>
     <div class="card m-2" style="width:250px">
-      <img src="<%= food.imageUrl%>" class="card-img-top" alt="..." height="200"/>
+      <img src="<%= food.imageUrl%>" class="object-fit-cover border rounded my-2" alt="..." height="200"/>
       <div class="card-body">
         <h5 class="card-title"><%= food.name%></h5>
       </div>
@@ -30,5 +30,7 @@
   
   </div>
 
-  <%- include('../layout/footer') %>
+  
 </div>
+
+<%- include('../layout/footer') %>
