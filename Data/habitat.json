@@ -2,42 +2,49 @@
     {
       "id": 1,
       "name": "Habitat air tawar (freshwater habitat)",
+      "imageUrl":"https://smartwatermagazine.com/sites/default/files/styles/thumbnail-830x455/public/landscape-water.jpg?itok=G30yq00S",
       "createdAt": "2023-03-28T10:00:00.000Z",
       "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 2,
       "name": "Habitat laut (marine habitat)",
+      "imageUrl":"https://www.thoughtco.com/thmb/bhZieug5y5P9FeWnK1-sYGozXvA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/reef-scene-547695899-59bb2f140d327a0011ad7323.jpg",
       "createdAt": "2023-03-28T10:00:00.000Z",
       "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 3,
       "name": "Habitat hutan (forest habitat)",
+      "imageUrl":"https://wpr-public.s3.amazonaws.com/wprorg/styles/facebook/s3/16479227725_3d56983377_k.jpg?itok=FUN4xss3",
       "createdAt": "2023-03-28T10:00:00.000Z",
       "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 4,
       "name": "Habitat padang rumput (grassland habitat)",
+      "imageUrl":"https://img-aws.ehowcdn.com/877x500/s3-us-west-1.amazonaws.com/contentlab.studiod/getty/14db3b83406743b98744c5ef09e15bf6.jpg",
       "createdAt": "2023-03-28T10:00:00.000Z",
       "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 5,
       "name": "Habitat gurun (desert habitat)",
+      "imageUrl":"https://animals.sandiegozoo.org/sites/default/files/2016-08/habitats_hero_desert.jpg",
       "createdAt": "2023-03-28T10:00:00.000Z",
       "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 6,
       "name": "Habitat sungai (river habitat)",
+      "imageUrl":"https://defenders.org/sites/default/files/styles/meta_image/public/2019-04/flathead_river_glacier_np_tim_rains_nps_header.jpg?itok=7k0BLQ3v",
       "createdAt": "2023-03-28T10:00:00.000Z",
       "updatedAt": "2023-03-28T10:00:00.000Z"
     },
     {
       "id": 7,
       "name": "Habitat pegunungan (mountain habitat)",
+      "imageUrl":"https://www.grassrootsglobal.net/mer2020/images/whymountain-bnr.jpg",
       "createdAt": "2023-03-28T10:00:00.000Z",
       "updatedAt": "2023-03-28T10:00:00.000Z"
     }

@@ -5,4 +5,5 @@ classTypeRoute.get('/', ClassTypeController.getClass);
 classTypeRoute.post('/add', ClassTypeController.add);
 classTypeRoute.get('/delete/:id', ClassTypeController.delete);
 
+
 module.exports = classTypeRoute;

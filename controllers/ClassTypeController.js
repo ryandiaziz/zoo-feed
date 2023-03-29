@@ -4,7 +4,7 @@ class ClassTypeController {
     static async getClass(req, res) {
         try {
             let result = await classType.findAll()
-            res.json(result)
+            res.render('Class/index.ejs',{result})
 
         } catch (err) {
             res.json(err)

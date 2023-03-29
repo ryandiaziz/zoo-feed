@@ -30,13 +30,6 @@ class FoodController {
         imageUrl,
       });
 
-      const foodId = +resultfood.id;
-      const resultanimalfood = await animalFood.create({
-        animalId: +animalId,
-        foodId: +foodId,
-      });
-
-
       res.redirect('/foods')
     } catch (error) {
       res.json(error);
