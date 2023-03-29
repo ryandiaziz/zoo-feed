@@ -1,6 +1,9 @@
 const { classType, habitat, food, animal, animalFood } = require("../models");
 
 class AnimalController {
+    static tambahHalaman(req, res) {
+        res.send('haha')
+    }
     static async getAnimal(req, res) {
         try {
             let result = await animal.findAll({
@@ -11,14 +14,14 @@ class AnimalController {
             res.json(err)
         }
     }
-    static async addPage(req, res) {
+    static async showAddPage(req, res) {
         try {
-            console.log("masuk")
-            let classTypes = await classType.findAll();
-            let habitats = await habitat.findAll();
-            res.render('animals/addPage.ejs', { classTypes, habitats });
+            // let animals = await animal.findAll();
+            const classTypeData = await classType.findAll();
+            const habitatData = await habitat.findAll();
+            res.render("animals/addPage.ejs", { classTypeData, habitatData });
         } catch (error) {
-            res.json(error)
+            res.json(error);
         }
     }
     static async add(req, res) {
@@ -28,6 +31,7 @@ class AnimalController {
                 { name: name, age: +age, sex: sex, imageUrl: imageUrl, classTypeId: +classTypeId, habitatId: +habitatId }
             )
             res.redirect('/animals');
+            // res.json(result);
         } catch (err) {
             res.json(err)
         }
@@ -101,17 +105,17 @@ class AnimalController {
                     foods: foods
                 }
             }
-            let classTypes = await classType.findAll({
+            let classTypeData = await classType.findAll({
                 where: {
                     id: resultAF.classTypeId
                 }
             });
-            let habitats = await habitat.findAll({
+            let habitatData = await habitat.findAll({
                 where: {
                     id: resultAF.habitatId
                 }
             });
-            res.render('animals/detailPage.ejs', { resultAF, classTypes, habitats });
+            res.render('animals/detailPage.ejs', { resultAF, classTypeData, habitatData });
         } catch (err) {
             res.json(err)
         }

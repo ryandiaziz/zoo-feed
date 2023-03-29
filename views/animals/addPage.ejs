@@ -20,7 +20,7 @@
             <div class="mb-3">
                 <label class="form-label">Class Type</label>
                 <select name="classTypeId">
-                    <% classTypes.forEach(classType=>{ %>
+                    <% classTypeData.forEach(classType=>{ %>
                         <option value="<%= classType.id%>">
                             <%= classType.name%>
                         </option>
@@ -30,7 +30,7 @@
             <div class="mb-3">
                 <label class="form-label">Hibitat</label>
                 <select name="habitatId">
-                    <% habitats.forEach(habitat=>{ %>
+                    <% habitatData.forEach(habitat=>{ %>
                         <option value="<%= habitat.id%>">
                             <%= habitat.name%>
                         </option>
