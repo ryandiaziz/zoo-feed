@@ -1,34 +1,33 @@
 <%- include('../layout/header') %>
-<h1 class="text-center">FOODS</h1>
-<a href="/foods/add" class="float">
-  <i class="fa-solid fa-plus my-float"></i>
-</a>
-<div class="container">
-  <div class="row">
-    <% result.forEach(food=>{ %>
-    <div class="card m-2" style="width: 16rem">
-      <img src="<%= food.imageUrl%>" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title"><%= food.name%></h5>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Type : <%= food.type%></li>
-      </ul>
+  <h1 class="text-center">FOODS</h1>
+  <a href="/foods/add" class="float">
+    <i class="fa-solid fa-plus my-float"></i>
+  </a>
+  <div class="container">
+    <div class="row">
+      <% result.forEach(food=>{ %>
+        <div class="card m-2" style="width: 250px">
+          <img src="<%= food.imageUrl%>" class="object-fit-cover border rounded my-2" alt="..." height="200" />
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= food.name%>
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Type : <%= food.type%>
+            </li>
+          </ul>
 
-      <div
-        class="btn-group m-2"
-        role="group"
-        aria-label="Basic mixed styles example"
-      >
-        <a href="/foods/detail/<%=food.id%>" class="btn btn-primary">Detail</a>
-        <a href="/foods/update/<%=food.id%>" class="btn btn-warning">Update</a>
-        <a href="/foods/delete/<%= food.id%>" class="btn btn-danger">Delete</a>
-      </div>
+          <div class="btn-group m-2" role="group" aria-label="Basic mixed styles example">
+            <a href="/foods/detail/<%=food.id%>" class="btn btn-primary">Detail</a>
+            <a href="/foods/update/<%=food.id%>" class="btn btn-warning">Update</a>
+            <a href="/foods/delete/<%= food.id%>" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+        <%}) %>
+
+
     </div>
-    <%}) %>
 
-  
+    <%- include('../layout/footer') %>
   </div>
-
-  <%- include('../layout/footer') %>
-</div>
