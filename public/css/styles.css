@@ -4,7 +4,7 @@
 	height:60px;
 	bottom:40px;
 	right:40px;
-	background-color:#0C9;
+	background-color:#1F8A70;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
@@ -19,4 +19,18 @@ div.card {
 	width: 250px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	text-align: center;
+}
+
+.navbar{
+	background-color: #00425A;
+}
+
+.navbar-brand{
+	color: #FFF;
+	font-weight: 900;
+	font-size: x-large;
+}
+
+.nav-link{
+	color: #FFF;
 }
