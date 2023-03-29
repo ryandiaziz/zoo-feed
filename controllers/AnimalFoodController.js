@@ -71,9 +71,9 @@ class AnimalFoodController {
   static async addPageAF(req, res) {
     try {
       const id = +req.params.id;
-      let foods = await food.findAll();
-      let animals = await animal.findByPk(id);
-      res.render("animalfood/animalfood.ejs", { animals, foods });
+      let foodData = await food.findAll();
+      let animalData = await animal.findByPk(id);
+      res.render("animalfood/animalfood.ejs", { animalData, foodData });
     } catch {
       res.json(err);
     }
