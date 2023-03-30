@@ -40,3 +40,8 @@ div.card {
 	color: #ffffff; 
 	padding: 5px;
  }
+
+ .prase {
+	text-align: justify;
+	text-justify: inter-word;
+ }

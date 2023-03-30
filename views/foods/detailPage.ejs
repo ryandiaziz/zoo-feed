@@ -24,8 +24,9 @@
                             <%consumed.forEach(animal=>{%>
                                
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="/animals/detail/<%= animal.id%>" class="list-group-item list-group-item-action list-group-item-light" > <%=animal.name%> </a>
-                                    <a class="btn btn-sm btn-danger" href="/animalfoods/FA/delete/<%= resultAF.id %>/<%= animal.id %>">- Delete</a>
+                                    <a href="/animals/detail/<%= animal.id%>" class="list-group-item list-group-item-action list-group-item-light" > <img src="<%= animal.imageUrl%>" class="object-fit-cover rounded " alt="..."style="width: 60px; height: 60px;" /><h class="m-2"><%=animal.name%></h>  </a>
+                                    
+                                    <a class="btn btn-sm btn-danger" href="/animalfoods/FA/delete/<%= resultAF.id %>/<%= animal.id %>" >- Delete</a>
                                 </li>
                                     
 
