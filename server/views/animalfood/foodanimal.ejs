@@ -1,0 +1,42 @@
+<%- include('../layout/header') %>
+    <div class="container">
+        <form action="/animalfoods/FA/add/<%=foods.id%>" method="post"> 
+            <fieldset disabled>
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">ID</label>
+                    <input type="text" id="disabledTextInput" class="form-control" name="foodId" value="<%=foods.id%>">
+                </div>
+            
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Food Name</label>
+                <input type="text" id="disabledTextInput" class="form-control" name="name" value="<%=foods.name%>">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Food Type</label>
+                <input type="text" id="disabledTextInput" class="form-control" name="type" value="<%=foods.type%>">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Image URL</label>
+                <input type="text" id="disabledTextInput" class="form-control" name="imageUrl" value="<%=foods.imageUrl%>">
+            </div>
+            </fieldset>
+        
+            <div class="mb-3">
+                <label class="form-label">Animal</label>
+                <select name="animalId">
+                    <% animals.forEach(animal=>{ %>
+                        <option value="<%= animal.id%>">
+                            <%= animal.name%> 
+                        </option>
+                        <%})%>
+                </select>
+            </div>
+        
+            <div class="mb-3">
+                <input class="btn btn-success" type="submit" value="Update">
+            </div>
+
+
+        </form>
+    </div>
+    <%- include('../layout/footer') %>
