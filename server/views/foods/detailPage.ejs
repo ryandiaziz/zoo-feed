@@ -1,0 +1,50 @@
+<%- include('../layout/header') %>
+<div class="container">
+    <div class="fs-1 fw-bold text-center m-4">
+        <%=resultAF.name%>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <img src="<%=resultAF.imageUrl%>" alt="" width="500">
+        </div>
+        <div class="col-sm">
+            <table class="table">
+                <tr>
+                    <td>Type</td>
+                    <td>:</td>
+                    <td>
+                        <%=resultAF.type%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Consumes by</td>
+                    <td>:</td>
+                    <td>
+                        <ul class="list-group">
+                            <%consumed.forEach(animal=>{%>
+                               
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="/animals/detail/<%= animal.id%>" class="list-group-item list-group-item-action list-group-item-light" > <img src="<%= animal.imageUrl%>" class="object-fit-cover rounded " alt="..."style="width: 60px; height: 60px;" /><h class="m-2"><%=animal.name%></h>  </a>
+                                    
+                                    <a class="btn btn-sm btn-danger" href="/animalfoods/FA/delete/<%= resultAF.id %>/<%= animal.id %>" >- Delete</a>
+                                </li>
+                                    
+
+                                <%})%>
+    
+                               
+                        </ul>
+                        
+                        <a class="btn btn-sm btn-success m-1 " href="/animalfoods/FA/add/<%= resultAF.id %>">+ Add</a>
+                        
+                        
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../layout/footer') %>
+
