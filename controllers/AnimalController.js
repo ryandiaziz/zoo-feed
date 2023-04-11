@@ -1,15 +1,13 @@
 const { classType, habitat, food, animal, animalFood } = require("../models");
 
 class AnimalController {
-    static tambahHalaman(req, res) {
-        res.send('haha')
-    }
     static async getAnimal(req, res) {
         try {
             let result = await animal.findAll({
                 include: [classType, habitat]
             })
-            res.render('animals/index.ejs', { result });
+            // res.render('animals/index.ejs', { result });
+            res.json(result);
         } catch (err) {
             res.json(err)
         }
