@@ -6,11 +6,11 @@ const HabitatRoutes = require('./habitatRoutes');
 const homeRoutes = require('./homeRoutes');
 const route = require('express').Router();
 
-route.get('/', homeRoutes);
-route.use('/animals', animalRoutes);
-route.use('/foods', foodRoutes);
-route.use('/animalfoods', animalFoodRoutes);
-route.use('/classtypes', classTypeRoutes);
-route.use('/habitats', HabitatRoutes);
+route.get('/api', homeRoutes);
+route.use('/api/animals', animalRoutes);
+route.use('/api/foods', foodRoutes);
+route.use('/api/animalfoods', animalFoodRoutes);
+route.use('/api/classtypes', classTypeRoutes);
+route.use('/api/habitats', HabitatRoutes);
 
 module.exports = route;
