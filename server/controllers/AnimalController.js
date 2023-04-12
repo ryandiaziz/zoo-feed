@@ -6,8 +6,8 @@ class AnimalController {
             let result = await animal.findAll({
                 include: [classType, habitat]
             })
-            // res.render('animals/index.ejs', { result });
-            res.json(result);
+            res.render('animals/index.ejs', { result });
+            // res.json(result);
         } catch (err) {
             res.json(err)
         }
