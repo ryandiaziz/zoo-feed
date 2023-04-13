@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
+import ButtonGroup from './ButtonGroup'
 
 const Card = (props) => {
     const [like, setLike] = useState(false);
@@ -19,6 +20,8 @@ const Card = (props) => {
                 props.items.map(item => {
                     return (
                         <div className="rounded-md shadow-lg overflow-hidden bg-white w-[300px] hover:scale-95 hover:bg-slate-100 transition-all duration-150 relative">
+
+                            {/* show LIKES */}
                             {
                                 isAnimal === true ?
                                     <div className='absolute top-3 right-3 cursor-pointer hover:scale-90'>
@@ -40,6 +43,7 @@ const Card = (props) => {
                                     <p className='font-noto font-thin text-sm text-slate-600'> {item.ket}</p>
                                 </div>
                             </Link>
+                            <ButtonGroup />
                         </div>
                     )
                 })

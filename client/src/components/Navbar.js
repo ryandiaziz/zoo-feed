@@ -7,7 +7,7 @@ const Navbar = () => {
         <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
                 <Link to='/'>
-                    <span class="font-semibold text-xl tracking-tight"> Zoo Feed</span>
+                    <span class="font-noto font-bold text-3xl tracking-tight"> Zoo Feed</span>
                 </Link>
             </div>
 

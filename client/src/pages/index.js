@@ -1,6 +1,6 @@
 import HomePage from "./HomePage";
 import ImagePage from "./ImagePage";
-// Brands
+// Foods
 import FoodPage from "./foodPages/FoodPage";
 import ShowFoodPage from "./foodPages/ShowFoodPage";
 import CreateBrandPage from "./foodPages/CreateBrandPage";
