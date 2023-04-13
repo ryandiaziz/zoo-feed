@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createData } from "../../axios/item";
+import InputText from "./components/InputText";
 
 const CreateAnimalPage = () => {
     const [image, setImage] = useState("https://fakeimg.pl/350x200/");
@@ -54,14 +55,8 @@ const CreateAnimalPage = () => {
     return (
         <>
             <div className="px-[300px] my-5">
-                <label for="price" className="block text-sm font-medium leading-6 text-gray-900">Name</label>
-                <div className="relative mt-2 mb-3 rounded-md shadow-md">
-                    <input type="text" name="price" id="price" className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Name" />
-                </div>
-                <label for="price" className="block text-sm font-medium leading-6 text-gray-900">Age</label>
-                <div className="relative mt-2 mb-3 rounded-md shadow-md">
-                    <input type="text" name="price" id="price" className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Name" />
-                </div>
+                <InputText label={'Name'} name={'name'} placeHolder={'Enter animal name'} />
+                <InputText label={'Age'} name={'age'} placeHolder={'Enter animal age'} />
                 <div className="mb-3">
                     <label for="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sex</label>
                     <select id="countries" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg shadow-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

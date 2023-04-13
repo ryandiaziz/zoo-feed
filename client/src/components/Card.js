@@ -36,8 +36,8 @@ const Card = (props) => {
                             <Link to={props.link || '/'}>
                                 <img src={item.image} alt="Image" className='w-full' />
                                 <div className='px-6 py-4'>
-                                    <div className='font-bold text-xl mb-2 text-slate-700'>{item.name}</div>
-                                    <p className='text-sm text-slate-600'> {item.ket}</p>
+                                    <div className='font-noto font-bold text-xl mb-2 text-slate-700'>{item.name}</div>
+                                    <p className='font-noto font-thin text-sm text-slate-600'> {item.ket}</p>
                                 </div>
                             </Link>
                         </div>
