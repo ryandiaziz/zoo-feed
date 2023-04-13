@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../../components/Card'
-import { readData, deleteData } from '../../axios/item'
+import { readData, deleteData } from '../../axios/animal'
 import { MdAddCircle } from 'react-icons/md'
 import {
     Link, useNavigate
 } from 'react-router-dom'
 
 const ShowAnimalPage = () => {
-    const link = '/animals/detail';
     const isAnimal = true;
     const animals = [
         {
@@ -53,7 +52,7 @@ const ShowAnimalPage = () => {
             <Link to='/animals/create' className='fixed bottom-10 right-10'>
                 <MdAddCircle size={55} color={'#03C988'} />
             </Link>
-            <Card items={animals} link={link} isAnimal={isAnimal} />
+            <Card items={items} isAnimal={isAnimal} />
         </div>
     )
 }

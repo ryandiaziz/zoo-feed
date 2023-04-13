@@ -1,45 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../../components/Card'
-import { readData, deleteData } from '../../axios/brand'
+import { readData, deleteData } from '../../axios/foods'
 import { MdAddCircle } from 'react-icons/md'
 import {
     Link, useNavigate
 } from 'react-router-dom'
 
 const ShowFoodPage = () => {
-    const foods = [
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Jambu',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Rumput',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Daging',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Daging Rusa',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Sayur Kangkung',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-    ]
+
     const navigata = useNavigate()
     const link = '/foods/detail';
-    const [brands, setBrands] = useState([])
+    const [foods, setFoods] = useState([])
 
     useEffect(() => {
-        readData(result => setBrands(result))
+        readData(result => setFoods(result))
     }, [])
 
     const deleteHandler = (id) => {

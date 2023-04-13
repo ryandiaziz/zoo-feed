@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const URL = 'http://localhost:3000/api/items'
+const URL = 'http://localhost:3000/api/foods'
 
 const createData = async (items) => {
     try {

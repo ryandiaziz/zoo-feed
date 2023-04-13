@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import readData from '../axios/home'
-import { deleteData } from '../axios/item'
+import { deleteData } from '../axios/animal'
 import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {

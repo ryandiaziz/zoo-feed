@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { updateData, detailData } from '../../axios/item'
+import { updateData, detailData } from '../../axios/animal'
 
 const EditItemPage = () => {
     const [form, setForm] = useState({

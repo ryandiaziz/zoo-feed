@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createData } from "../../axios/item";
+import { createData } from "../../axios/animal";
 import InputText from "./components/InputText";
 
 const CreateAnimalPage = () => {

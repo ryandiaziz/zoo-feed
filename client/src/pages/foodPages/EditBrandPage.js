@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { updateData, detailData } from '../../axios/brand'
+import { updateData, detailData } from '../../axios/foods'
 
 const EditBrandPage = () => {
     const [form, setForm] = useState({

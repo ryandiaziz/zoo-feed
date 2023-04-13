@@ -26,8 +26,10 @@ const MainContent = () => {
                 }></Route>
                 <Route path='animals' element={<AnimalPage></AnimalPage>}>
                     <Route path='' element={<ShowAnimalPage></ShowAnimalPage>}></Route>
-                    <Route path='detail' element={<DetailAnimalPage></DetailAnimalPage>}></Route>
                     <Route path='create' element={<CreateAnimalPage></CreateAnimalPage>}></Route>
+                    <Route path='detail'>
+                        <Route path=':id' element={<DetailAnimalPage></DetailAnimalPage>}></Route>
+                    </Route>
                     <Route path='edit'>
                         <Route path=':id' element={<EditItemPage></EditItemPage>}></Route>
                     </Route>

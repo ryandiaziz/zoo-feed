@@ -1,19 +1,20 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const URL = 'http://localhost:3000/api/brands'
+const URL = 'http://localhost:3000/api/animals'
 
 const createData = async (items) => {
     try {
-        let result = await axios({
+        // console.log(items);
+        await axios({
             method: 'POST',
             url: URL + "/create",
             data: items
         })
 
         Swal.fire(
-            'Add brand',
-            'Brand has been added',
+            'Add item',
+            'Item has been added',
             'success'
         )
     } catch (e) {
@@ -35,17 +36,17 @@ const readData = async cb => {
 }
 
 
-const updateData = async (id, brands) => {
+const updateData = async (id, items) => {
     try {
         let result = await axios({
             method: 'PUT',
             url: URL + '/update/' + id,
-            data: brands
+            data: items
         })
 
         Swal.fire(
-            'Edit brand ' + id,
-            'Brand ' + id + ' has been updated',
+            'Edit item ' + id,
+            'Item ' + id + ' has been updated',
             'success'
         )
         console.log(result.data)
@@ -66,7 +67,7 @@ const deleteData = async (id) => {
             confirmButtonText: 'Yes, delete it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                let result = await axios({
+                await axios({
                     method: "DELETE",
                     url: URL + '/delete/' + id
                 })

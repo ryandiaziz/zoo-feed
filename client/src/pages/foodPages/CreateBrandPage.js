@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { createData } from '../../axios/brand'
+import { createData } from '../../axios/foods'
 
 const CreateBrandPage = () => {
     const [form, setForm] = useState({
