@@ -7,6 +7,7 @@ import {
 
 const ShowAnimalPage = () => {
     const link = '/animals/detail';
+    const isAnimal = true;
     const animals = [
         {
             image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
@@ -53,7 +54,7 @@ const ShowAnimalPage = () => {
                     ➕
                 </Link>
             </div>
-            <Card items={animals} link={link} />
+            <Card items={animals} link={link} isAnimal={isAnimal} />
         </div>
     )
 }

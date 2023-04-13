@@ -7,6 +7,7 @@ import {
     ItemPage,
     CreateAnimalPage,
     ShowItems,
+    LoginPage,
     EditItemPage,
     DetailAnimalPage,
     FoodPage,
@@ -39,6 +40,7 @@ const MainContent = () => {
                         <Route path=':id' element={<EditBrandPage></EditBrandPage>}></Route>
                     </Route>
                 </Route>
+                <Route path='login' element={<LoginPage></LoginPage>}></Route>
             </Routes>
         </>
     )
