@@ -1,0 +1,66 @@
+ [
+	{
+		"id" : 1,
+		"name" : "Udang",
+		"type" : "Daging",
+		"createdAt" : "2023-03-27T17:27:44.060Z",
+		"updatedAt" : "2023-03-27T17:27:44.060Z",
+		"imageUrl" : "https:\/\/cdn1-production-images-kly.akamaized.net\/IQ0fqMq865t2H-OT-SdII4BcMUY=\/1200x675\/smart\/filters:quality(75):strip_icc():format(jpeg)\/kly-media-production\/medias\/2887459\/original\/031701400_1566302625-shrimps-1504168_1920.jpg"
+	},
+	{
+		"id" : 2,
+		"name" : "Rambutan",
+		"type" : "Buah-buahan",
+		"createdAt" : "2023-03-27T06:24:25.185Z",
+		"updatedAt" : "2023-03-27T17:29:21.316Z",
+		"imageUrl" : "https:\/\/statics.indozone.news\/content\/2021\/11\/20\/1xs5gN9\/satu-keluarga-dengan-kelengkeng-dan-leci-ini-asal-usul-buah-rambutan33_700.jpg"
+	},
+	{
+		"id" : 3,
+		"name" : "Pisang",
+		"type" : "Buah-buahan",
+		"createdAt" : "2023-03-27T06:39:25.912Z",
+		"updatedAt" : "2023-03-27T17:29:32.661Z",
+		"imageUrl" : "https:\/\/img.okezone.com\/content\/2021\/06\/28\/298\/2432136\/5-manfaat-pisang-untuk-kesehatan-salah-satunya-cegah-kanker-pgzlLQuQHG.jpg"
+	},
+	{
+		"id" : 4,
+		"name" : "Kelapa",
+		"type" : "Buah-buahan",
+		"createdAt" : "2023-03-27T06:42:47.155Z",
+		"updatedAt" : "2023-03-27T17:29:41.862Z",
+		"imageUrl" : "http:\/\/asset-a.grid.id\/crop\/0x0:0x0\/780x800\/photo\/bobofoto\/original\/19792_5-fakta-seputar-kelapa.jpg"
+	},
+	{
+		"id" : 5,
+		"name" : "Daging Ayam",
+		"type" : "Daging",
+		"createdAt" : "2023-03-27T19:32:38.787Z",
+		"updatedAt" : "2023-03-27T19:32:38.787Z",
+		"imageUrl" : "https:\/\/disnakkan.grobogan.go.id\/images\/26247741328-ayam_potong_murah.jpg"
+	},
+	{
+		"id" : 6,
+		"name" : "Mangga",
+		"type" : "Buah-buahan",
+		"createdAt" : "2023-03-27T07:08:08.404Z",
+		"updatedAt" : "2023-03-27T19:46:21.617Z",
+		"imageUrl" : "https:\/\/saprotan-utama.com\/wp-content\/uploads\/2021\/05\/Pupuk_Mangga.jpg"
+	},
+	{
+		"id" : 7,
+		"name" : "Daging Mentah",
+		"type" : "Daging",
+		"createdAt" : "2023-03-29T05:07:15.048Z",
+		"updatedAt" : "2023-03-29T05:07:15.048Z",
+		"imageUrl" : "https:\/\/www.nicepng.com\/png\/detail\/67-676953_fresh-chicken-meat-png-raw-meat-png.png"
+	},
+	{
+		"id" : 8,
+		"name" : "Apel malang",
+		"type" : "Buah-buahan",
+		"createdAt" : "2023-03-26T10:36:58.602Z",
+		"updatedAt" : "2023-03-31T03:47:36.460Z",
+		"imageUrl" : "https:\/\/www.astronauts.id\/blog\/wp-content\/uploads\/2022\/12\/Kenali-Jenis-jenis-Buah-Apel-dan-Manfaatnya-1200x900.jpg"
+	}
+]

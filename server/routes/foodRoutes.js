@@ -1,11 +1,13 @@
 const foodRoute = require('express').Router();
 const { FoodController } = require("../controllers");
+const {upload} = require('../middleware/configUpload')
+
 
 foodRoute.get('/', FoodController.getFood)
-foodRoute.get('/add', FoodController.addPage) // Add page
-foodRoute.post('/add', FoodController.add)
-foodRoute.get('/delete/:id', FoodController.delete)
-foodRoute.get('/update/:id', FoodController.updatePage) // Update page
-foodRoute.post('/update/:id', FoodController.update)
-foodRoute.get('/detail/:id', FoodController.detailPage) // detail page
+foodRoute.post('/add',upload.single("imageUrl"), FoodController.add)
+foodRoute.delete('/delete/:id', FoodController.delete)
+foodRoute.get('/detail/:id', FoodController.getFoodDetail) 
+foodRoute.put('/update/:id',upload.single("imageUrl"), FoodController.update)
+
+
 module.exports = foodRoute;
