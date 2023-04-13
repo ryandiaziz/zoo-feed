@@ -11,6 +11,7 @@ class AnimalFoodController {
       res.json(err);
     }
   }
+
   static async addFA(req, res) {
     try {
       const foodId = +req.params.id;
@@ -20,19 +21,8 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.redirect(`/foods/detail/${foodId}`);
+      res.json(result);
     } catch (err) {
-      res.json(err);
-    }
-  }
-
-  static async addPageFA(req, res) {
-    try {
-      const id = +req.params.id;
-      let animals = await animal.findAll();
-      let foods = await food.findByPk(id);
-      res.render("animalfood/foodanimal.ejs", { animals, foods });
-    } catch {
       res.json(err);
     }
   }
@@ -42,11 +32,17 @@ class AnimalFoodController {
       const foodId = +req.params.id1;
       const animalId = +req.params.id2;
 
-      let resultAF = await animalFood.destroy({
+      let resultFA = await animalFood.destroy({
         where: { foodId: foodId, animalId: animalId },
       });
 
-      res.redirect(`/foods/detail/${foodId}`)
+      resultFA === 1
+        ? res.json({
+            message: ` Deleted relation!`,
+          })
+        : res.json({
+            message: `Couldn't deleted.'`,
+          });
 
     } catch (err) {
       res.json(err);
@@ -62,19 +58,8 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.redirect(`/animals/detail/${animalId}`);
+      res.json(result);
     } catch (err) {
-      res.json(err);
-    }
-  }
-
-  static async addPageAF(req, res) {
-    try {
-      const id = +req.params.id;
-      let foodData = await food.findAll();
-      let animalData = await animal.findByPk(id);
-      res.render("animalfood/animalfood.ejs", { animalData, foodData });
-    } catch {
       res.json(err);
     }
   }
@@ -88,13 +73,17 @@ class AnimalFoodController {
         where: { foodId: foodId, animalId: animalId },
       });
 
-      res.redirect(`/animals/detail/${animalId}`)
-
+      resultAF === 1
+        ? res.json({
+            message: ` Deleted relation!`,
+          })
+        : res.json({
+            message: `Couldn't deleted.'`,
+          });
     } catch (err) {
       res.json(err);
     }
   }
-
 }
 
 module.exports = AnimalFoodController;

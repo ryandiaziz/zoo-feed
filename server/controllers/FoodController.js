@@ -1,4 +1,5 @@
 const { food, animal, animalFood } = require("../models");
+const fs = require('fs')
 
 class FoodController {
   static async getFood(req, res) {
@@ -6,31 +7,25 @@ class FoodController {
       let result = await food.findAll({
         include: [animal]
       });
-      res.render("foods/index.ejs", { result });
+      res.json(result);
     } catch (error) {
       res.json(error);
     }
   }
 
-  static async addPage(req, res) {
-    try {
-      let animals = await animal.findAll();
-      res.render("foods/addPage.ejs", { animals });
-    } catch (error) {
-      res.json(error);
-    }
-  }
 
   static async add(req, res) {
     try {
-      const { name, type,imageUrl, animalId } = req.body;
+      let imageUrl =
+        req.protocol + "://" + req.get("host") + "/images/" + req.file.filename;
+      const { name, type, animalId } = req.body;
       const resultfood = await food.create({
         name,
         type,
         imageUrl,
       });
 
-      res.redirect('/foods')
+      res.json(resultfood)
     } catch (error) {
       res.json(error);
     }
@@ -39,7 +34,14 @@ class FoodController {
   static async delete(req, res) {
     try {
       const id = +req.params.id;
-      const resultfood = await food.destroy({
+
+      const temp = await food.findByPk(id);
+      let fileName = temp.dataValues.imageUrl;
+      const split = fileName.split("/");
+      fileName = split[split.length - 1];
+      fs.unlinkSync(`./public/images/${fileName}`);
+
+      let resultfood = await food.destroy({
         where: { id },
       });
 
@@ -49,50 +51,57 @@ class FoodController {
         }
     })
 
-      res.redirect('/foods')
+    resultfood === 1  
+    ? res.json({
+        message: `Id ${id} has been Deleted!`,
+      })
+    : res.json({
+        message: `Couldn't delete id:${id}.'`,
+      });
     } catch (error) {
       res.json(error);
     }
   }
 
-  static async updatePage(req, res) {
-    try {
-        const id = +req.params.id;
-        let animals = await animal.findAll();
-        let foods = await food.findByPk(id);
-        res.render("foods/updatePage.ejs", { animals,foods });
-      } catch (error) {
-        res.json(error);
-      }
-
-  }
   static async update(req, res) {
     try {
-      const id = Number(req.params.id);
-      const { name, type , imageUrl} = req.body;
+      const id = +req.params.id;
+      const temp = await food.findByPk(id);
+      let fileName = temp.dataValues.imageUrl;
+      const split = fileName.split("/");
+      fileName = split[split.length - 1];
+      fs.unlinkSync(`./public/images/${fileName}`);
 
+      let imageUrl =
+        req.protocol + "://" + req.get("host") + "/images/" + req.file.filename;
+
+      const { name, type } = req.body;
       const result = await food.update(
         {
-          name,
-          type,
-          imageUrl
+          name : name,
+          type : type,
+          imageUrl : imageUrl
         },
         {
           where: { id },
         }
       );
 
-      res.redirect('/foods')
+      result[0] === 1
+      ? res.json({
+          message: `Id ${id} has been Updated!`,
+        })
+      : res.json({
+          message: `Couldn't Update id:${id}.'`,
+        });
     } catch (error) {
       res.json(error);
     }
   }
 
-  static async detailPage(req, res) {
+  static async getFoodDetail(req, res) {
     try {
         const id = +req.params.id
-        
-        
         let result = await animalFood.findAll({
             where: {
                 foodId: id
@@ -122,7 +131,7 @@ class FoodController {
         });
 
         
-        res.render("foods/detailPage.ejs", { resultAF ,consumed});
+        res.json({ resultAF ,consumed});
 
 
       } catch (error) {
