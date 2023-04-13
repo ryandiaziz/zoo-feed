@@ -45,7 +45,7 @@ const Card = (props) => {
                                     <p className='font-noto font-thin text-sm text-slate-600'> {item.ket}</p>
                                 </div>
                             </Link>
-                            <ButtonGroup />
+                            <ButtonGroup id={item.id} />
                         </div>
                     )
                 })

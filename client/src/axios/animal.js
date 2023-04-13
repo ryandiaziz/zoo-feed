@@ -64,7 +64,7 @@ const deleteData = async (id) => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Confirm'
         }).then(async (result) => {
             if (result.isConfirmed) {
                 await axios({

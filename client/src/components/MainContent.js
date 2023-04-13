@@ -4,9 +4,7 @@ import {
     HomePage,
     AnimalPage,
     ShowAnimalPage,
-    ItemPage,
     CreateAnimalPage,
-    ShowItems,
     LoginPage,
     EditItemPage,
     DetailAnimalPage,
@@ -14,7 +12,6 @@ import {
     CreateBrandPage,
     ShowFoodPage,
     EditBrandPage,
-    ImagePage
 } from '../pages'
 
 const MainContent = () => {
