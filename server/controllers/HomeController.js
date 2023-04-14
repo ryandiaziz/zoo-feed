@@ -5,8 +5,8 @@ class HomeController {
         try {
             const results = await animal.findAll();
             res.status(200).render('index.ejs', { results });
-        } catch (error) {
-            res.json(error)
+        } catch (err) {
+            res.status(500).json({message: err.message});
         }
     }
 }

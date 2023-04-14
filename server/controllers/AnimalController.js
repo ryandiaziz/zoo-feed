@@ -1,15 +1,15 @@
-const { classType, habitat, food, animal, animalFood } = require("../models");
+const { classType, habitat, food, animal, animalFood ,user} = require("../models");
 const fs = require("fs")
 
 class AnimalController {
   static async getAnimal(req, res) {
     try {
       let result = await animal.findAll({
-        include: [classType, habitat],
+        include: [classType, habitat,user],
       });
-      res.json(result);
+      res.status(200).json(result);
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -28,9 +28,9 @@ class AnimalController {
         userId: +userId,
       });
 
-      res.json(result);
+      res.status(201).json(result);
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -54,14 +54,14 @@ class AnimalController {
       });
 
       resultAnimal  === 1
-        ? res.json({
+        ? res.status(200).json({
             message: `Id ${id} has been Deleted!`,
           })
-        : res.json({
+        : res.status(404).json({
             message: `Couldn't delete id:${id}.'`,
           });
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -94,14 +94,14 @@ class AnimalController {
       );
 
       result[0] === 1
-        ? res.json({
+        ? res.status(200).json({
             message: `Id ${id} has been Updated!`,
           })
-        : res.json({
+        : res.status(404).json({
             message: `Couldn't Update id:${id}.'`,
           });
-    } catch (error) {
-      res.json(error);
+    } catch (err) {
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -141,13 +141,13 @@ class AnimalController {
           id: resultAF.habitatId,
         },
       });
-      res.json( {
+      res.status(200).json( {
         resultAF,
         classTypeData,
         habitatData,
       });
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 

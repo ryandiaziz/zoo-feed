@@ -1,4 +1,5 @@
 'use strict';
+const {encryptPwd} = require('../helper/encrypt')
 const {
   Model
 } = require('sequelize');
@@ -12,18 +13,40 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       user.belongsToMany(models.animal, { through: models.animalUser });
-      user.hasMany(models.animal)
       user.belongsTo(models.role)
     }
   }
   user.init({
-    name: DataTypes.STRING,
-    age: DataTypes.INTEGER,
-    email: DataTypes.STRING,
+    name: {type :DataTypes.STRING,
+    validate : {
+      notEmpty:{
+        msg : "Name cant be empty"
+      }
+    }},
+    age: {type :DataTypes.INTEGER,
+      validate : {
+        notEmpty:{
+          msg : "Age cant be empty"
+        }
+      }},
+    email: {type :DataTypes.STRING,
+      validate : {
+        notEmpty:{
+          msg : "Email cant be empty",
+           
+        },
+        isEmail: true
+      }},
     password: DataTypes.STRING,
     imageUrl: DataTypes.STRING,
     roleId: DataTypes.INTEGER
   }, {
+    hooks:{
+      beforeCreate:function(user,options){
+        user.password = encryptPwd(user.password)
+        user.imageUrl = "https://merritthealthcare.com/wp-content/uploads/2021/12/portrait-placeholder.png"
+      }
+    },
     sequelize,
     modelName: 'user',
   });

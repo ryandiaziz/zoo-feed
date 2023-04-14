@@ -4,6 +4,8 @@ const AnimalFoodController = require("./AnimalFoodController");
 const ClassTypeController = require("./ClassTypeController");
 const HabitatController = require("./HabitatController");
 const HomeController = require('./HomeController');
+const UserController = require("./UserController")
+const AnimalUserController = require("./AnimalUserController")
 
 module.exports = {
     HomeController,
@@ -11,5 +13,7 @@ module.exports = {
     FoodController,
     AnimalFoodController,
     ClassTypeController,
-    HabitatController
+    HabitatController,
+    UserController,
+    AnimalUserController
 };
