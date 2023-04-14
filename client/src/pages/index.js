@@ -12,11 +12,13 @@ import ShowAnimalPage from "./animalPages/ShowAnimalPage";
 import CreateAnimalPage from "./animalPages/CreateAnimalPage";
 import EditItemPage from "./animalPages/EditItemPage";
 import DetailAnimalPage from "./animalPages/DetailAnimalPage";
-// Login
-import LoginPage from "./loginPages/LoginPage";
+// Auth
+import SignInPage from "./signInPages/SignInPage";
+import SignUpPage from "./signUpPages/SignUpPage";
 
 export {
-    LoginPage,
+    SignUpPage,
+    SignInPage,
     DetailAnimalPage,
     DetailFoodPage,
     HomePage,

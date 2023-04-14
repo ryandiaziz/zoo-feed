@@ -23,15 +23,18 @@ const Card = (props) => {
 
                             {/* show LIKES */}
                             {
-                                isAnimal === true ?
-                                    <div className='absolute top-3 right-3 cursor-pointer hover:scale-90'>
-                                        {
-                                            like === false ?
-                                                <MdFavoriteBorder size={30} color='gold' onClick={() => aksi()} />
-                                                :
-                                                <MdFavorite size={30} color='gold' onClick={() => aksi()} />
-                                        }
-                                    </div>
+                                props.loginStatus ?
+                                    isAnimal === true ?
+                                        <div className='absolute top-3 right-3 cursor-pointer hover:scale-90'>
+                                            {
+                                                like === false ?
+                                                    <MdFavoriteBorder size={30} color='gold' onClick={() => aksi()} />
+                                                    :
+                                                    <MdFavorite size={30} color='gold' onClick={() => aksi()} />
+                                            }
+                                        </div>
+                                        :
+                                        <div></div>
                                     :
                                     <div></div>
                             }

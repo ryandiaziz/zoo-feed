@@ -6,35 +6,9 @@ import {
     Link, useNavigate
 } from 'react-router-dom'
 
-const ShowAnimalPage = () => {
+const ShowAnimalPage = (props) => {
+    const { loginStatus } = props
     const isAnimal = true;
-    const animals = [
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Kodok',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Buaya',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Cicak',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Cicak',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-        {
-            image: 'https://dummyimage.com/600x400/ffffff/000000.png&text=image',
-            name: 'Cicak',
-            ket: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quasi suscipit unde quaerat id consequuntur pariatur temporibus officia nesciunt officiis?'
-        },
-    ]
     const navigata = useNavigate()
     const [items, setItems] = useState([])
 
@@ -52,7 +26,7 @@ const ShowAnimalPage = () => {
             <Link to='/animals/create' className='fixed bottom-10 right-10'>
                 <MdAddCircle size={55} color={'#03C988'} />
             </Link>
-            <Card items={items} isAnimal={isAnimal} />
+            <Card items={items} isAnimal={isAnimal} loginStatus={loginStatus} />
         </div>
     )
 }
