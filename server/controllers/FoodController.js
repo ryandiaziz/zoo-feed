@@ -7,9 +7,9 @@ class FoodController {
       let result = await food.findAll({
         include: [animal]
       });
-      res.json(result);
-    } catch (error) {
-      res.json(error);
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -25,9 +25,9 @@ class FoodController {
         imageUrl,
       });
 
-      res.json(resultfood)
-    } catch (error) {
-      res.json(error);
+      res.status(201).json(resultfood)
+    } catch (err) {
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -52,14 +52,14 @@ class FoodController {
     })
 
     resultfood === 1  
-    ? res.json({
+    ? res.status(200).json({
         message: `Id ${id} has been Deleted!`,
       })
-    : res.json({
+    : res.status(404).json({
         message: `Couldn't delete id:${id}.'`,
       });
-    } catch (error) {
-      res.json(error);
+    } catch (err) {
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -88,14 +88,14 @@ class FoodController {
       );
 
       result[0] === 1
-      ? res.json({
+      ? res.status(200).json({
           message: `Id ${id} has been Updated!`,
         })
-      : res.json({
+      : res.status(404).json({
           message: `Couldn't Update id:${id}.'`,
         });
-    } catch (error) {
-      res.json(error);
+    } catch (err) {
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -131,11 +131,11 @@ class FoodController {
         });
 
         
-        res.json({ resultAF ,consumed});
+        res.status(200).json({ resultAF ,consumed});
 
 
-      } catch (error) {
-        res.json(error);
+      } catch (err) {
+        res.status(500).json({message: err.message});
       }
     }
 

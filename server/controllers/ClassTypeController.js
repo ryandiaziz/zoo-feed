@@ -4,10 +4,10 @@ class ClassTypeController {
     static async getClass(req, res) {
         try {
             let result = await classType.findAll()
-            res.json(result)
+            res.status(200).json(result)
 
         } catch (err) {
-            res.json(err)
+            res.status(500).json({message: err.message});
         }
     }
 
@@ -26,10 +26,10 @@ class ClassTypeController {
         })
         resultAF.animals = animals
         
-            res.json(resultAF)
+            res.status(200).json(resultAF)
 
         } catch (err) {
-            res.json(err)
+            res.status(500).json({message: err.message});
         }
     }
 }

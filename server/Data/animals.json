@@ -86,8 +86,8 @@
 	{
 		"id" : 8,
 		"name" : "Kuda",
-		"age" : "Male",
-		"sex" : "10",
+		"age" : 10,
+		"sex" : "Male",
 		"classTypeId" : 1,
 		"habitatId" : 3,
 		"userId" : 0,

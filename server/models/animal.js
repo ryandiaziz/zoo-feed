@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       animal.belongsTo(models.classType);
       animal.belongsTo(models.habitat);
-      animal.belongsTo(models.user);
       animal.belongsToMany(models.food, { through: models.animalFood });
       animal.belongsToMany(models.user, { through: models.animalUser });
 

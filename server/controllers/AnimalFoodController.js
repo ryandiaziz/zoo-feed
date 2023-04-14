@@ -6,9 +6,9 @@ class AnimalFoodController {
         include: [animal, food],
       });
 
-      res.json(result);
+      res.status(200).json(result);
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -21,9 +21,9 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.json(result);
+      res.status(201).json(result);
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -37,15 +37,15 @@ class AnimalFoodController {
       });
 
       resultFA === 1
-        ? res.json({
+        ? res.status(200).json({
             message: ` Deleted relation!`,
           })
-        : res.json({
+        : res.status(404).json({
             message: `Couldn't deleted.'`,
           });
 
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -58,9 +58,9 @@ class AnimalFoodController {
         foodId: +foodId,
       });
 
-      res.json(result);
+      res.status(201).json(result);
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 
@@ -74,14 +74,14 @@ class AnimalFoodController {
       });
 
       resultAF === 1
-        ? res.json({
+        ? res.status(200).json({
             message: ` Deleted relation!`,
           })
-        : res.json({
+        : res.status(404).json({
             message: `Couldn't deleted.'`,
           });
     } catch (err) {
-      res.json(err);
+      res.status(500).json({message: err.message});
     }
   }
 }
