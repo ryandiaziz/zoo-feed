@@ -12,6 +12,7 @@ import {
     CreateBrandPage,
     ShowFoodPage,
     EditBrandPage,
+    DetailFoodPage
 } from '../pages'
 
 const MainContent = () => {
@@ -34,7 +35,9 @@ const MainContent = () => {
                 <Route path='foods' element={<FoodPage></FoodPage>}>
                     <Route path='' element={<ShowFoodPage></ShowFoodPage>}></Route>
                     <Route path='create' element={<CreateBrandPage></CreateBrandPage>}></Route>
-                    <Route path='detail' element={<CreateBrandPage></CreateBrandPage>}></Route>
+                    <Route path='detail'>
+                        <Route path=':id' element={<DetailFoodPage></DetailFoodPage>}></Route>
+                    </Route>
                     <Route path='edit'>
                         <Route path=':id' element={<EditBrandPage></EditBrandPage>}></Route>
                     </Route>

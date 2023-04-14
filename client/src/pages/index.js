@@ -3,6 +3,7 @@ import ImagePage from "./ImagePage";
 // Foods
 import FoodPage from "./foodPages/FoodPage";
 import ShowFoodPage from "./foodPages/ShowFoodPage";
+import DetailFoodPage from "./foodPages/DetailFoodPage";
 import CreateBrandPage from "./foodPages/CreateBrandPage";
 import EditBrandPage from "./foodPages/EditBrandPage";
 // Animals
@@ -17,6 +18,7 @@ import LoginPage from "./loginPages/LoginPage";
 export {
     LoginPage,
     DetailAnimalPage,
+    DetailFoodPage,
     HomePage,
     CreateAnimalPage,
     AnimalPage,
