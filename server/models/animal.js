@@ -25,8 +25,13 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: DataTypes.STRING,
     classTypeId: DataTypes.INTEGER,
     habitatId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    like: DataTypes.INTEGER
   }, {
+    hooks:{
+      beforeCreate:function(animal,options){
+        animal.like = 0
+      }
+    },
     sequelize,
     modelName: 'animal',
   });

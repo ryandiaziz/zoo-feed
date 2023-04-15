@@ -1,9 +1,9 @@
 const animalUserRoute = require('express').Router()
 const {AnimalUserController} = require('../controllers')
+const {auth} = require('../middleware/auth')
 
-
-animalUserRoute.get('/', AnimalUserController.get);
-animalUserRoute.post('/add', AnimalUserController.add);
-animalUserRoute.delete('/delete/:id1/:id2', AnimalUserController.delete)
+animalUserRoute.get('/',auth, AnimalUserController.get);
+animalUserRoute.post('/add/:id',auth, AnimalUserController.add);
+animalUserRoute.delete('/delete/:id',auth, AnimalUserController.delete)
 
 module.exports = animalUserRoute

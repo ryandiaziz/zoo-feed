@@ -3,7 +3,7 @@ const screetCode =  process.env.SECRET_CODE || 'zoofeed'
 
 
 const tokenGenerator = (data) => {
-  const { id,name, email, imageUrl, age, roleId, role,animals } = data;
+  const { id,name, email, imageUrl, age, roleId } = data;
   return jwt.sign({
     id : id,
     name: name,
@@ -11,8 +11,6 @@ const tokenGenerator = (data) => {
     imageUrl: imageUrl,
     age: age,
     roleId: roleId,
-    role : role,
-    animal :animals
   },screetCode);
 };
 
