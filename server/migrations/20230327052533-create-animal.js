@@ -27,7 +27,7 @@ module.exports = {
       habitatId: {
         type: Sequelize.INTEGER
       },
-      userId:{
+      like:{
         type: Sequelize.INTEGER
       },
       createdAt: {

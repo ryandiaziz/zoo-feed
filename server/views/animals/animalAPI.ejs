@@ -18,7 +18,7 @@
         </tr>
 
         <tr>
-          <td>POST</td>
+          <td>POST (AUTH)</td>
           <td>
             <a >/api/animals/add/</a>
           </td>
@@ -26,7 +26,7 @@
         </tr>
 
         <tr>
-          <td>DELETE</td>
+          <td>DELETE (AUTH)</td>
           <td>
             <a >
                 /api/animals/delete/id
@@ -42,13 +42,33 @@
         </tr>
 
         <tr>
-          <td>PUT</td>
+          <td>PUT (AUTH)</td>
           <td>
             <a>
               /api/animals/update/id
             </a>
           </td>
           <td class="comment">// update animals by id</td>
+        </tr>
+
+        <tr>
+          <td>GET</td>
+          <td>
+            <a href="/api/animals/keeper/id">
+              /api/animals/keeper/id
+            </a>
+          </td>
+          <td class="comment">// get zookeeper for animal by id</td>
+        </tr>
+
+        <tr>
+          <td>GET</td>
+          <td>
+            <a href="/api/animals/search">
+              /api/animals/search
+            </a>
+          </td>
+          <td class="comment">// For Search $like Animals name</td>
         </tr>
 
       </tbody></table>

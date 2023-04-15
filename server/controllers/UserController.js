@@ -77,8 +77,7 @@ class UserController {
 
   static async getAccount(req, res) {
     try {
-      const id = +req.params.id;
-      let result = await user.findbyPk(id);
+      let result = req.userData
       res.status(200).json(result);
     } catch (err) {
       res.status(500).json({ message: err.message });
@@ -88,7 +87,7 @@ class UserController {
   static async login(req, res) {
     try {
       const { email, password } = req.body;
-      let emailFound = await user.findOne({include : [animal,role]},{ where: { email: email } });
+      let emailFound = await user.findOne({ where: { email: email } });
 
       if (emailFound) {
         if (decryptPwd(password, emailFound.password)) {
@@ -96,9 +95,6 @@ class UserController {
           res.status(200).json({
             access_token: access_token,
           });
-
-          let reverseToken = tokenVerifier(access_token)
-          console.log(reverseToken)
 
         } else {
           res.status(403).json({ message: "invalid password" });
