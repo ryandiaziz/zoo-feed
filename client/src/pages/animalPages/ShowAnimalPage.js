@@ -23,7 +23,7 @@ const ShowAnimalPage = (props) => {
 
     return (
         <div className="flex gap-4 justify-center flex-wrap py-4 px-4">
-            <Link to='/animals/create' className='fixed bottom-10 right-10'>
+            <Link to='/animals/create' className='fixed bottom-10 right-10 z-10'>
                 <MdAddCircle size={55} color={'#03C988'} />
             </Link>
             <Card items={items} isAnimal={isAnimal} loginStatus={loginStatus} />

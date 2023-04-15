@@ -31,13 +31,13 @@ const Profile = (props) => {
     return (
         <>
             <div className='flex justify-center'>
-                <div className='relative'>
+                <div className='relative z-10'>
                     <img
                         ref={imgRef}
                         onClick={() => setOpen(!open)}
                         src="https://fakeimg.pl/350x200/"
                         alt="user profile"
-                        className='h-20 w-20 object-cover rounded-full cursor-pointer'
+                        className='h-16 w-16 object-cover rounded-full cursor-pointer'
                     />
                     {
                         open && (
@@ -45,20 +45,25 @@ const Profile = (props) => {
                                 ref={menuRef}
                                 className='bg-white p-4 w-52 shadow-lg absolute -left-14 top-24'>
                                 <ul>
-                                    {
-                                        Menus.map(menu => (
-                                            <Link>
-                                                <li
-                                                    onClick={() => {
-                                                        setOpen(false);
-                                                        logoutHandler()
-                                                    }}
-                                                    className='p-2 text-lg cursor-pointer rounded hover:bg-blue-100' key={menu}>
-                                                    {menu.name}
-                                                </li>
-                                            </Link>
-                                        ))
-                                    }
+                                    <Link>
+                                        <li
+                                            onClick={() => {
+                                                setOpen(false);
+                                            }}
+                                            className='p-2 text-lg cursor-pointer rounded hover:bg-blue-100'>
+                                            Profile
+                                        </li>
+                                    </Link>
+                                    <Link>
+                                        <li
+                                            onClick={() => {
+                                                setOpen(false);
+                                                logoutHandler();
+                                            }}
+                                            className='p-2 text-lg cursor-pointer rounded hover:bg-blue-100'>
+                                            Logout
+                                        </li>
+                                    </Link>
                                 </ul>
                             </div>
                         )
