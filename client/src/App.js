@@ -19,7 +19,9 @@ function App() {
   return (
     <>
       <Navbar loginStatus={loginStatus} loginCbHandler={loginCbHandler} />
-      <MainContent loginStatus={loginStatus} loginCbHandler={loginCbHandler} />
+      <div className='pt-24'>
+        <MainContent loginStatus={loginStatus} loginCbHandler={loginCbHandler} />
+      </div>
     </>
   );
 }

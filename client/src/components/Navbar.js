@@ -6,7 +6,7 @@ const Navbar = (props) => {
     const { loginStatus, loginCbHandler } = props
 
     return (
-        <nav class="flex h-24 items-center justify-between bg-teal-500 p-6">
+        <nav class="flex h-24 w-full items-center justify-between bg-teal-500 p-6 fixed z-10">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
                 <Link to='/'>
                     <span class="font-noto font-bold text-3xl tracking-tight"> Zoo Feed</span>
