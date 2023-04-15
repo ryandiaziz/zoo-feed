@@ -19,7 +19,6 @@ function App() {
   return (
     <>
       <Navbar loginStatus={loginStatus} loginCbHandler={loginCbHandler} />
-      <p>{JSON.stringify(loginStatus)}</p>
       <MainContent loginStatus={loginStatus} loginCbHandler={loginCbHandler} />
     </>
   );

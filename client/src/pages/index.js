@@ -10,7 +10,7 @@ import EditBrandPage from "./foodPages/EditBrandPage";
 import AnimalPage from "./animalPages/AnimalPage";
 import ShowAnimalPage from "./animalPages/ShowAnimalPage";
 import CreateAnimalPage from "./animalPages/CreateAnimalPage";
-import EditItemPage from "./animalPages/EditItemPage";
+import EditAnimalPage from "./animalPages/EditAnimalPage";
 import DetailAnimalPage from "./animalPages/DetailAnimalPage";
 // Auth
 import SignInPage from "./signInPages/SignInPage";
@@ -25,7 +25,7 @@ export {
     CreateAnimalPage,
     AnimalPage,
     ShowAnimalPage,
-    EditItemPage,
+    EditAnimalPage as EditItemPage,
     FoodPage,
     ShowFoodPage,
     CreateBrandPage,
