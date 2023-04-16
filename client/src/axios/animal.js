@@ -1,15 +1,16 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
+const accessToken = localStorage.getItem("access_token");
 
 const URL = 'http://localhost:3000/api/animals'
 
 const createData = async (items) => {
     try {
-        // console.log(items);
         await axios({
             method: 'POST',
-            url: URL + "/create",
-            data: items
+            url: URL + "/add",
+            data: items,
+            headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
         })
 
         Swal.fire(
@@ -41,7 +42,8 @@ const updateData = async (id, items) => {
         let result = await axios({
             method: 'PUT',
             url: URL + '/update/' + id,
-            data: items
+            data: items,
+            headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
         })
 
         Swal.fire(
@@ -69,7 +71,8 @@ const deleteData = async (id) => {
             if (result.isConfirmed) {
                 await axios({
                     method: "DELETE",
-                    url: URL + '/delete/' + id
+                    url: URL + '/delete/' + id,
+                    headers : {access_token: `${accessToken}`}
                 })
 
                 Swal.fire(
