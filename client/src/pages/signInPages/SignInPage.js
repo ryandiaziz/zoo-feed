@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../../components/Modal';
+import { login } from '../../axios/user';
 
 const SignInPage = (props) => {
     const navigate = useNavigate();
@@ -16,25 +17,26 @@ const SignInPage = (props) => {
         setModalOpen(data);
     }
 
-    const loginUser = async () => {
-        try {
-            let result = await axios({
-                method: 'POST',
-                url: 'http://localhost:3000/api/users/login',
-                data: form
-            })
-            const access_token = result.data.access_token
-            localStorage.setItem('access_token', access_token)
+    // const loginUser = async () => {
+    //     try {
+    //         let result = await axios({
+    //             method: 'POST',
+    //             url: 'http://localhost:3000/api/users/login',
+    //             data: form
+    //         })
+    //         const access_token = result.data.access_token
+    //         localStorage.setItem('access_token', access_token)
 
-            loginCbHandler(true)
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    //         loginCbHandler(true)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
     const submitHandler = () => {
         // console.log(form)
-        loginUser()
+        // loginUser()
+        login(form, loginCbHandler);
         navigate('/')
     }
     return (

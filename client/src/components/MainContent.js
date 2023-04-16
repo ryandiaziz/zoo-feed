@@ -47,7 +47,7 @@ const MainContent = (props) => {
                 </Route>
                 <Route path='signin' element={<SignInPage loginCbHandler={loginCbHandler} />}></Route>
                 <Route path='signup'>
-                    <Route path=':roleId' element={<SignUpPage></SignUpPage>}></Route>
+                    <Route path=':roleId' element={<SignUpPage loginCbHandler={loginCbHandler} />}></Route>
                 </Route>
                 <Route path='profile' element={<ProfilePage userData={userData} />}></Route>
             </Routes>
