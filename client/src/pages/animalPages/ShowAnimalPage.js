@@ -8,7 +8,7 @@ import {
 import Search from '../../components/Search'
 
 const ShowAnimalPage = (props) => {
-    const { loginStatus } = props
+    const { loginStatus, userData } = props
     const isAnimal = true;
     const navigata = useNavigate()
     const [items, setItems] = useState([])
@@ -28,12 +28,17 @@ const ShowAnimalPage = (props) => {
 
     return (
         <>
-            <Link to='/animals/create' className='hover:scale-95 transition-all flex fixed bottom-10 right-10 z-10 bg-[#03C988] rounded-full h-[55px] w-[55px]'>
-                <FaPlus size={35} color={'#fff'} className='m-auto' />
-            </Link>
+            {
+                userData.roleId === 2 ?
+                    <Link to='/animals/create' className='hover:scale-95 transition-all flex fixed bottom-10 right-10 z-10 bg-[#03C988] rounded-full h-[55px] w-[55px]'>
+                        <FaPlus size={35} color={'#fff'} className='m-auto' />
+                    </Link>
+                    :
+                    <div></div>
+            }
             <Search />
             <div className="flex gap-4 justify-center flex-wrap py-4 px-4">
-                <Card items={items} isAnimal={isAnimal} loginStatus={loginStatus} />
+                <Card items={items} isAnimal={isAnimal} loginStatus={loginStatus} userData={userData} />
             </div>
         </>
     )

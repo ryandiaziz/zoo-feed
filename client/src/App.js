@@ -23,7 +23,7 @@ function App() {
     <>
       <Navbar loginStatus={loginStatus} loginCbHandler={loginCbHandler} userData={userData} />
       <div className='pt-24'>
-        <MainContent loginStatus={loginStatus} loginCbHandler={loginCbHandler} />
+        <MainContent loginStatus={loginStatus} loginCbHandler={loginCbHandler} userData={userData} />
       </div>
     </>
   );

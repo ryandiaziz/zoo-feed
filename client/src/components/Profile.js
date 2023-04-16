@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Profile = (props) => {
+    const navigate = useNavigate()
     const { loginCbHandler, userData } = props
     const Menus = [
         {
@@ -17,6 +18,7 @@ const Profile = (props) => {
     const logoutHandler = () => {
         localStorage.clear()
         loginCbHandler(false)
+        navigate('/login')
     }
     const [open, setOpen] = useState(false);
 

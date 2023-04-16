@@ -17,7 +17,7 @@ import {
 } from '../pages'
 
 const MainContent = (props) => {
-    const { loginStatus, loginCbHandler } = props;
+    const { loginStatus, loginCbHandler, userData } = props;
     return (
         <>
             <Routes>
@@ -25,7 +25,7 @@ const MainContent = (props) => {
                     <HomePage></HomePage>
                 }></Route>
                 <Route path='animals' element={<AnimalPage></AnimalPage>}>
-                    <Route path='' element={<ShowAnimalPage loginStatus={loginStatus} />}></Route>
+                    <Route path='' element={<ShowAnimalPage loginStatus={loginStatus} userData={userData} />}></Route>
                     <Route path='create' element={<CreateAnimalPage></CreateAnimalPage>}></Route>
                     <Route path='detail'>
                         <Route path=':id' element={<DetailAnimalPage></DetailAnimalPage>}></Route>
@@ -35,7 +35,7 @@ const MainContent = (props) => {
                     </Route>
                 </Route>
                 <Route path='foods' element={<FoodPage></FoodPage>}>
-                    <Route path='' element={<ShowFoodPage></ShowFoodPage>}></Route>
+                    <Route path='' element={<ShowFoodPage userData={userData} />}></Route>
                     <Route path='create' element={<CreateBrandPage></CreateBrandPage>}></Route>
                     <Route path='detail'>
                         <Route path=':id' element={<DetailFoodPage></DetailFoodPage>}></Route>
@@ -44,8 +44,10 @@ const MainContent = (props) => {
                         <Route path=':id' element={<EditBrandPage></EditBrandPage>}></Route>
                     </Route>
                 </Route>
-                <Route path='login' element={<SignInPage loginCbHandler={loginCbHandler} />}></Route>
-                <Route path='signup' element={<SignUpPage></SignUpPage>}></Route>
+                <Route path='signin' element={<SignInPage loginCbHandler={loginCbHandler} />}></Route>
+                <Route path='signup'>
+                    <Route path=':roleId' element={<SignUpPage></SignUpPage>}></Route>
+                </Route>
             </Routes>
         </>
     )

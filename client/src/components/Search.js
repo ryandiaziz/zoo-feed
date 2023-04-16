@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Search = () => {
+const Search = (props) => {
     return (
         <div className="container py-10 w-full">
             <div className='text-center mb-5 font-noto font-semibold text-xl'>Find your favorit animal</div>
