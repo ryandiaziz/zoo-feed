@@ -4,16 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const Profile = (props) => {
     const navigate = useNavigate()
     const { loginCbHandler, userData } = props
-    const Menus = [
-        {
-            name: "Profile",
-            link: ''
-        },
-        {
-            name: "Logout",
-            link: ''
-        }
-    ];
 
     const logoutHandler = () => {
         localStorage.clear()
@@ -39,7 +29,7 @@ const Profile = (props) => {
                         onClick={() => setOpen(!open)}
                         src={userData.imageUrl}
                         alt="user profile"
-                        className='h-16 w-16 object-cover rounded-full cursor-pointer'
+                        className='h-12 w-12 object-cover rounded-full cursor-pointer'
                     />
                     {
                         open && (
@@ -47,7 +37,7 @@ const Profile = (props) => {
                                 ref={menuRef}
                                 className='bg-white p-4 w-52 shadow-lg absolute -left-14 top-24'>
                                 <ul>
-                                    <Link>
+                                    <Link to={'/profile'}>
                                         <li
                                             onClick={() => {
                                                 setOpen(false);
@@ -56,7 +46,7 @@ const Profile = (props) => {
                                             Profile
                                         </li>
                                     </Link>
-                                    <Link>
+                                    <Link to={'/signin'}>
                                         <li
                                             onClick={() => {
                                                 setOpen(false);

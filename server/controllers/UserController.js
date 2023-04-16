@@ -1,4 +1,4 @@
-const { user , role,animal } = require("../models");
+const { user, role, animal } = require("../models");
 const fs = require("fs");
 const { decryptPwd } = require("../helper/encrypt");
 const { tokenGenerator, tokenVerifier } = require("../helper/jsonwebtoken");

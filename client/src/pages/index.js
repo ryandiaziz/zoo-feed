@@ -15,8 +15,11 @@ import DetailAnimalPage from "./animalPages/DetailAnimalPage";
 // Auth
 import SignInPage from "./signInPages/SignInPage";
 import SignUpPage from "./signUpPages/SignUpPage";
+// Profile
+import ProfilePage from "./profilePages/ProfilePage";
 
 export {
+    ProfilePage,
     SignUpPage,
     SignInPage,
     DetailAnimalPage,

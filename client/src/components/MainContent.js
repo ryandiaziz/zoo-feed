@@ -13,7 +13,8 @@ import {
     CreateBrandPage,
     ShowFoodPage,
     EditBrandPage,
-    DetailFoodPage
+    DetailFoodPage,
+    ProfilePage
 } from '../pages'
 
 const MainContent = (props) => {
@@ -48,6 +49,7 @@ const MainContent = (props) => {
                 <Route path='signup'>
                     <Route path=':roleId' element={<SignUpPage></SignUpPage>}></Route>
                 </Route>
+                <Route path='profile' element={<ProfilePage userData={userData} />}></Route>
             </Routes>
         </>
     )
