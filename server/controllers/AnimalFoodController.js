@@ -68,12 +68,12 @@ class AnimalFoodController {
       let roleId = req.userData.roleId;
       if (roleId === 2) {
         const animalId = +req.params.id;
-        const { foodId } = req.body;
+        const  {foodId}  = req.body;
         let result = await animalFood.create({
           animalId: +animalId,
           foodId: +foodId,
         });
-
+        
         res.status(201).json(result);
       } else {
         res.status(403).json({ message: "Visitor dont have permission" });

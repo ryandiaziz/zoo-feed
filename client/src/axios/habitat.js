@@ -1,9 +1,5 @@
 import axios, { Axios } from "axios";
 const URL = "http://localhost:3000/api/habitats";
-const accessToken = localStorage.getItem("access_token");
-const config = {
-  headers: { access_token: `${accessToken}` },
-};
 
 const getHabitat = async (cb) => {
   try {
@@ -11,8 +7,7 @@ const getHabitat = async (cb) => {
       {
         method: "GET",
         url: URL,
-      },
-      config
+      }
     );
 
     cb(habitat.data);
@@ -27,8 +22,7 @@ const detailHabitat = async (id, cb) => {
       {
         method: "GET",
         url: URL + id,
-      },
-      config
+      }
     );
 
     cb(classDetail.data)
