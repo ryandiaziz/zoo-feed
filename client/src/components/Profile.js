@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
-    const { loginCbHandler } = props
+    const { loginCbHandler, userData } = props
     const Menus = [
         {
             name: "Profile",
@@ -35,7 +35,7 @@ const Profile = (props) => {
                     <img
                         ref={imgRef}
                         onClick={() => setOpen(!open)}
-                        src="https://fakeimg.pl/350x200/"
+                        src={userData.imageUrl}
                         alt="user profile"
                         className='h-16 w-16 object-cover rounded-full cursor-pointer'
                     />

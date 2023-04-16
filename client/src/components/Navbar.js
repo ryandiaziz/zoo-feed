@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Profile from './Profile'
 
 const Navbar = (props) => {
-    const { loginStatus, loginCbHandler } = props
+    const { loginStatus, loginCbHandler, userData } = props
 
     return (
         <nav class="flex h-24 w-full items-center justify-between bg-teal-500 p-6 fixed z-10">
@@ -33,7 +33,7 @@ const Navbar = (props) => {
 
                     {
                         loginStatus ?
-                            <Profile loginCbHandler={loginCbHandler} />
+                            <Profile userData={userData} loginCbHandler={loginCbHandler} />
                             :
                             <Link to={'/login'} class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</Link>
                     }

@@ -22,7 +22,7 @@ const createData = async (items) => {
     }
 }
 
-const readData = async cb => {
+const readDataAnimal = async cb => {
     try {
         let dataItems = await axios({
             method: 'GET',
@@ -100,7 +100,7 @@ const detailData = async (id, cb) => {
 
 export {
     createData,
-    readData,
+    readDataAnimal,
     updateData,
     deleteData,
     detailData
