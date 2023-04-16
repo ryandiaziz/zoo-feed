@@ -27,11 +27,9 @@ const DetailAnimalPage = () => {
       });
       setFoods(result.resultAF.foods);
     });
+    readData((result)=> setAllFood(result))
   };
 
-  useEffect(()=>{
-    readData((result)=> setAllFood(result))
-  })
 
   useEffect(() => {
     getAnimalDetail();
