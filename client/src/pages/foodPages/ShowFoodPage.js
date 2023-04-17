@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../../components/Card'
-import { readData, deleteData } from '../../axios/foods'
+import { readData, deleteData } from '../../axios/food'
 import { FaPlus } from 'react-icons/fa'
 import {
     Link, useNavigate
@@ -8,7 +8,7 @@ import {
 
 const ShowFoodPage = (props) => {
     const { userData } = props
-    const navigata = useNavigate()
+    const navigate = useNavigate()
     const link = '/foods/detail';
     const [foods, setFoods] = useState([])
 
@@ -18,7 +18,7 @@ const ShowFoodPage = (props) => {
 
     const deleteHandler = (id) => {
         deleteData(id)
-        navigata('/brands')
+        navigate('/foods')
     }
 
     return (

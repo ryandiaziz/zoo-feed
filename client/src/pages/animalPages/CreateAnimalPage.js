@@ -34,7 +34,6 @@ const CreateAnimalPage = () => {
   }, []);
 
   const submitHandler = () => {
-    console.log(form);
     createData(form);
     navigation('/animals')
   };

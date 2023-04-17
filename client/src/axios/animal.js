@@ -1,7 +1,6 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 const accessToken = localStorage.getItem("access_token");
-
 const URL = 'http://localhost:3000/api/animals'
 
 const createData = async (items) => {
@@ -18,6 +17,8 @@ const createData = async (items) => {
             'Item has been added',
             'success'
         )
+
+        window.location.reload()
     } catch (e) {
         console.log(e)
     }
@@ -30,7 +31,6 @@ const readDataAnimal = async cb => {
             url: URL
         })
         cb(dataItems.data);
-        // console.log(datas);
     } catch (error) {
         console.log(error);
     }
@@ -51,7 +51,7 @@ const updateData = async (id, items) => {
             'Item ' + id + ' has been updated',
             'success'
         )
-        console.log(result.data)
+        window.location.reload()
     } catch (e) {
         console.log(e)
     }
@@ -66,7 +66,7 @@ const deleteData = async (id) => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Confirm'
+            confirmButtonText: 'Delete!'
         }).then(async (result) => {
             if (result.isConfirmed) {
                 await axios({
@@ -80,6 +80,7 @@ const deleteData = async (id) => {
                     'Your file has been deleted.',
                     'success'
                 )
+                window.location.reload()
             }
         })
 

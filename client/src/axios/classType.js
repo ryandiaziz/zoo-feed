@@ -1,6 +1,5 @@
 import axios, { Axios } from "axios";
 const URL = "http://localhost:3000/api/classtypes";
-const accessToken = localStorage.getItem("access_token");
 
 const getClassType = async (cb) => {
   try {

@@ -21,12 +21,12 @@ const Navbar = (props) => {
                     <Link to="/foods" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Food
                     </Link>
-                    <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    <Link to="/classType" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Class
-                    </a>
-                    <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    </Link>
+                    <Link to="/habitat" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                         Habitat
-                    </a>
+                    </Link>
                 </div>
 
                 <div>
