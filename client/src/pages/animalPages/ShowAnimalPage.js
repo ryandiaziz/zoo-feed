@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../../components/Card'
-import { readDataAnimal, deleteData, searchAnimal } from '../../axios/animal'
+import { readDataAnimal, searchAnimal } from '../../axios/animal'
 import { getLikeData } from '../../axios/animalUser'
 import { FaPlus } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
@@ -9,7 +9,6 @@ import Pagination from '../../components/Pagination'
 const ShowAnimalPage = (props) => {
     const { loginStatus, userData } = props
     const isAnimal = true;
-    const navigata = useNavigate()
     const [items, setItems] = useState([])
     const [likeData, setLikeData] = useState([])
     const [search, setSearch] = useState('')
@@ -27,14 +26,6 @@ const ShowAnimalPage = (props) => {
         getDatas()
     }, [])
 
-    // useEffect(() => {
-
-    // })
-
-    const deleteHandler = (id) => {
-        deleteData(id)
-        navigata('/items')
-    }
 
     return (
         <>

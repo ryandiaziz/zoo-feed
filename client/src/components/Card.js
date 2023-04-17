@@ -49,7 +49,7 @@ const Card = (props) => {
                                 </Link>
                                 {
                                     userData.roleId === 2 ?
-                                        <ButtonGroup id={item.id} />
+                                        <ButtonGroup isAnimal={isAnimal} id={item.id} />
                                         :
                                         <div></div>
                                 }

@@ -33,14 +33,13 @@ class UserController {
   static async update(req, res) {
     try {
       const id = +req.params.id;
-      const { name, age, email, password, roleId } = req.body;
-      let result = await update(
+      const { name, age, email, imageUrl } = req.body;
+      let result = await user.update(
         {
           name: name,
           age: +age,
           email: email,
-          password: password,
-          roleId: +roleId,
+          imageUrl: imageUrl,
         },
         { where: { id: id } }
       );
@@ -77,7 +76,7 @@ class UserController {
 
   static async getAccount(req, res) {
     try {
-      let result = req.userData
+      let result = req.userData;
       res.status(200).json(result);
     } catch (err) {
       res.status(500).json({ message: err.message });
@@ -95,7 +94,6 @@ class UserController {
           res.status(200).json({
             access_token: access_token,
           });
-
         } else {
           res.status(403).json({ message: "invalid password" });
         }

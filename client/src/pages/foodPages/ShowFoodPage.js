@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../../components/Card'
-import { readData, deleteData } from '../../axios/food'
+import { readData} from '../../axios/food'
 import { FaPlus } from 'react-icons/fa'
 import {
-    Link, useNavigate
+    Link
 } from 'react-router-dom'
 
 const ShowFoodPage = (props) => {
     const { userData } = props
-    const navigate = useNavigate()
     const link = '/foods/detail';
     const [foods, setFoods] = useState([])
     const [search, setSearch] = useState('')
@@ -17,10 +16,6 @@ const ShowFoodPage = (props) => {
         readData(result => setFoods(result))
     }, [])
 
-    const deleteHandler = (id) => {
-        deleteData(id)
-        navigate('/foods')
-    }
 
     return (
         <>

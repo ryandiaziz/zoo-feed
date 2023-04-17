@@ -12,7 +12,7 @@ const createData = async (items) => {
             headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
         })
 
-        Swal.fire(
+        await Swal.fire(
             'Add item',
             'Item has been added',
             'success'
@@ -46,7 +46,7 @@ const updateData = async (id, items) => {
             headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
         })
 
-        Swal.fire(
+        await Swal.fire(
             'Edit item ' + id,
             'Item ' + id + ' has been updated',
             'success'
@@ -57,7 +57,7 @@ const updateData = async (id, items) => {
     }
 }
 
-const deleteData = async (id) => {
+const deleteDataF = async (id) => {
     try {
         Swal.fire({
             title: 'Are you sure?',
@@ -75,7 +75,7 @@ const deleteData = async (id) => {
                     headers : {access_token: `${accessToken}`}
                 })
 
-                Swal.fire(
+                await Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
                     'success'
@@ -106,6 +106,6 @@ export {
     createData,
     readData,
     updateData,
-    deleteData,
+    deleteDataF,
     detailData
 }
