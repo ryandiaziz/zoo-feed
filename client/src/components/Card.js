@@ -5,17 +5,11 @@ import ButtonGroup from './ButtonGroup'
 
 const Card = (props) => {
     const { userData, loginStatus, items, likeData, search } = props
-    const [like, setLike] = useState(false);
-
     const isAnimal = props.isAnimal || false;
 
-    const aksi = () => {
-        like === false ?
-            setLike(true)
-            :
-            setLike(false)
+    const likeAnimal = (id) => {
+
     }
-    console.log(search);
     return (
         <>
             {
@@ -33,14 +27,9 @@ const Card = (props) => {
                                         isAnimal ?
                                             <div className='absolute top-3 right-3 cursor-pointer hover:scale-90'>
                                                 {
-                                                    // like ?
-                                                    //     <MdFavorite size={30} color='gold' onClick={() => aksi()} /> :
-                                                    //     <MdFavoriteBorder size={30} color='gold' onClick={() => aksi()} />
-                                                    likeData.map(likeItem => {
-                                                        if (likeItem.id === item.id) {
-                                                            return (<MdFavorite key={likeItem.id} size={30} color='gold' onClick={() => aksi()} />)
-                                                        }
-                                                    })
+                                                    likeData.filter(data => data.id === item.id).length === 1
+                                                        ? <MdFavorite size={30} color='gold' onClick={() => aksi()} />
+                                                        : <MdFavoriteBorder size={30} color='gold' onClick={() => likeAnimal(item.id)} />
                                                 }
                                             </div>
                                             :
