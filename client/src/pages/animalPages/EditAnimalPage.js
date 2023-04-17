@@ -17,14 +17,15 @@ const EditAnimalPage = () => {
   });
 
   const [form, setForm] = useState({
-    name: info.data.name,
-    age: info.data.age,
-    sex: info.data.sex,
-    imageUrl: info.data.imageUrl,
-    classTypeId: info.data.classType,
-    habitatId: info.data.habitatId,
+    name: "",
+    age: 0,
+    sex: "",
+    imageUrl: null,
+    classTypeId: "",
+    habitatId: "",
   });
 
+  
   const getItemInfo = () => {
     const { id } = params;
     detailData(+id, (result) => {
@@ -33,6 +34,14 @@ const EditAnimalPage = () => {
         classTypeData: result.classTypeData[0],
         habitatData: result.habitatData[0],
       });
+      setForm({
+        name: result.resultAF.name,
+        age: result.resultAF.age,
+        sex: result.resultAF.sex,
+        imageUrl: result.resultAF.imageUrl,
+        classTypeId: result.classTypeData[0].id,
+        habitatId: result.habitatData[0].id,
+      })
     });
   };
 
@@ -53,6 +62,8 @@ const EditAnimalPage = () => {
       };
     });
   }
+
+
   useEffect(() => {
     getClassType((result) => setClassType(result));
   }, []);
@@ -63,31 +74,30 @@ const EditAnimalPage = () => {
 
   const submitHandler = () => {
     console.log(form);
-    // updateData(+params.id, form)
-    // navigation('/items')
+    updateData(+params.id, form)
+    navigation('/animals')
+    window.location.reload()
   };
 
-  function handleChange(field, value) {
-    setForm({ ...form, [field]: value });
-  }
 
   return (
     <>
       <div className="px-[300px] my-5">
-        <form action="">
+        
           <InputText
-            onChange={(value) => handleChange("name", value)}
+            onChange={(e) => setForm({...form,name : e.target.value})}
             label={"Name"}
             name={"name"}
             placeHolder={`Enter animal name`}
-            value={info.data.name}
+            value={form.name}
+            
           />
           <InputText
-            onChange={(value) => handleChange("age", value)}
+          onChange={(e) => setForm({...form,age: e.target.value})}
             label={"Age"}
             name={"age"}
             placeHolder={"Enter animal age"}
-            value={info.data.age}
+            value={form.age}
           />
           <div className="mb-3">
             <label
@@ -101,8 +111,12 @@ const EditAnimalPage = () => {
               id="countries"
               className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg shadow-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+            
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            
+              
+              
             </select>
           </div>
           <div className="mb-3">
@@ -133,8 +147,9 @@ const EditAnimalPage = () => {
               id="countries"
               className="bg-white shadow-md border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option selected>Choose Animal Class</option>
+              <option selected value={info.classTypeData.id}>{info.classTypeData.name}</option>
               {classType.map((dataClass) => {
+                if (dataClass.id !== info.classTypeData.id )
                 return (
                   <>
                     <option value={dataClass.id}>{dataClass.name}</option>
@@ -155,8 +170,9 @@ const EditAnimalPage = () => {
               id="countries"
               className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg shadow-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option selected>Choose Animal Habitat</option>
+              <option selected value={info.habitatData.id}>{info.habitatData.name}</option>
               {habitat.map((dataHabitat) => {
+                if (dataHabitat.id !== info.habitatData.id )
                 return (
                   <>
                     <option value={dataHabitat.id}>{dataHabitat.name}</option>
@@ -172,7 +188,7 @@ const EditAnimalPage = () => {
           >
             Submit
           </button>
-        </form>
+        
       </div>
     </>
   );

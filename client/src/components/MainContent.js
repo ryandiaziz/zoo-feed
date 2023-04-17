@@ -7,14 +7,18 @@ import {
     CreateAnimalPage,
     SignInPage,
     SignUpPage,
-    EditItemPage,
+    EditAnimalPage,
     DetailAnimalPage,
     FoodPage,
-    CreateBrandPage,
+    CreateFoodPage,
     ShowFoodPage,
     EditBrandPage,
     DetailFoodPage,
-    ProfilePage
+    ProfilePage,
+    ClassPage,
+    ClassDetail,
+    HabitatPage,
+    HabitatDetail
 } from '../pages'
 
 const MainContent = (props) => {
@@ -29,22 +33,37 @@ const MainContent = (props) => {
                     <Route path='' element={<ShowAnimalPage loginStatus={loginStatus} userData={userData} />}></Route>
                     <Route path='create' element={<CreateAnimalPage></CreateAnimalPage>}></Route>
                     <Route path='detail'>
-                        <Route path=':id' element={<DetailAnimalPage></DetailAnimalPage>}></Route>
+                        <Route path=':id' element={<DetailAnimalPage loginStatus={loginStatus} userData={userData}></DetailAnimalPage>}></Route>
                     </Route>
                     <Route path='edit'>
-                        <Route path=':id' element={<EditItemPage></EditItemPage>}></Route>
+                        <Route path=':id' element={<EditAnimalPage></EditAnimalPage>}></Route>
                     </Route>
                 </Route>
                 <Route path='foods' element={<FoodPage></FoodPage>}>
-                    <Route path='' element={<ShowFoodPage userData={userData} />}></Route>
-                    <Route path='create' element={<CreateBrandPage></CreateBrandPage>}></Route>
+                    <Route path='' element={<ShowFoodPage loginStatus={loginStatus} userData={userData} />}></Route>
+                    <Route path='create' element={<CreateFoodPage></CreateFoodPage>}></Route>
                     <Route path='detail'>
-                        <Route path=':id' element={<DetailFoodPage></DetailFoodPage>}></Route>
+                        <Route path=':id' element={<DetailFoodPage loginStatus={loginStatus} userData={userData}></DetailFoodPage>}></Route>
                     </Route>
                     <Route path='edit'>
                         <Route path=':id' element={<EditBrandPage></EditBrandPage>}></Route>
                     </Route>
                 </Route>
+
+                <Route path='classType' element={<ClassPage></ClassPage>}>
+                    <Route path='' element={<ShowFoodPage loginStatus={loginStatus} userData={userData} />}></Route>
+                    <Route path='detail'>
+                        <Route path=':id' element={<ClassDetail loginStatus={loginStatus} userData={userData}></ClassDetail>}></Route>
+                    </Route>
+                </Route>
+                
+                <Route path='habitats' element={<HabitatPage></HabitatPage>}>
+                    <Route path='' element={<ShowFoodPage loginStatus={loginStatus} userData={userData} />}></Route>
+                    <Route path='detail'>
+                        <Route path=':id' element={<HabitatDetail loginStatus={loginStatus} userData={userData}></HabitatDetail>}></Route>
+                    </Route>
+                </Route>
+
                 <Route path='signin' element={<SignInPage loginCbHandler={loginCbHandler} />}></Route>
                 <Route path='signup'>
                     <Route path=':roleId' element={<SignUpPage loginCbHandler={loginCbHandler} />}></Route>

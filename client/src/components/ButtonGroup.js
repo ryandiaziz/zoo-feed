@@ -7,6 +7,7 @@ const ButtonGroup = (props) => {
     const deleteHandler = (id) => {
         deleteData(id)
         navigate('/animals')
+        
     }
     return (
         <>
