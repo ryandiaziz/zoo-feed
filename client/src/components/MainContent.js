@@ -51,14 +51,14 @@ const MainContent = (props) => {
                 </Route>
 
                 <Route path='classType' element={<ClassPage></ClassPage>}>
-                    <Route path='' element={<ShowFoodPage loginStatus={loginStatus} userData={userData} />}></Route>
+                    <Route path='' ></Route>
                     <Route path='detail'>
                         <Route path=':id' element={<ClassDetail loginStatus={loginStatus} userData={userData}></ClassDetail>}></Route>
                     </Route>
                 </Route>
                 
                 <Route path='habitats' element={<HabitatPage></HabitatPage>}>
-                    <Route path='' element={<ShowFoodPage loginStatus={loginStatus} userData={userData} />}></Route>
+                    <Route path='' ></Route>
                     <Route path='detail'>
                         <Route path=':id' element={<HabitatDetail loginStatus={loginStatus} userData={userData}></HabitatDetail>}></Route>
                     </Route>

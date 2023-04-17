@@ -43,7 +43,7 @@ const deleteAF = async (id1,id2) => {
                     headers : {access_token: `${accessToken}`}
                 })
 
-                Swal.fire(
+                await Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
                     'success'
@@ -68,7 +68,7 @@ const addFA = async (id,form) => {
             headers : {access_token: `${accessToken}`}
         })
 
-        Swal.fire(
+        await Swal.fire(
             'Add food',
             'food has been added',
             'success'
@@ -98,7 +98,7 @@ const deleteFA = async (id1,id2) => {
                     headers : {access_token: `${accessToken}`}
                 })
 
-                Swal.fire(
+                await Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
                     'success'

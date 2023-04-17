@@ -24,7 +24,7 @@ const Navbar = (props) => {
                     <Link to="/classType" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                         Class
                     </Link>
-                    <Link to="/habitat" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                    <Link to="/habitats" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                         Habitat
                     </Link>
                 </div>

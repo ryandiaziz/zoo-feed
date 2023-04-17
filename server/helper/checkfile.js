@@ -4,9 +4,10 @@ const checkFileUpdate = (data, req) => {
   if (data) {
     let fileName = data.dataValues.imageUrl;
     if (fileName) {
-      const split = fileName.split("/");
-      fileName = split[split.length - 1];
-      if (fileName !== "portrait-placeholder.png") {
+      const split = fileName.split("/").slice(0, -1).join("/") + "/";
+      const split2 = fileName.split("/");
+      fileName = split2[split2.length - 1];
+      if (split === "http://localhost:3000/images/") {
         fs.unlinkSync(`./public/images/${fileName}`);
       }
     }
@@ -20,9 +21,10 @@ const checkFileDelete = (data) => {
   if (data) {
     let fileName = data.dataValues.imageUrl;
     if (fileName) {
-      const split = fileName.split("/");
-      fileName = split[split.length - 1];
-      if (fileName !== "portrait-placeholder.png") {
+      const split = fileName.split("/").slice(0, -1).join("/") + "/";
+      const split2 = fileName.split("/");
+      fileName = split2[split2.length - 1];
+      if (split === "http://localhost:3000/images/") {
         fs.unlinkSync(`./public/images/${fileName}`);
       }
     }

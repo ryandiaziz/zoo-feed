@@ -28,7 +28,7 @@ const Card = (props) => {
                                             <div className='absolute top-3 right-3 cursor-pointer hover:scale-90'>
                                                 {
                                                     likeData.filter(data => data.id === item.id).length === 1
-                                                        ? <MdFavorite size={30} color='gold' onClick={() => aksi()} />
+                                                        ? <MdFavorite size={30} color='gold'  />
                                                         : <MdFavoriteBorder size={30} color='gold' onClick={() => likeAnimal(item.id)} />
                                                 }
                                             </div>
