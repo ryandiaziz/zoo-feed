@@ -6,14 +6,17 @@ const URL = 'http://localhost:3000/api/users'
 const login = async (datas, cb, regis) => {
     try {
         const isRegis = regis || false;
+
         let result = await axios({
             method: 'POST',
             url: URL + '/login',
             data: datas
         })
+
         const access_token = result.data.access_token;
         localStorage.setItem('access_token', access_token);
         cb(true)
+
         if (!isRegis) {
             window.location.reload();
         }
@@ -34,7 +37,6 @@ const readDataUser = async (cb) => {
             }
         })
         cb(result.data);
-        // console.log(token);
     } catch (error) {
         console.log(error);
     }
