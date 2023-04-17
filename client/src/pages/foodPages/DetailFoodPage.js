@@ -30,7 +30,7 @@ const DetailFoodPage = () => {
     }, [])
     return (
         <>
-            <div className='border-2 my-10 mx-40 shadow-lg rounded-xl py-5'>
+            <div className='border-2 my-10 mx-40 shadow-lg rounded-xl py-5 bg-white'>
                 <h3 className='font-noto font-bold text-3xl text-center mb-5 uppercase'>{form.data.name}</h3>
                 <div className='w-[1000px] mx-auto flex items-center justify-between'>
                     <div className='w-1/2'>
@@ -45,7 +45,7 @@ const DetailFoodPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='my-10 mx-40 px-10 py-5 shadow-lg rounded-xl border-2'>
+            <div className='my-10 mx-40 px-10 py-5 shadow-lg rounded-xl border-2 bg-white'>
                 <h3 className='font-noto font-bold text-3xl text-center mb-5 uppercase'>Animal food</h3>
                 <div className="container flex flex-wrap gap-4 justify-center">
                     {

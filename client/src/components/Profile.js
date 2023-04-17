@@ -35,24 +35,25 @@ const Profile = (props) => {
                         open && (
                             <div
                                 ref={menuRef}
-                                className='bg-white p-4 w-52 shadow-lg absolute -left-14 top-24'>
+                                className='rounded-md bg-white p-4 w-52 shadow-lg absolute right-[2px] top-16'>
                                 <ul>
                                     <Link to={'/profile'}>
                                         <li
                                             onClick={() => {
                                                 setOpen(false);
                                             }}
-                                            className='p-2 text-lg cursor-pointer rounded hover:bg-blue-100'>
+                                            className='font-noto p-2 text-md cursor-pointer rounded hover:bg-blue-100'>
                                             Profile
                                         </li>
                                     </Link>
+                                    <hr />
                                     <Link to={'/signin'}>
                                         <li
                                             onClick={() => {
                                                 setOpen(false);
                                                 logoutHandler();
                                             }}
-                                            className='p-2 text-lg cursor-pointer rounded hover:bg-blue-100'>
+                                            className='p-2 font-noto text-md cursor-pointer rounded hover:bg-blue-100'>
                                             Logout
                                         </li>
                                     </Link>
