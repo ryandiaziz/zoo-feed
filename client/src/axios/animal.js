@@ -10,7 +10,7 @@ const createData = async (items) => {
             method: 'POST',
             url: URL + "/add",
             data: items,
-            headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
+            headers: { 'Content-Type': 'multipart/form-data', access_token: `${accessToken}` }
         })
 
         Swal.fire(
@@ -20,6 +20,25 @@ const createData = async (items) => {
         )
     } catch (e) {
         console.log(e)
+    }
+}
+
+const searchAnimal = async (data, cb) => {
+    try {
+        let result = await axios({
+            method: "GET",
+            url: URL + '/search',
+            params: {
+                key: data
+            },
+            headers: {
+                'X-RapidAPI-Key': 'your-rapidapi-key',
+                'X-RapidAPI-Host': 'body-mass-index-bmi-calculator.p.rapidapi.com',
+            },
+        })
+        cb(result.data);
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -43,7 +62,7 @@ const updateData = async (id, items) => {
             method: 'PUT',
             url: URL + '/update/' + id,
             data: items,
-            headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
+            headers: { 'Content-Type': 'multipart/form-data', access_token: `${accessToken}` }
         })
 
         Swal.fire(
@@ -72,7 +91,7 @@ const deleteData = async (id) => {
                 await axios({
                     method: "DELETE",
                     url: URL + '/delete/' + id,
-                    headers : {access_token: `${accessToken}`}
+                    headers: { access_token: `${accessToken}` }
                 })
 
                 Swal.fire(
@@ -106,5 +125,6 @@ export {
     readDataAnimal,
     updateData,
     deleteData,
-    detailData
+    detailData,
+    searchAnimal
 }

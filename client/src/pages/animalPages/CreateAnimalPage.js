@@ -22,7 +22,7 @@ const CreateAnimalPage = () => {
   function handleUploadChange(e) {
     let uploaded = e.target.files[0];
 
-    setForm({ ...form,imageUrl: uploaded });
+    setForm({ ...form, imageUrl: uploaded });
     setImage(URL.createObjectURL(uploaded));
   }
   useEffect(() => {
@@ -43,7 +43,7 @@ const CreateAnimalPage = () => {
     <>
       <div className="px-[300px] my-5">
         <label
-          for="price"
+          htmlFor="price"
           className="block text-sm font-medium leading-6 text-gray-900"
         >
           Name
@@ -58,7 +58,7 @@ const CreateAnimalPage = () => {
         </div>
 
         <label
-          for="price"
+          htmlFor="price"
           className="block text-sm font-medium leading-6 text-gray-900"
         >
           Age
@@ -74,12 +74,12 @@ const CreateAnimalPage = () => {
 
         <div className="mb-3">
           <label
-            for="countries"
+            htmlFor="countries"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Sex
           </label>
-          
+
           <select
             onClick={(e) => setForm({ ...form, sex: e.target.value })}
             id="countries"
@@ -107,7 +107,7 @@ const CreateAnimalPage = () => {
         </div>
         <div className="mb-3">
           <label
-            for="countries"
+            htmlFor="countries"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Class
@@ -129,7 +129,7 @@ const CreateAnimalPage = () => {
         </div>
         <div className="mb-3">
           <label
-            for="countries"
+            htmlFor="countries"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Habitat

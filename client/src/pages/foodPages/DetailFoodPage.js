@@ -36,8 +36,8 @@ const DetailFoodPage = () => {
                     <div className='w-1/2'>
                         <img src={form.data.imageUrl} alt="" className='rounded-lg w-[500px] h-[350px] object-cover object-top' />
                     </div>
-                    <div class="relative overflow-x-auto w-1/2 ml-9">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <div className="relative overflow-x-auto w-1/2 ml-9">
+                        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <tbody>
                                 <TableRow label={'Type'} data={form.data.type} />
                             </tbody>

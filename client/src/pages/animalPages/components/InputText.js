@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 
 const InputText = (props) => {
-    
-    const [value, setValue] = useState(props.value);
-    function handleChange(event) {
-      setValue(event.target.value);
-      if (props.onChange) {
-        props.onChange(event.target.value);
-      }
+
+  const [value, setValue] = useState(props.value);
+  function handleChange(event) {
+    setValue(event.target.value);
+    if (props.onChange) {
+      props.onChange(event.target.value);
     }
+  }
 
   return (
     <>
       <label
-        for="price"
+        htmlFor="price"
         className="block text-sm font-medium leading-6 text-gray-900"
       >
         {props.label}

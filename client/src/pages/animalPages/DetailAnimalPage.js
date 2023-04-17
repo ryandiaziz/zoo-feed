@@ -38,8 +38,8 @@ const DetailAnimalPage = () => {
                     <div className='w-1/2'>
                         <img src={form.data.imageUrl} alt="" className='rounded-lg w-[500px] h-[350px] object-cover object-top' />
                     </div>
-                    <div class="relative overflow-x-auto w-1/2 ml-9">
-                        <table class="w-full text-sm text-left text-gray-500">
+                    <div className="relative overflow-x-auto w-1/2 ml-9">
+                        <table className="w-full text-sm text-left text-gray-500">
                             <tbody>
                                 <TableRow label={'Age'} data={`${form.data.age} years`} />
                                 <TableRow label={'Sex'} data={form.data.sex} />

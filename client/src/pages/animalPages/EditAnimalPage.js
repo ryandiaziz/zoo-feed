@@ -83,7 +83,7 @@ const EditAnimalPage = () => {
             value={info.data.name}
           />
           <InputText
-          onChange={(value) => handleChange("age", value)}
+            onChange={(value) => handleChange("age", value)}
             label={"Age"}
             name={"age"}
             placeHolder={"Enter animal age"}
@@ -91,7 +91,7 @@ const EditAnimalPage = () => {
           />
           <div className="mb-3">
             <label
-              for="countries"
+              htmlFor="countries"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Sex
@@ -123,7 +123,7 @@ const EditAnimalPage = () => {
           </div>
           <div className="mb-3">
             <label
-              for="countries"
+              htmlFor="countries"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Class
@@ -145,7 +145,7 @@ const EditAnimalPage = () => {
           </div>
           <div className="mb-3">
             <label
-              for="countries"
+              htmlFor="countries"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Habitat

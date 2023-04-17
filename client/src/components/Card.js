@@ -4,7 +4,7 @@ import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
 import ButtonGroup from './ButtonGroup'
 
 const Card = (props) => {
-    const { userData, loginStatus, items } = props
+    const { userData, loginStatus, items, likeData } = props
     const [like, setLike] = useState(false);
 
     const isAnimal = props.isAnimal || false;
@@ -19,18 +19,23 @@ const Card = (props) => {
         <>
             {
                 items.map(item => {
+
                     return (
-                        <div className="rounded-md shadow-lg overflow-hidden bg-white w-[300px] hover:scale-95 hover:bg-slate-100 transition-all duration-150 relative">
+                        <div key={item.id} className="rounded-md shadow-lg overflow-hidden bg-white w-[300px] hover:scale-95 hover:bg-slate-100 transition-all duration-150 relative">
                             {/* show LIKES */}
                             {
                                 loginStatus ?
-                                    isAnimal === true ?
+                                    isAnimal ?
                                         <div className='absolute top-3 right-3 cursor-pointer hover:scale-90'>
                                             {
-                                                like === false ?
-                                                    <MdFavoriteBorder size={30} color='gold' onClick={() => aksi()} />
-                                                    :
-                                                    <MdFavorite size={30} color='gold' onClick={() => aksi()} />
+                                                // like ?
+                                                //     <MdFavorite size={30} color='gold' onClick={() => aksi()} /> :
+                                                //     <MdFavoriteBorder size={30} color='gold' onClick={() => aksi()} />
+                                                likeData.map(likeItem => {
+                                                    if (likeItem.id === item.id) {
+                                                        return (<MdFavorite key={likeItem.id} size={30} color='gold' onClick={() => aksi()} />)
+                                                    }
+                                                })
                                             }
                                         </div>
                                         :
