@@ -5,12 +5,19 @@ import { FaPlus } from 'react-icons/fa'
 import {
     Link
 } from 'react-router-dom'
+import Pagination from '../../components/Pagination'
 
 const ShowFoodPage = (props) => {
     const { userData } = props
     const link = '/foods/detail';
     const [foods, setFoods] = useState([])
     const [search, setSearch] = useState('')
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage, setPostPerPage] = useState(8)
+
+    const lastPostIndex = currentPage * postPerPage;
+    const firstPostPostIndex = lastPostIndex - postPerPage;
+    const currentPosts = foods.slice(firstPostPostIndex, lastPostIndex);
 
     useEffect(() => {
         readData(result => setFoods(result))
@@ -29,7 +36,7 @@ const ShowFoodPage = (props) => {
             }
             <div>
                 <div className="container py-10 w-full">
-                    <div className='text-center mb-5 font-noto font-semibold text-xl'>Find your favorit animal</div>
+                    <div className='text-center mb-5 font-noto font-semibold text-xl'>Find animal foods</div>
                     <div className='w-1/2 m-auto'>
                         <form className="flex items-center">
                             <label htmlFor="simple-search" className="sr-only">Search</label>
@@ -45,10 +52,18 @@ const ShowFoodPage = (props) => {
             </div>
             <div className="flex gap-4 justify-center flex-wrap py-4 px-4">
                 <Card
-                    items={foods}
+                    items={currentPosts}
                     link={link}
                     userData={userData}
                     search={search}
+                />
+            </div>
+            <div className='flex justify-center'>
+                <Pagination
+                    totalPosts={foods.length}
+                    postPerPage={postPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
                 />
             </div>
         </>

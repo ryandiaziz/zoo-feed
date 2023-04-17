@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams, useNavigate } from 'react-router'
-import { createUser, login } from '../../axios/user'
+import { createUser } from '../../axios/user'
 
 const SignUpPage = (props) => {
     const params = useParams();
@@ -18,10 +18,6 @@ const SignUpPage = (props) => {
 
     const submitHandler = () => {
         createUser(form, loginCbHandler);
-        // login({
-        //     email: form.email,
-        //     password: form.password
-        // }, loginCbHandler)
         navigate('/')
     };
     return (

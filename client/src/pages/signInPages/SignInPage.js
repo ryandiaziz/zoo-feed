@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../../components/Modal';
 import { login } from '../../axios/user';
@@ -13,40 +12,24 @@ const SignInPage = (props) => {
     })
     const [modalOpen, setModalOpen] = useState(false);
 
-    const modalHandler = (data) => {
-        setModalOpen(data);
-    }
-
-    // const loginUser = async () => {
-    //     try {
-    //         let result = await axios({
-    //             method: 'POST',
-    //             url: 'http://localhost:3000/api/users/login',
-    //             data: form
-    //         })
-    //         const access_token = result.data.access_token
-    //         localStorage.setItem('access_token', access_token)
-
-    //         loginCbHandler(true)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
     const submitHandler = () => {
-        // console.log(form)
-        // loginUser()
-        login(form, loginCbHandler);
+        login(form, loginCbHandler, false);
         navigate('/')
     }
     return (
         <>
             {
-                modalOpen && <Modal modalHandler={modalHandler} />
+                modalOpen
+                    ? (
+                        <Modal
+                            modalOpen={modalOpen}
+                            setModalOpen={setModalOpen}
+                        />
+                    )
+                    : <div></div>
             }
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
                 <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-                    {/* <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" /> */}
                     Zoo Feed
                 </a>
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
