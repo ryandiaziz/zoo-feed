@@ -1,40 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../../components/Card'
-import { readDataAnimal, deleteData, searchAnimal } from '../../axios/animal'
+import { readDataAnimal } from '../../axios/animal'
 import { getLikeData } from '../../axios/animalUser'
 import { FaPlus } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Pagination from '../../components/Pagination'
 
 const ShowAnimalPage = (props) => {
-    const { loginStatus, userData } = props
+    const { loginStatus, userData } = props;
     const isAnimal = true;
-    const navigata = useNavigate()
-    const [items, setItems] = useState([])
-    const [likeData, setLikeData] = useState([])
-    const [search, setSearch] = useState('')
+    const [items, setItems] = useState([]);
+    const [likeData, setLikeData] = useState([]);
+    const [search, setSearch] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage, setPostPerPage] = useState(8)
+
+    const lastPostIndex = currentPage * postPerPage;
+    const firstPostPostIndex = lastPostIndex - postPerPage;
+    const currentPosts = items.slice(firstPostPostIndex, lastPostIndex);
 
     const getDatas = async () => {
         await readDataAnimal(result => setItems(result));
         getLikeData((result) => setLikeData(result));
     }
 
-    const submitSearch = () => {
-        searchAnimal(search, (result) => setItems(result))
-    }
-
     useEffect(() => {
         getDatas()
     }, [])
-
-    // useEffect(() => {
-
-    // })
-
-    const deleteHandler = (id) => {
-        deleteData(id)
-        navigata('/items')
-    }
 
     return (
         <>
@@ -65,7 +57,7 @@ const ShowAnimalPage = (props) => {
             </div>
             <div className="flex gap-4 justify-center flex-wrap py-4 px-4">
                 <Card
-                    items={items}
+                    items={currentPosts}
                     isAnimal={isAnimal}
                     loginStatus={loginStatus}
                     userData={userData}
@@ -74,7 +66,12 @@ const ShowAnimalPage = (props) => {
                 />
             </div>
             <div className='flex justify-center'>
-                <Pagination />
+                <Pagination
+                    totalPosts={items.length}
+                    postPerPage={postPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                />
             </div>
         </>
     )

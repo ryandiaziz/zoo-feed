@@ -7,7 +7,7 @@ const ProfilePage = (props) => {
     const [likeData, setLikeData] = useState([])
     useEffect(() => {
         getLikeData((result) => setLikeData(result));
-    })
+    }, [])
     return (
         <>
             <div className='border-2 my-10 mx-40 shadow-lg rounded-xl py-5 bg-white'>

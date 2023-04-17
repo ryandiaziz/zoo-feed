@@ -13,9 +13,6 @@ const SignInPage = (props) => {
     })
     const [modalOpen, setModalOpen] = useState(false);
 
-    const modalHandler = (data) => {
-        setModalOpen(data);
-    }
 
     // const loginUser = async () => {
     //     try {
@@ -42,7 +39,14 @@ const SignInPage = (props) => {
     return (
         <>
             {
-                modalOpen && <Modal modalHandler={modalHandler} />
+                modalOpen
+                    ? (
+                        <Modal
+                            modalOpen={modalOpen}
+                            setModalOpen={setModalOpen}
+                        />
+                    )
+                    : <div></div>
             }
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto">
                 <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900">

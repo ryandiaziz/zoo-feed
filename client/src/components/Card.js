@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
+import { FaRegBookmark, FaBookmark } from 'react-icons/fa'
 import ButtonGroup from './ButtonGroup'
+import { userLike, userUnlike } from '../axios/animalUser'
 
 const Card = (props) => {
     const { userData, loginStatus, items, likeData, search } = props
     const isAnimal = props.isAnimal || false;
 
     const likeAnimal = (id) => {
-
+        userLike(id)
+    }
+    const unlikeAnimal = id => {
+        userUnlike(id);
     }
     return (
         <>
@@ -28,7 +33,7 @@ const Card = (props) => {
                                             <div className='absolute top-3 right-3 cursor-pointer hover:scale-90'>
                                                 {
                                                     likeData.filter(data => data.id === item.id).length === 1
-                                                        ? <MdFavorite size={30} color='gold' onClick={() => aksi()} />
+                                                        ? <MdFavorite size={30} color='gold' onClick={() => unlikeAnimal(item.id)} />
                                                         : <MdFavoriteBorder size={30} color='gold' onClick={() => likeAnimal(item.id)} />
                                                 }
                                             </div>

@@ -3,18 +3,34 @@ import axios from 'axios'
 const URL = 'http://localhost:3000/api/animaluser';
 const token = localStorage.getItem('access_token');
 
-const userLike = async () => {
+const userLike = async (id) => {
     try {
         let result = await axios({
             method: 'POST',
-            url: URL + 'add',
-            data: '',
+            url: URL + '/add',
+            data: {
+                animalId: id
+            },
             headers: {
                 access_token: token
             }
         })
     } catch (error) {
         console.log(error);
+    }
+}
+
+const userUnlike = async (id) => {
+    try {
+        let result = await axios({
+            method: 'DELETE',
+            url: URL + '/delete' + `/${id}`,
+            headers: {
+                access_token: token
+            }
+        })
+    } catch (error) {
+
     }
 }
 
@@ -35,5 +51,6 @@ const getLikeData = async (cb) => {
 
 export {
     userLike,
-    getLikeData
+    getLikeData,
+    userUnlike
 }

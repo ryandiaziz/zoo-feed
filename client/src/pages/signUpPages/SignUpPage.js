@@ -18,10 +18,6 @@ const SignUpPage = (props) => {
 
     const submitHandler = () => {
         createUser(form, loginCbHandler);
-        // login({
-        //     email: form.email,
-        //     password: form.password
-        // }, loginCbHandler)
         navigate('/')
     };
     return (
