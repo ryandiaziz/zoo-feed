@@ -65,6 +65,17 @@ const createUser = async (datas, loginCbHandler) => {
     }
 }
 
+const updateUser = async () => {
+    try {
+        await axios({
+            method: 'PUT',
+            url: URL + '/update',
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export {
     readDataUser,
     createUser,
