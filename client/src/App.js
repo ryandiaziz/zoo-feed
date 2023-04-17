@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <Navbar loginStatus={loginStatus} loginCbHandler={loginCbHandler} userData={userData} />
-      <div className='pt-24'>
+      <div className='pt-24 bg-slate-50'>
         <MainContent loginStatus={loginStatus} loginCbHandler={loginCbHandler} userData={userData} />
       </div>
     </>

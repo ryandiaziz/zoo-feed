@@ -37,19 +37,19 @@ const SignUpPage = (props) => {
                     </h1>
                     <form className="space-y-4 md:space-y-6" action="#">
                         <div>
-                            <label for="name" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
+                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Name</label>
                             <input type="text" onChange={(e) => setForm({ ...form, name: e.target.value })} id="name" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="your name" required="" />
                         </div>
                         <div>
-                            <label for="age" className="block mb-2 text-sm font-medium text-gray-900">Age</label>
+                            <label htmlFor="age" className="block mb-2 text-sm font-medium text-gray-900">Age</label>
                             <input type="text" onChange={(e) => setForm({ ...form, age: e.target.value })} id="age" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="your age" required="" />
                         </div>
                         <div>
-                            <label for="email" className="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Email</label>
                             <input type="email" onChange={(e) => setForm({ ...form, email: e.target.value })} id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="name@company.com" required="" />
                         </div>
                         <div>
-                            <label for="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Password</label>
                             <input type="password" onChange={(e) => setForm({ ...form, password: e.target.value })} id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="" />
                         </div>
                         <button
