@@ -9,23 +9,23 @@ import { addAF, deleteAF } from "../../axios/animalfood";
 import Swal from "sweetalert2";
 
 const DetailAnimalPage = (props) => {
-    const navigation = useNavigate();
-    const params = useParams();
-    const { loginStatus, userData } = props;
-    const [show, setShow] = useState(false);
-    const [foods, setFoods] = useState([]);
-    const [allFood, setAllFood] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [detail, setDetail] = useState({
+  const navigation = useNavigate();
+  const params = useParams();
+  const { loginStatus, userData } = props;
+  const [show, setShow] = useState(false);
+  const [foods, setFoods] = useState([]);
+  const [allFood, setAllFood] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [detail, setDetail] = useState({
     data: {},
     classTypeData: {},
     habitatData: {},
   });
-    const [form, setForm] = useState({
+  const [form, setForm] = useState({
     foodId: 0,
   });
 
-    const getAnimalDetail = () => {
+  const getAnimalDetail = () => {
     const { id } = params;
     detailData(+id, (result) => {
       setDetail({
@@ -38,11 +38,11 @@ const DetailAnimalPage = (props) => {
     readData((result) => setAllFood(result));
   };
 
-    useEffect(() => {
+  useEffect(() => {
     getAnimalDetail();
   }, []);
 
-    const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const { id } = params;
     if (form.foodId !== 0) {
@@ -60,7 +60,7 @@ const DetailAnimalPage = (props) => {
     }
   };
 
-    const handleClose = (event) => {
+  const handleClose = (event) => {
     event.preventDefault();
     setIsModalOpen(false);
   };
@@ -69,8 +69,8 @@ const DetailAnimalPage = (props) => {
     let id2 = +event
     const { id } = params;
     let id1 = +id
-    deleteAF(id1,id2)
-    
+    deleteAF(id1, id2)
+
   };
 
   return (
@@ -153,42 +153,42 @@ const DetailAnimalPage = (props) => {
           {foods.map((food) => {
             return (
               <>
-              <div className=" bg-white rounded-md shadow-md">
-              <Link
-                  to={`/foods/detail/${food.id}`}
-                  
-                >
-                  <img
-                    src={food.imageUrl}
-                    className="hover:scale-95 transition-all h-40 w-40 object-cover rounded-t-md"
-                    alt=""
-                  />
-                  <div className="text-center font-noto font-normal">
-                    {food.name}
-                    
-                  </div>
-                </Link>
-                {show ? (
-                      <>
+                <div className=" bg-white rounded-md shadow-md">
+                  <Link
+                    to={`/foods/detail/${food.id}`}
+
+                  >
+                    <img
+                      src={food.imageUrl}
+                      className="hover:scale-95 transition-all h-40 w-40 object-cover rounded-t-md"
+                      alt=""
+                    />
+                    <div className="text-center font-noto font-normal">
+                      {food.name}
+
+                    </div>
+                  </Link>
+                  {show ? (
+                    <>
                       <div
-                      onClick={()=>handleDelete(food.id)}
-                      className="hover:scale-90 transition-all flex items-center bg-red-500 rounded-md shadow-md pd-2 mb-5 ">
+                        onClick={() => handleDelete(food.id)}
+                        className="hover:scale-90 transition-all flex items-center bg-red-500 rounded-md shadow-md pd-2 mb-5 ">
                         <FaWindowClose
-                        className="ml-2 mb-1 mt-1"
+                          className="ml-2 mb-1 mt-1"
                           size={25}
                           color="#FFF"
                         />
                         <span class="font-noto font-bold text-m text-center mr-2 ml-2 uppercase text-white">
-                      DELETE
-                    </span>
-                        </div>
-                      </>
-                    ) : (
-                      <></>
-                    )}
+                          DELETE
+                        </span>
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
 
-              </div>
-                
+                </div>
+
               </>
             );
           })}
@@ -210,11 +210,10 @@ const DetailAnimalPage = (props) => {
         {/* Modal */}
 
         <div
-          className={`${
-            isModalOpen
+          className={`${isModalOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
-          } fixed inset-0 z-10 flex items-center justify-center transition-opacity duration-300`}
+            } fixed inset-0 z-20 flex items-center justify-center transition-opacity duration-300`}
         >
           <div className="fixed z-10 inset-0 overflow-y-auto">
             <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">

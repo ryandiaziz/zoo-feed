@@ -36,10 +36,10 @@ const Card = (props) => {
                                                 {
                                                     likeData.filter(data => data.id === item.id).length === 1
                                                         ? userData.roleId === 1
-                                                            ? <MdFavorite size={30} color='gold' onClick={() => unlikeAnimal(item.id)} />
+                                                            ? <MdFavorite size={35} color='gold' onClick={() => unlikeAnimal(item.id)} />
                                                             : <FaPlusCircle size={35} color='green' className='bg-white rounded-full' onClick={() => unlikeAnimal(item.id)} />
                                                         : userData.roleId === 1
-                                                            ? <MdFavoriteBorder size={30} color='gold' onClick={() => likeAnimal(item.id)} />
+                                                            ? <MdFavoriteBorder size={35} color='gold' onClick={() => likeAnimal(item.id)} />
                                                             : <FaPlusCircle size={35} color='grey' className='bg-white rounded-full' onClick={() => likeAnimal(item.id)} />
                                                 }
                                             </div>

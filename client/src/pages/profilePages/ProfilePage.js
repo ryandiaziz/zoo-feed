@@ -131,7 +131,13 @@ const ProfilePage = (props) => {
             {
                 likeData
                     ? <div className='my-10 mx-40 px-10 py-5 shadow-lg rounded-xl border-2 bg-white'>
-                        <h3 className='font-noto font-bold text-3xl text-center mb-5 uppercase'>Favorite Animal</h3>
+                        <h3 className='font-noto font-bold text-3xl text-center mb-5 uppercase'>
+                            {
+                                userData.roleId === 1
+                                    ? 'Favorite Animal'
+                                    : 'Keep Animal'
+                            }
+                        </h3>
                         <div className="container flex flex-wrap gap-4 justify-center">
                             {
 
