@@ -50,7 +50,7 @@ const MainContent = (props) => {
                     </Route>
                 </Route>
 
-                <Route path='classType' element={<ClassPage></ClassPage>}>
+                <Route path='classType' >
                     <Route path='' ></Route>
                     <Route path='detail'>
                         <Route path=':id' element={<ClassDetail loginStatus={loginStatus} userData={userData}></ClassDetail>}></Route>
