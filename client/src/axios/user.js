@@ -80,7 +80,6 @@ const updateUser = async (id, datas) => {
             'User ' + id + ' has been updated',
             'success'
         )
-        window.location.reload()
     } catch (error) {
         console.log(error);
     }

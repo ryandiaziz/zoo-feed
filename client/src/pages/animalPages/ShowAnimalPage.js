@@ -22,11 +22,11 @@ const ShowAnimalPage = (props) => {
 
     useEffect(() => {
         readDataAnimal(result => setItems(result));
-        console.log("ceek");
     }, [items.name])
 
     useEffect(() => {
         getLikeData((result) => setLikeData(result));
+        console.log('LIKED');
     }, [click])
 
     return (
