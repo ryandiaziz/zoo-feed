@@ -6,13 +6,15 @@ import ButtonGroup from './ButtonGroup'
 import { userLike, userUnlike } from '../axios/animalUser'
 
 const Card = (props) => {
-    const { userData, loginStatus, items, likeData, search } = props
+    const { userData, loginStatus, items, likeData, search, setClick, click } = props
     const isAnimal = props.isAnimal || false;
 
     const likeAnimal = (id) => {
+        setClick(!click)
         userLike(id)
     }
     const unlikeAnimal = id => {
+        setClick(!click)
         userUnlike(id);
     }
     return (

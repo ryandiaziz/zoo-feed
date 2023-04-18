@@ -5,7 +5,7 @@ const token = localStorage.getItem('access_token');
 
 const userLike = async (id) => {
     try {
-        let result = await axios({
+        await axios({
             method: 'POST',
             url: URL + '/add',
             data: {
@@ -22,7 +22,7 @@ const userLike = async (id) => {
 
 const userUnlike = async (id) => {
     try {
-        let result = await axios({
+        await axios({
             method: 'DELETE',
             url: URL + '/delete' + `/${id}`,
             headers: {

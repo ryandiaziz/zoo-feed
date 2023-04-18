@@ -8,7 +8,8 @@ const Profile = (props) => {
     const logoutHandler = () => {
         localStorage.clear()
         loginCbHandler(false)
-        navigate('/login')
+        navigate('/signin')
+        window.location.reload()
     }
     const [open, setOpen] = useState(false);
 

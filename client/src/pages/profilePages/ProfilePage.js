@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TableRow from '../animalPages/components/TableRow';
 import { getLikeData } from '../../axios/animalUser';
+import { updateUser } from '../../axios/user';
 import { FaRegEdit } from 'react-icons/fa';
 import ProfileTextInput from './components/ProfileTextInput';
 
@@ -23,6 +23,7 @@ const ProfilePage = (props) => {
 
     const saveHandler = () => {
         setEdit(false);
+        updateUser(userData.id, form)
     }
 
     function handleUploadChange(e) {
@@ -38,7 +39,7 @@ const ProfilePage = (props) => {
                         ? <div class="flex justify-end">
                             <div
                                 onClick={() => setEdit(true)}
-                                class="z-10 hover:scale-90 transition-all flex items-center bg-green-500 rounded-md shadow-md pd-2 mb-5 absolute right-5 cursor-pointer"
+                                class="hover:scale-90 transition-all flex items-center bg-green-500 rounded-md shadow-md pd-2 mb-5 absolute right-5 cursor-pointer"
                             >
                                 <span class="font-noto font-bold text-m text-center mr-2 ml-2 uppercase text-white">
                                     EDIT

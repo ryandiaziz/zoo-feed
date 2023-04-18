@@ -13,21 +13,21 @@ const ShowAnimalPage = (props) => {
     const [likeData, setLikeData] = useState([]);
     const [search, setSearch] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPage, setPostPerPage] = useState(8)
+    const [postPerPage, setPostPerPage] = useState(8);
+    const [click, setClick] = useState(false)
 
     const lastPostIndex = currentPage * postPerPage;
     const firstPostPostIndex = lastPostIndex - postPerPage;
     const currentPosts = items.slice(firstPostPostIndex, lastPostIndex);
 
-    const getDatas = async () => {
-        await readDataAnimal(result => setItems(result));
-        getLikeData((result) => setLikeData(result));
-    }
+    useEffect(() => {
+        readDataAnimal(result => setItems(result));
+        console.log("ceek");
+    }, [items.name])
 
     useEffect(() => {
-        getDatas()
-    }, [])
-
+        getLikeData((result) => setLikeData(result));
+    }, [click])
 
     return (
         <>
@@ -64,6 +64,8 @@ const ShowAnimalPage = (props) => {
                     userData={userData}
                     likeData={likeData}
                     search={search}
+                    setClick={setClick}
+                    click={click}
                 />
             </div>
             <div className='flex justify-center'>

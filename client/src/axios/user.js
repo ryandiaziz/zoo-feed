@@ -1,7 +1,8 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const URL = 'http://localhost:3000/api/users'
+const URL = 'http://localhost:3000/api/users';
+const token = localStorage.getItem('access_token');
 
 const login = async (datas, cb, regis) => {
     try {
@@ -26,8 +27,6 @@ const login = async (datas, cb, regis) => {
 }
 
 const readDataUser = async (cb) => {
-    const token = localStorage.getItem('access_token');
-    console.log(token);
     try {
         let result = await axios({
             method: 'GET',
@@ -65,12 +64,23 @@ const createUser = async (datas, loginCbHandler) => {
     }
 }
 
-const updateUser = async () => {
+const updateUser = async (id, datas) => {
     try {
         await axios({
             method: 'PUT',
-            url: URL + '/update',
+            url: URL + `/update/${id}`,
+            data: datas,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                access_token: token
+            }
         })
+        await Swal.fire(
+            'Edit user ' + id,
+            'User ' + id + ' has been updated',
+            'success'
+        )
+        window.location.reload()
     } catch (error) {
         console.log(error);
     }
@@ -79,5 +89,6 @@ const updateUser = async () => {
 export {
     readDataUser,
     createUser,
-    login
+    login,
+    updateUser
 }
