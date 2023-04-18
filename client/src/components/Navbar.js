@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 import Profile from './Profile'
 
 const Navbar = (props) => {
-    const { loginStatus, loginCbHandler, userData } = props
+    const {
+        loginStatus,
+        loginCbHandler,
+        userData,
+    } = props
 
     return (
         <nav className="flex h-24 w-full items-center justify-between bg-teal-500 p-6 fixed z-20">

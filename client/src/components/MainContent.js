@@ -22,7 +22,13 @@ import {
 } from '../pages'
 
 const MainContent = (props) => {
-    const { loginStatus, loginCbHandler, userData } = props;
+    const {
+        loginStatus,
+        loginCbHandler,
+        userData,
+        userCheck,
+        setUserCheck,
+    } = props;
     return (
         <>
             <Routes>
@@ -56,7 +62,7 @@ const MainContent = (props) => {
                         <Route path=':id' element={<ClassDetail loginStatus={loginStatus} userData={userData}></ClassDetail>}></Route>
                     </Route>
                 </Route>
-                
+
                 <Route path='habitats' element={<HabitatPage></HabitatPage>}>
                     <Route path='' ></Route>
                     <Route path='detail'>
@@ -68,7 +74,7 @@ const MainContent = (props) => {
                 <Route path='signup'>
                     <Route path=':roleId' element={<SignUpPage loginCbHandler={loginCbHandler} />}></Route>
                 </Route>
-                <Route path='profile' element={<ProfilePage userData={userData} />}></Route>
+                <Route path='profile' element={<ProfilePage userData={userData} setUserCheck={setUserCheck} userCheck={userCheck} />}></Route>
             </Routes>
         </>
     )

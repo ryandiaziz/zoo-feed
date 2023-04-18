@@ -5,7 +5,11 @@ import { FaRegEdit } from 'react-icons/fa';
 import ProfileTextInput from './components/ProfileTextInput';
 
 const ProfilePage = (props) => {
-    const { userData } = props;
+    const {
+        userData,
+        userCheck,
+        setUserCheck
+    } = props;
     const [likeData, setLikeData] = useState([]);
     const [edit, setEdit] = useState(false);
     const [uploadImage, setUploadImage] = useState(userData.imageUrl);
@@ -22,6 +26,7 @@ const ProfilePage = (props) => {
     }, [])
 
     const saveHandler = () => {
+        setUserCheck(!userCheck);
         setEdit(false);
         updateUser(userData.id, form)
     }
@@ -33,7 +38,7 @@ const ProfilePage = (props) => {
     }
     return (
         <>
-            <div className='relative border-2 my-10 mx-40 shadow-lg rounded-xl py-5 bg-red-300'>
+            <div className='relative border-2 my-10 mx-40 shadow-lg rounded-xl py-5 bg-white'>
                 {
                     !edit
                         ? <div class="flex justify-end">
@@ -57,18 +62,18 @@ const ProfilePage = (props) => {
                         <div className='z-10 flex justify-end'>
                             <button
                                 onClick={() => saveHandler()}
-                                className="font-noto font-bold text-m absolute right-5 w-24 text-white bg-green-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg text-sm px-5 py-2.5 text-center">Save</button>
+                                className="font-noto font-bold text-m absolute right-5 w-24 bg-green-500 text-white hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg text-sm px-5 py-2.5 text-center">Save</button>
                         </div>
                 }
-                <div className='w-[1000px] mx-auto flex items-center justify-between bg-yellow-300'>
-                    <div className='w-1/2 bg-green-300'>
+                <div className='w-[1000px] mx-auto flex items-center justify-between'>
+                    <div className='w-1/2'>
                         <div className="mb-3">
-                            <div className="mb-4">
+                            <div className="mb-4 ml-10 bg-red-300 h-[200px] w-[200px] rounded-full flex justify-center ">
                                 <img
                                     src={uploadImage}
-                                    className="img-thumbnail"
+                                    className="object-cover rounded-full"
                                     alt="Profile Image"
-                                    width="300px"
+
                                 />
                             </div>
                             {
@@ -83,7 +88,7 @@ const ProfilePage = (props) => {
                             }
                         </div>
                     </div>
-                    <div className="overflow-x-auto w-2/5 ml-9 le">
+                    <div className="overflow-x-auto w-2/5 ml-9 pr-20 object-left mr-10">
                         <ProfileTextInput
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
                             label={'Name'}

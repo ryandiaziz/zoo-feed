@@ -8,6 +8,7 @@ import './App.css';
 function App() {
   const [loginStatus, setLoginStatus] = useState(false)
   const [userData, setUserData] = useState([])
+  const [userCheck, setUserCheck] = useState(false);
   const loginCbHandler = (result) => {
     setLoginStatus(result)
   }
@@ -19,11 +20,28 @@ function App() {
       setLoginStatus(false)
     }
   }, [loginStatus])
+
+  useEffect(() => {
+    if (localStorage.getItem('access_token')) {
+      readDataUser(result => setUserData(result))
+    }
+  }, [userCheck])
+
   return (
     <>
-      <Navbar loginStatus={loginStatus} loginCbHandler={loginCbHandler} userData={userData} />
+      <Navbar
+        loginStatus={loginStatus}
+        loginCbHandler={loginCbHandler}
+        userData={userData}
+      />
       <div className='pt-24 bg-slate-50'>
-        <MainContent loginStatus={loginStatus} loginCbHandler={loginCbHandler} userData={userData} />
+        <MainContent
+          loginStatus={loginStatus}
+          loginCbHandler={loginCbHandler}
+          userData={userData}
+          setUserCheck={setUserCheck}
+          userCheck={userCheck}
+        />
       </div>
     </>
   );
