@@ -12,9 +12,6 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   const [ClassType, setClassType] = useState([]);
   const [habitat, setHabitat] = useState([]);
-  
-
-  
 
   useEffect(() => {
     getClassType((result) => setClassType(result));
@@ -26,7 +23,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative h-screen bg-gray-100">
+      <div className="relative h-screen bg-gray-100 border-2 border-red-400">
         <img
           className="w-full h-full object-cover"
           src="https://www.zoo.pt/media/banners/apadrinhamento-zoo_desktop.png"
@@ -91,16 +88,16 @@ const HomePage = () => {
                     {data.name}
                   </div>
                   <Link >
-                  <div className="bg-black bg-opacity-30 rounded-lg hover:scale-95 transition-all">
-                    <img
-                      className="rounded-lg mb-2 object-cover object-top "
-                      src={data.imageUrl}
-                      alt="gambar"
-                    />
-                    <p className="text-md px-6 py-2 text-justify font-noto font-normal">
-                      {data.description}
-                    </p>
-                  </div>
+                    <div className="bg-black bg-opacity-30 rounded-lg hover:scale-95 transition-all">
+                      <img
+                        className="rounded-lg mb-2 object-cover object-top "
+                        src={data.imageUrl}
+                        alt="gambar"
+                      />
+                      <p className="text-md px-6 py-2 text-justify font-noto font-normal">
+                        {data.description}
+                      </p>
+                    </div>
                   </Link>
                 </div>
               </SwiperSlide>

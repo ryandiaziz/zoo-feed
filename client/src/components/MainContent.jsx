@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
     HomePage,
@@ -15,7 +15,6 @@ import {
     EditBrandPage,
     DetailFoodPage,
     ProfilePage,
-    ClassPage,
     ClassDetail,
     HabitatPage,
     HabitatDetail
@@ -33,7 +32,7 @@ const MainContent = (props) => {
         <>
             <Routes>
                 <Route path='' element={
-                    <HomePage></HomePage>
+                    <HomePage />
                 }></Route>
                 <Route path='animals' element={<AnimalPage></AnimalPage>}>
                     <Route path='' element={<ShowAnimalPage loginStatus={loginStatus} userData={userData} />}></Route>
