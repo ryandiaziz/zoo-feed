@@ -4,8 +4,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./styles.css";
+import lionImage from '../assets/lion.png'
 import { Parallax, Pagination, Navigation } from "swiper";
-import { getClassType } from "./../axios/classType";
+import { getClassType } from "../axios/classType";
 import { getHabitat } from "../axios/habitat";
 import { Link } from "react-router-dom";
 
@@ -23,21 +24,20 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative h-screen bg-gray-100 border-2 border-red-400">
+      <section className="relative h-screen bg-gray-100">
         <img
-          className="w-full h-full object-cover"
-          src="https://www.zoo.pt/media/banners/apadrinhamento-zoo_desktop.png"
+          className="w-full h-full object-cover object-top"
+          src={lionImage}
           alt="gambar"
         />
-        <div className="absolute top-20 right-10 z-5 p-4 bg-white bg-opacity-0 rounded">
-          <h5
-            className="text-3xl font-bold mb-2"
-            style={{ fontFamily: "Zoo", fontSize: "4rem", color: "white" }}
+        <div className="absolute top-48 right-10 z-5 p-4 bg-white bg-opacity-0 rounded">
+          <h1
+            className="text-[80px] mb-2 font-amatic font-bold text-white"
           >
             Welcome to Zoo Feed !
-          </h5>
+          </h1>
         </div>
-      </div>
+      </section>
       <div className="absolute top-50 right-10 z-10 bg-black my-2 bg-opacity-90 rounded-lg w-[300px] h-[50px]">
         <h5
           className="text-3xl font-bold mb-2 "
@@ -65,7 +65,7 @@ const HomePage = () => {
           slot="container-start"
           className="parallax-bg"
           style={{
-            "background-image":
+            "backgroundImage":
               "url(https://scz.org/wp-content/uploads/2018/03/giraffe-sedgwick-county-zoo-1024x682.jpg)",
           }}
           data-swiper-parallax="-23%"
@@ -73,36 +73,33 @@ const HomePage = () => {
 
         {ClassType.map((data) => {
           return (
-            <>
-              <SwiperSlide>
-                <div className="text " data-swiper-parallax="-100">
-                  <div
-                    className="title "
-                    style={{
-                      fontFamily: "Zoo",
-                      fontSize: "3rem",
-                      color: "white",
-                    }}
-                    data-swiper-parallax="-300"
-                  >
-                    {data.name}
-                  </div>
-                  <Link >
-                    <div className="bg-black bg-opacity-30 rounded-lg hover:scale-95 transition-all">
-                      <img
-                        className="rounded-lg mb-2 object-cover object-top "
-                        src={data.imageUrl}
-                        alt="gambar"
-                      />
-                      <p className="text-md px-6 py-2 text-justify font-noto font-normal">
-                        {data.description}
-                      </p>
-                    </div>
-                  </Link>
+            <SwiperSlide key={data.name}>
+              <div className="text " data-swiper-parallax="-100">
+                <div
+                  className="title "
+                  style={{
+                    fontFamily: "Zoo",
+                    fontSize: "3rem",
+                    color: "white",
+                  }}
+                  data-swiper-parallax="-300"
+                >
+                  {data.name}
                 </div>
-              </SwiperSlide>
-
-            </>
+                <Link >
+                  <div className="bg-black bg-opacity-30 rounded-lg hover:scale-95 transition-all">
+                    <img
+                      className="rounded-lg mb-2 object-cover object-top "
+                      src={data.imageUrl}
+                      alt="gambar"
+                    />
+                    <p className="text-md px-6 py-2 text-justify font-noto font-normal">
+                      {data.description}
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            </SwiperSlide>
           );
         })}
       </Swiper>
@@ -134,7 +131,7 @@ const HomePage = () => {
           slot="container-start"
           className="parallax-bg"
           style={{
-            "background-image":
+            "backgroundImage":
               "url(https://cdn.wcs.org/2022/05/23/3b758djh64_Julie_Larsen_Maher_0199_Visitors_with_Children_JUN_BZ_11_02_18.jpg)",
           }}
           data-swiper-parallax="-23%"
@@ -142,38 +139,36 @@ const HomePage = () => {
 
         {habitat.map((data) => {
           return (
-            <>
-              <SwiperSlide>
-                <div className="float-right">
-                  <div className="hover:scale-95 transition-all bg-black bg-opacity-50 rounded-lg ">
+            <SwiperSlide key={data.name}>
+              <div className="float-right">
+                <div className="hover:scale-95 transition-all bg-black bg-opacity-50 rounded-lg ">
+                  <div
+                    className="text  "
+                    data-swiper-parallax="-100"
+                  >
                     <div
-                      className="text  "
-                      data-swiper-parallax="-100"
+                      className="title text-justify "
+                      style={{
+                        fontFamily: "Zoo",
+                        fontSize: "3rem",
+                        color: "white",
+                      }}
+                      data-swiper-parallax="-300"
                     >
-                      <div
-                        className="title text-justify "
-                        style={{
-                          fontFamily: "Zoo",
-                          fontSize: "3rem",
-                          color: "white",
-                        }}
-                        data-swiper-parallax="-300"
-                      >
-                        {data.name}
-                      </div>
+                      {data.name}
+                    </div>
 
-                      <div >
-                        <img
-                          className="rounded-lg mb-2 object-cover object-top "
-                          src={data.imageUrl}
-                          alt="gambar"
-                        />
-                      </div>
+                    <div >
+                      <img
+                        className="rounded-lg mb-2 object-cover object-top "
+                        src={data.imageUrl}
+                        alt="gambar"
+                      />
                     </div>
                   </div>
                 </div>
-              </SwiperSlide>
-            </>
+              </div>
+            </SwiperSlide>
           );
         })}
       </Swiper>

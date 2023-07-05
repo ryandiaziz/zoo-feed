@@ -6,7 +6,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        noto: ['Noto Sans']
+        noto: ['Noto Sans'],
+        amatic: ['Amatic SC']
+      },
+      colors: {
+        'z-green': '#019267',
       }
     },
   },

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import Profile from './Profile'
 import logoOri from '../assets/zoo feed-01.png'
 import logoWhite from '../assets/zoo feed-03.png'
+import Button from './Button'
 
 const Navbar = (props) => {
     const {
@@ -10,6 +12,13 @@ const Navbar = (props) => {
         loginCbHandler,
         userData,
     } = props
+    const [open, setOpen] = useState(false)
+    let Links = [
+        { name: "things to do", link: "/" },
+        { name: "animals", link: "/animals" },
+        { name: "foods", link: "/foods" },
+        { name: "map", link: "/#" },
+    ];
     // change nav color when scrolling
     const [color, setColor] = useState(false)
     window.addEventListener('scroll', () => {
@@ -21,36 +30,39 @@ const Navbar = (props) => {
     })
 
     return (
-        <nav className={`${color ? 'bg-white' : 'bg-transparent'} z-20 h-20 fixed w-full`}>
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <div className="flex items-center flex-shrink-0 text-[#019267] mr-6">
-                    <Link to='/' >
-                        <img src={color ? logoOri : logoWhite} alt="logo" className='w-16' />
+        <nav className={`${color || open ? 'shadow-md' : ''} z-20 w-full fixed top-0 left-0`}>
+            <div className={`${color || open ? 'bg-white' : 'bg-transparent'} md:flex items-center justify-between py-4 md:px-10 px-7 transition-all duration-500`}>
+                <div className='font-bold text-2xl cursor-pointer flex items-center text-gray-800'>
+                    <Link to={'/'}>
+                        <img src={color || open ? logoOri : logoWhite} alt="Logo" className='w-16' />
                     </Link>
                 </div>
-
-                <div className="w-full block flex-grow float-left space-x-4 lg:flex lg:items-center lg:w-auto ml-5">
-                    <div className="text-sm lg:flex-grow">
-                        <Link to="/animals" className="uppercase block mt-4 lg:inline-block lg:mt-0 text-[#019267] hover:text-white mr-4 hover:scale-95 transition-all" >
-                            animals
-                        </Link>
-                        <Link to="/foods" className="uppercase block mt-4 lg:inline-block lg:mt-0 text-[#019267] hover:text-white mr-4 hover:scale-95 transition-all" >
-                            foods
-                        </Link>
-                    </div>
-
+                <div onClick={() => setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
+                    <ion-icon name={open ? 'close' : 'menu'} style={color || open ? { color: '#019267' } : { color: 'white' }}></ion-icon>
+                </div>
+                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open || open ? 'top-20 bg-white' : 'top-[-490px]'}`}>
+                    {
+                        Links.map((link) => (
+                            <li key={link.name} className='md:ml-8 text-xl md:my-0 my-7'>
+                                <Link to={link.link} className={`${color || open ? 'text-z-green' : 'text-white'} uppercase font-amatic font-bold text-2xl hover:text-gray-400 duration-500`}>{link.name}</Link>
+                            </li>
+                        ))
+                    }
                     <div>
                         {
                             loginStatus ?
                                 <Profile userData={userData} loginCbHandler={loginCbHandler} />
                                 :
-                                <Link to={'/signin'} className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</Link>
+                                <Link to='/signin'>
+                                    <Button className={`${color || open ? 'text-z-green border-z-green' : 'text-white hover:border-z-green'} border-[1px] transition-all duration-500`}>
+                                        Login
+                                    </Button>
+                                </Link>
                         }
                     </div>
-                </div>
+                </ul>
             </div>
         </nav>
-
     )
 }
 
