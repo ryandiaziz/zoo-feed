@@ -4,13 +4,18 @@ import MainContent from './components/MainContent';
 import { readDataUser } from './axios/user';
 
 import './App.css';
+import { SignInPage } from './pages';
 
 function App() {
   const [loginStatus, setLoginStatus] = useState(false)
   const [userData, setUserData] = useState([])
   const [userCheck, setUserCheck] = useState(false);
+  const [isSignIn, setIsSignIn] = useState(false);
   const loginCbHandler = (result) => {
     setLoginStatus(result)
+  }
+  const signInHandler = () => {
+    setIsSignIn(!isSignIn)
   }
   useEffect(() => {
     if (localStorage.getItem('access_token')) {
@@ -33,6 +38,11 @@ function App() {
         loginStatus={loginStatus}
         loginCbHandler={loginCbHandler}
         userData={userData}
+        signInHandler={signInHandler}
+      />
+      <SignInPage
+        isSignIn={isSignIn}
+        signInHandler={signInHandler}
       />
       <MainContent
         loginStatus={loginStatus}

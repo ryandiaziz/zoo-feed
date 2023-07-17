@@ -11,6 +11,7 @@ const Navbar = (props) => {
         loginStatus,
         loginCbHandler,
         userData,
+        signInHandler,
     } = props
     const [open, setOpen] = useState(false)
     let Links = [
@@ -48,17 +49,18 @@ const Navbar = (props) => {
                             </li>
                         ))
                     }
-                    <div>
+                    <div className='space-x-2 md:ml-7'>
                         {
                             loginStatus ?
                                 <Profile userData={userData} loginCbHandler={loginCbHandler} />
                                 :
-                                <Link to='/signin'>
-                                    <Button className={`${color || open ? 'text-z-green border-z-green' : 'text-white hover:border-z-green'} border-[1px] transition-all duration-500`}>
-                                        Login
-                                    </Button>
-                                </Link>
+                                <Button onClick={signInHandler} className={`${color || open ? 'text-z-green border-z-green' : 'text-white hover:border-z-green'} border-[1px] transition-all duration-500`}>
+                                    Login
+                                </Button>
                         }
+                        <Button className={`${color || open ? 'text-z-green border-z-green' : 'text-white hover:border-z-green'} border-[1px] transition-all duration-500`}>
+                            Ticket
+                        </Button>
                     </div>
                 </ul>
             </div>

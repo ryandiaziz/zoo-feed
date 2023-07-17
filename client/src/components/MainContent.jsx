@@ -54,7 +54,6 @@ const MainContent = (props) => {
                         <Route path=':id' element={<EditBrandPage></EditBrandPage>}></Route>
                     </Route>
                 </Route>
-
                 <Route path='classType' >
                     <Route path='' ></Route>
                     <Route path='detail'>
@@ -67,11 +66,6 @@ const MainContent = (props) => {
                     <Route path='detail'>
                         <Route path=':id' element={<HabitatDetail loginStatus={loginStatus} userData={userData}></HabitatDetail>}></Route>
                     </Route>
-                </Route>
-
-                <Route path='signin' element={<SignInPage loginCbHandler={loginCbHandler} />}></Route>
-                <Route path='signup'>
-                    <Route path=':roleId' element={<SignUpPage loginCbHandler={loginCbHandler} />}></Route>
                 </Route>
                 <Route path='profile' element={<ProfilePage userData={userData} setUserCheck={setUserCheck} userCheck={userCheck} />}></Route>
             </Routes>
