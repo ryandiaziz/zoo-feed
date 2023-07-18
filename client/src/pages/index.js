@@ -37,7 +37,7 @@ export {
     CreateAnimalPage,
     AnimalPage,
     ShowAnimalPage,
-    EditAnimalPage, 
+    EditAnimalPage,
     FoodPage,
     ShowFoodPage,
     CreateFoodPage,
