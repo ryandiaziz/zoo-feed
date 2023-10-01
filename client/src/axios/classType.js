@@ -1,5 +1,5 @@
-import axios, { Axios } from "axios";
-const URL = "http://localhost:3000/api/classtypes";
+import axios from "axios";
+const URL = "https://zoofeed-api-gamma.vercel.app/api/classtypes";
 
 const getClassType = async (cb) => {
   try {
@@ -21,7 +21,7 @@ const detailClass = async (id, cb) => {
     let classDetail = await axios(
       {
         method: "GET",
-        url: URL +'/detail/' + id,
+        url: URL + '/detail/' + id,
       }
     );
 
@@ -32,7 +32,7 @@ const detailClass = async (id, cb) => {
 };
 
 export {
-    getClassType,
-    detailClass
+  getClassType,
+  detailClass
 
 }

@@ -38,10 +38,11 @@ const SignUpPage = (props) => {
                                 <form className="space-y-4 md:space-y-6" >
                                     <Input type='email' label='Email' />
                                     <Input type='password' label='Password' />
-                                    <button onClick={() => submitHandler()} className="w-full text-white bg-z-green hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
-                                    <p className="text-sm font-light text-gray-500">
+                                    <button onClick={() => submitHandler()} className="w-full text-white bg-z-green hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign Up</button>
+                                    <p className='text-[12px] text-slate-500 text-center font-light'>By creating an account you agree with our Terms of Service, Privacy Policy, and our default Notification Settings</p>
+                                    <p className="text-center text-sm font-light text-gray-500">
                                         Already have an account?
-                                        <span onClick={props.signInHandler} className="cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500">Sign In</span>
+                                        <span onClick={props.signInHandler} className="cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500"> Sign In</span>
                                     </p>
                                 </form>
                                 <p className='text-center'>or</p>

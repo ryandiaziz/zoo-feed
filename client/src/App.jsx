@@ -41,12 +41,12 @@ function App() {
 
   return (
     <>
-      <Navbar
+      {/* <Navbar
         loginStatus={loginStatus}
         loginCbHandler={loginCbHandler}
         userData={userData}
         signInHandler={signInHandler}
-      />
+      /> */}
       <SignInPage
         isSignIn={isSignIn}
         signInHandler={signInHandler}

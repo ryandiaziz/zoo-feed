@@ -1,12 +1,15 @@
 import React from "react";
-import lionImage from '../assets/lion.png'
+// import lionImage from '../assets/lion.png'
 
 const HomePage = () => {
 
 
   return (
     <>
-      <section className="relative h-screen bg-gray-100">
+      <div className="flex justify-center items-center h-screen border-4 border-red-400">
+        <div className="w-[200px] h-[200px] sm:bg-green-300 md:bg-blue-300" />
+      </div>
+      {/* <section className="relative h-screen bg-gray-100">
         <img
           className="w-full h-full object-cover object-top"
           src={lionImage}
@@ -19,7 +22,7 @@ const HomePage = () => {
             Welcome to Zoo Feed !
           </h1>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
