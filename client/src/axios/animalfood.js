@@ -2,15 +2,15 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 const accessToken = localStorage.getItem("access_token");
 
-const URL = 'http://localhost:3000/api/animalfoods'
+const URL = 'https://zoofeed-api-gamma.vercel.app/api/animalfoods'
 
-const addAF = async (id,form) => {
+const addAF = async (id, form) => {
     try {
         await axios({
             method: 'POST',
             url: URL + "/AF/add/" + id,
             data: form,
-            headers : {access_token: `${accessToken}`}
+            headers: { access_token: `${accessToken}` }
         })
 
         await Swal.fire(
@@ -24,9 +24,9 @@ const addAF = async (id,form) => {
     }
 }
 
-const deleteAF = async (id1,id2) => {
+const deleteAF = async (id1, id2) => {
     try {
-        
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -39,8 +39,8 @@ const deleteAF = async (id1,id2) => {
             if (result.isConfirmed) {
                 await axios({
                     method: "DELETE",
-                    url: URL + '/AF/delete/' + id1 + '/'+ id2,
-                    headers : {access_token: `${accessToken}`}
+                    url: URL + '/AF/delete/' + id1 + '/' + id2,
+                    headers: { access_token: `${accessToken}` }
                 })
 
                 await Swal.fire(
@@ -49,8 +49,8 @@ const deleteAF = async (id1,id2) => {
                     'success'
                 )
                 window.location.reload()
-                
-                
+
+
             }
         })
 
@@ -59,13 +59,13 @@ const deleteAF = async (id1,id2) => {
     }
 }
 
-const addFA = async (id,form) => {
+const addFA = async (id, form) => {
     try {
         await axios({
             method: 'POST',
             url: URL + "/FA/add/" + id,
             data: form,
-            headers : {access_token: `${accessToken}`}
+            headers: { access_token: `${accessToken}` }
         })
 
         await Swal.fire(
@@ -79,9 +79,9 @@ const addFA = async (id,form) => {
     }
 }
 
-const deleteFA = async (id1,id2) => {
+const deleteFA = async (id1, id2) => {
     try {
-        
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -94,8 +94,8 @@ const deleteFA = async (id1,id2) => {
             if (result.isConfirmed) {
                 await axios({
                     method: "DELETE",
-                    url: URL + '/FA/delete/' + id1 + '/'+ id2,
-                    headers : {access_token: `${accessToken}`}
+                    url: URL + '/FA/delete/' + id1 + '/' + id2,
+                    headers: { access_token: `${accessToken}` }
                 })
 
                 await Swal.fire(
@@ -104,8 +104,8 @@ const deleteFA = async (id1,id2) => {
                     'success'
                 )
                 window.location.reload()
-                
-                
+
+
             }
         })
 
@@ -120,5 +120,5 @@ export {
     deleteAF,
     addFA,
     deleteFA
-    
+
 }

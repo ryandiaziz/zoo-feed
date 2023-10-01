@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 const accessToken = localStorage.getItem("access_token");
-const URL = 'http://localhost:3000/api/foods'
+const URL = 'https://zoofeed-api-gamma.vercel.app/api/foods'
 
 const createData = async (items) => {
     try {
@@ -9,7 +9,7 @@ const createData = async (items) => {
             method: 'POST',
             url: URL + "/add",
             data: items,
-            headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
+            headers: { 'Content-Type': 'multipart/form-data', access_token: `${accessToken}` }
         })
 
         await Swal.fire(
@@ -43,7 +43,7 @@ const updateData = async (id, items) => {
             method: 'PUT',
             url: URL + '/update/' + id,
             data: items,
-            headers : {'Content-Type': 'multipart/form-data',access_token: `${accessToken}`}
+            headers: { 'Content-Type': 'multipart/form-data', access_token: `${accessToken}` }
         })
 
         await Swal.fire(
@@ -72,7 +72,7 @@ const deleteDataF = async (id) => {
                 await axios({
                     method: "DELETE",
                     url: URL + '/delete/' + id,
-                    headers : {access_token: `${accessToken}`}
+                    headers: { access_token: `${accessToken}` }
                 })
 
                 await Swal.fire(

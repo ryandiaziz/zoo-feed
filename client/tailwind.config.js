@@ -11,6 +11,10 @@ module.exports = {
       },
       colors: {
         'z-green': '#019267',
+      },
+      backgroundImage: {
+        'bird': "url('assets/bird.png')",
+        'lion': "url('assets/lion.png')",
       }
     },
   },
