@@ -82,7 +82,7 @@ const DetailAnimalPage = (props) => {
         <div className="w-[1000px] mx-auto flex items-center justify-between">
           <div className="w-1/2">
             <img
-              src={detail.data.imageUrl}
+              src={'https://zoofeed-api-gamma.vercel.app/' + detail.data.imageUrl}
               alt=""
               className="rounded-lg w-[500px] h-[350px] object-cover object-top"
             />
@@ -211,8 +211,8 @@ const DetailAnimalPage = (props) => {
 
         <div
           className={`${isModalOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
             } fixed inset-0 z-20 flex items-center justify-center transition-opacity duration-300`}
         >
           <div className="fixed z-10 inset-0 overflow-y-auto">

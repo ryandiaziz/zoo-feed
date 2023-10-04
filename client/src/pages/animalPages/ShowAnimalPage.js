@@ -21,12 +21,14 @@ const ShowAnimalPage = (props) => {
     const currentPosts = items.slice(firstPostPostIndex, lastPostIndex);
 
     useEffect(() => {
-        readDataAnimal(result => setItems(result));
+        readDataAnimal(result => {
+            setItems(result)
+            console.log(result);
+        });
     }, [items.name])
 
     useEffect(() => {
         getLikeData((result) => setLikeData(result));
-        console.log('LIKED');
     }, [click])
 
     return (
