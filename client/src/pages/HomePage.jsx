@@ -10,7 +10,7 @@ const HomePage = () => {
         <img
           className="w-full h-full object-cover object-top"
           src={lionImage}
-          alt="gambar"
+          alt="Dashboard"
         />
         <div className="absolute top-48 right-10 z-5 p-4 bg-white bg-opacity-0 rounded">
           <h1
