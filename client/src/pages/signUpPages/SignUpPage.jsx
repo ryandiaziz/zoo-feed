@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams, useNavigate } from 'react-router'
 import { createUser } from '../../axios/user'
@@ -22,13 +22,21 @@ const SignUpPage = (props) => {
         createUser(form, loginCbHandler);
         navigate('/')
     };
+
+    useEffect(() => {
+        if (props.isSignUp) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [props.isSignUp])
     return (
         <div>
             {
                 props.isSignUp &&
                 <>
-                    <div className='border-2 border-red-400 fixed z-30 font-noto w-full h-full flex justify-center items-center'>
-                        <div className="border-2 border-red-400 h-min w-1/3 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 relative">
+                    <div className='fixed z-30 font-noto w-full h-full overflow-auto'>
+                        <div className="h-min w-2/5 mx-auto my-20 bg-white rounded-lg relative">
                             <img src={Logo} alt="" className='w-28 m-auto pt-10' />
                             <div onClick={props.signUpHandler} className='absolute top-1 right-1 cursor-pointer'>❌</div>
                             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -36,6 +44,7 @@ const SignUpPage = (props) => {
                                     Sign up for an account
                                 </h1>
                                 <form className="space-y-4 md:space-y-6" >
+                                    <Input type='text' label='Name' />
                                     <Input type='email' label='Email' />
                                     <Input type='password' label='Password' />
                                     <button onClick={() => submitHandler()} className="w-full text-white bg-z-green hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign Up</button>

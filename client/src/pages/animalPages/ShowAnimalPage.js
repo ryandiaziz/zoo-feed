@@ -23,7 +23,6 @@ const ShowAnimalPage = (props) => {
     useEffect(() => {
         readDataAnimal(result => {
             setItems(result)
-            console.log(result);
         });
     }, [items.name])
 
