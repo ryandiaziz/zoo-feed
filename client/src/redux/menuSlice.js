@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    isColor: false,
-    isOpen: false,
+    isNavbarOpen: false,
     links: [
         { name: "things to do", link: "/#" },
         { name: "animals", link: "/animals" },
@@ -11,21 +10,17 @@ const initialState = {
     ]
 }
 
-const navSlice = createSlice({
-    name: 'navbar',
+const menuSlice = createSlice({
+    name: 'menu',
     initialState,
     reducers: {
-        setcolor: (state, action) => {
-            state.isColor = action.payload
-        },
-        setopen: (state) => {
-            state.isOpen = !state.isOpen
+        setnavbar: (state) => {
+            state.isNavbarOpen = !state.isNavbarOpen
         }
     }
 })
 
-export default navSlice.reducer
+export default menuSlice.reducer
 export const {
-    setcolor,
-    setopen
-} = navSlice.actions
+    setnavbar
+} = menuSlice.actions

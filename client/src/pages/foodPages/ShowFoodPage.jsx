@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../../components/Card'
-import { readData} from '../../axios/food'
+import { readData } from '../../axios/food'
 import { FaPlus } from 'react-icons/fa'
 import {
     Link
@@ -27,12 +27,12 @@ const ShowFoodPage = (props) => {
     return (
         <>
             {
-                userData.roleId === 2 ?
-                    <Link to='/foods/create' className='flex fixed bottom-10 right-10 z-10 bg-[#03C988] rounded-full h-[55px] w-[55px]'>
-                        <FaPlus size={35} color={'#fff'} className='m-auto' />
-                    </Link>
-                    :
-                    <div></div>
+                // userData.roleId === 2 ?
+                //     <Link to='/foods/create' className='flex fixed bottom-10 right-10 z-10 bg-[#03C988] rounded-full h-[55px] w-[55px]'>
+                //         <FaPlus size={35} color={'#fff'} className='m-auto' />
+                //     </Link>
+                //     :
+                //     <div></div>
             }
             <div>
                 <div className="container py-10 w-full">

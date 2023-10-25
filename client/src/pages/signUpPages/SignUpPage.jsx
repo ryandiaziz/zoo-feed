@@ -20,7 +20,7 @@ const SignUpPage = (props) => {
 
     const submitHandler = () => {
         createUser(form, loginCbHandler);
-        navigate('/')
+        // navigate('/')
     };
 
     useEffect(() => {
@@ -31,14 +31,13 @@ const SignUpPage = (props) => {
         }
     }, [props.isSignUp])
     return (
-        <div>
+        <>
             {
                 props.isSignUp &&
                 <>
-                    <div className='fixed z-30 font-noto w-full h-full overflow-auto'>
-                        <div className="h-min w-2/5 mx-auto my-20 bg-white rounded-lg relative">
-                            <img src={Logo} alt="" className='w-28 m-auto pt-10' />
-                            <div onClick={props.signUpHandler} className='absolute top-1 right-1 cursor-pointer'>❌</div>
+                    <div className='fixed top-0 z-50 font-noto w-full h-screen overflow-y-scroll flex items-center justify-center'>
+                        <div className="z-50 h-min w-[30rem] m-auto bg-white rounded-lg relative">
+                            <div onClick={props.signUpHandler} className='absolute top-2 right-2 cursor-pointer'>❌</div>
                             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                                 <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                                     Sign up for an account
@@ -54,14 +53,13 @@ const SignUpPage = (props) => {
                                         <span onClick={props.signInHandler} className="cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500"> Sign In</span>
                                     </p>
                                 </form>
-                                <p className='text-center'>or</p>
                             </div>
                         </div>
                     </div>
                     <div className="opacity-30 fixed inset-0 z-20 bg-black" />
                 </>
             }
-        </div>
+        </>
     )
 }
 

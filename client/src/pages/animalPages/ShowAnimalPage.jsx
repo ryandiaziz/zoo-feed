@@ -1,15 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+// import { FaPlus } from 'react-icons/fa'
+// import { Link } from 'react-router-dom'
+
 import Card from '../../components/Card'
-import { readDataAnimal } from '../../axios/animal'
+import Loading from '../../components/Loading'
 import { getLikeData } from '../../axios/animalUser'
-import { FaPlus } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 import Pagination from '../../components/Pagination'
+import { fetchAnimals } from '../../redux/animalSlice'
 
 const ShowAnimalPage = (props) => {
-    const { loginStatus, userData } = props;
+    const dispatch = useDispatch()
+    const { isLogin, user } = useSelector((state) => state.auth)
+    const { animals, loading } = useSelector((state) => state.animal)
     const isAnimal = true;
-    const [items, setItems] = useState([]);
     const [likeData, setLikeData] = useState([]);
     const [search, setSearch] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -18,13 +23,11 @@ const ShowAnimalPage = (props) => {
 
     const lastPostIndex = currentPage * postPerPage;
     const firstPostPostIndex = lastPostIndex - postPerPage;
-    const currentPosts = items.slice(firstPostPostIndex, lastPostIndex);
+    const currentPosts = animals.slice(firstPostPostIndex, lastPostIndex);
 
     useEffect(() => {
-        readDataAnimal(result => {
-            setItems(result)
-        });
-    }, [items.name])
+        dispatch(fetchAnimals())
+    }, [animals.name])
 
     useEffect(() => {
         getLikeData((result) => setLikeData(result));
@@ -34,12 +37,10 @@ const ShowAnimalPage = (props) => {
         <>
             {/* {JSON.stringify(likeData)} */}
             {
-                userData.roleId === 2 ?
-                    <Link to='/animals/create' className='hover:scale-95 transition-all flex fixed bottom-10 right-10 z-10 bg-[#03C988] rounded-full h-[55px] w-[55px]'>
-                        <FaPlus size={35} color={'#fff'} className='m-auto' />
-                    </Link>
-                    :
-                    <div></div>
+                // user.roleId &&
+                // <Link to='/animals/create' className='hover:scale-95 transition-all flex fixed bottom-10 right-10 z-10 bg-[#03C988] rounded-full h-[55px] w-[55px]'>
+                //     <FaPlus size={35} color={'#fff'} className='m-auto' />
+                // </Link>
             }
             <div className="py-10 w-full h-[50vh] bg-bird bg-center flex flex-col items-center justify-center">
                 <div className='w-full'>
@@ -57,26 +58,31 @@ const ShowAnimalPage = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="flex gap-4 justify-center flex-wrap py-4 px-4">
-                <Card
-                    items={currentPosts}
-                    isAnimal={isAnimal}
-                    loginStatus={loginStatus}
-                    userData={userData}
-                    likeData={likeData}
-                    search={search}
-                    setClick={setClick}
-                    click={click}
-                />
-            </div>
-            <div className='flex justify-center'>
-                <Pagination
-                    totalPosts={items.length}
-                    postPerPage={postPerPage}
-                    setCurrentPage={setCurrentPage}
-                    currentPage={currentPage}
-                />
-            </div>
+            {
+                loading.fetch
+                    ? <Loading />
+                    : <><div className="flex gap-4 justify-center flex-wrap py-4 px-4">
+                        <Card
+                            items={currentPosts}
+                            isAnimal={isAnimal}
+                            loginStatus={isLogin}
+                            userData={user}
+                            likeData={likeData}
+                            search={search}
+                            setClick={setClick}
+                            click={click}
+                        />
+                    </div>
+                        <div className='flex justify-center'>
+                            <Pagination
+                                totalPosts={animals.length}
+                                postPerPage={postPerPage}
+                                setCurrentPage={setCurrentPage}
+                                currentPage={currentPage}
+                            />
+                        </div>
+                    </>
+            }
         </>
     )
 }
