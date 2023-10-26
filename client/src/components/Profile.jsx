@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/authSlice';
@@ -17,11 +17,20 @@ const Profile = () => {
     const menuRef = useRef();
     const imgRef = useRef();
 
-    window.addEventListener('click', (e) => {
+    const closeHandler = (e) => {
         if (e.target !== menuRef.current && e.target !== imgRef.current) {
             setOpen(false);
         }
-    })
+    }
+
+    useEffect(() => {
+        if (open) window.addEventListener('click', closeHandler)
+
+        return () => {
+            window.removeEventListener('click', closeHandler)
+        }
+    }, [open])
+
     return (
         <div className='w-10 md:w-12 flex justify-center'>
             <div className='relative z-10'>
@@ -38,7 +47,7 @@ const Profile = () => {
                             ref={menuRef}
                             className='rounded-md bg-white p-4 w-52 shadow-lg absolute right-[2px] top-16'>
                             <ul>
-                                <Link to={'/profile'}>
+                                <Link to={'#'}>
                                     <li
                                         onClick={() => {
                                             setOpen(false);

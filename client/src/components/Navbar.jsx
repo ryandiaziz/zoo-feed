@@ -9,12 +9,15 @@ import Button from './Button'
 
 const Navbar = ({ signInHandler }) => {
     const dispatch = useDispatch()
-    const { isNavbarOpen, links } = useSelector((state) => state.menu)
+    const { links, isNavbarOpen } = useSelector((state) => state.menu)
     const { isLogin } = useSelector((state) => state.auth)
 
     return (
         <header className={`z-20 w-full sticky top-0 flex items-center justify-between transition-all duration-500 shadow-md bg-white max-w-screen-2xl mx-auto py-4 px-3 md:px-10 lg:py-5 xl:py-7 `}>
-            <div onClick={() => dispatch(setnavbar())} className='text-3xl flex items-center cursor-pointer md:hidden'>
+            <div
+                onClick={() => dispatch(setnavbar(!isNavbarOpen))}
+                className='text-3xl flex items-center cursor-pointer md:hidden'
+            >
                 <ion-icon name={isNavbarOpen ? 'close' : 'menu'} style={{ color: '#019267' }} />
             </div>
             <div className='font-bold text-2xl cursor-pointer flex items-center text-gray-800'>
@@ -33,7 +36,7 @@ const Navbar = ({ signInHandler }) => {
                 <ul className='flex max-md:flex-col max-md:space-y-5'>
                     {
                         links.map((link) => (
-                            <li key={link.name} onClick={() => dispatch(setnavbar())} className='text-xl md:mr-5 xl:mr-7'>
+                            <li key={link.name} onClick={() => dispatch(setnavbar(false))} className='text-xl md:mr-5 xl:mr-7'>
                                 <Link to={link.link} className={`uppercase font-amatic font-bold text-2xl lg:text-3xl hover:text-gray-400 duration-500 text-z-green`}>{link.name}</Link>
                             </li>
                         ))

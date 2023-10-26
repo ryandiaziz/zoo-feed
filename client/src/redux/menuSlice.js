@@ -14,8 +14,8 @@ const menuSlice = createSlice({
     name: 'menu',
     initialState,
     reducers: {
-        setnavbar: (state) => {
-            state.isNavbarOpen = !state.isNavbarOpen
+        setnavbar: (state, action) => {
+            state.isNavbarOpen = action.payload
         }
     }
 })

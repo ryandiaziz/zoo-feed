@@ -25,43 +25,17 @@ const Card = (props) => {
         })
             .map(item => {
                 return (
-                    <div key={item.id} className="rounded-md hover:shadow-xl overflow-hidden bg-white w-[300px] hover:scale-110 hover:bg-slate-100 transition-all duration-150 relative">
-                        {/* show LIKES */}
-                        {
-                            loginStatus ?
-                                isAnimal ?
-                                    <div className='absolute top-3 right-3 cursor-pointer hover:scale-110'>
-                                        {
-                                            likeData.filter(data => data.id === item.id).length === 1
-                                                ? userData.roleId === 1
-                                                    ? <MdFavorite size={35} color='gold' onClick={() => unlikeAnimal(item.id)} />
-                                                    : <FaPlusCircle size={35} color='green' className='bg-white rounded-full' onClick={() => unlikeAnimal(item.id)} />
-                                                : userData.roleId === 1
-                                                    ? <MdFavoriteBorder size={35} color='gold' onClick={() => likeAnimal(item.id)} />
-                                                    : <FaPlusCircle size={35} color='grey' className='bg-white rounded-full' onClick={() => likeAnimal(item.id)} />
-                                        }
-                                    </div>
-                                    :
-                                    <div></div>
-                                :
-                                <div></div>
-                        }
-                        {/* link */}
-                        <Link to={
-                            `detail/${item.id}`
-                        }>
-                            <img src={`https://zoofeed-api-gamma.vercel.app/${item.imageUrl}`} alt="Animal" className='h-56 w-full object-cover object-top' />
-                            <div className='px-6 py-4'>
-                                <div className='font-noto font-bold text-xl mb-2 text-slate-700'>{item.name}</div>
-                                <p className='font-noto font-thin text-sm text-slate-600'> {item.ket}</p>
-                            </div>
-                        </Link>
-                        {
-                            userData.roleId === 2 ?
-                                <ButtonGroup isAnimal={isAnimal} id={item.id} />
-                                :
-                                <div></div>
-                        }
+                    <div key={item.id} className="flex-grow rounded-md hover:shadow-xl overflow-hidden bg-white w-[140px] max-w-[180px] h-[150px] sm:w-[200px] sm:mx-w-[250px] sm:h-[200px] md:w-[300px] md:max-w-[350px] md:h-[300px]  hover:bg-slate-100 relative">
+                        {/* <Link to={`detail/${item.id}`}> */}
+                        <img
+                            src={`https://zoofeed-api-gamma.vercel.app/${item.imageUrl}`}
+                            alt="Animal"
+                            className='h-full w-full object-cover object-top hover:scale-110 transition-all duration-300'
+                        />
+                        <div className='absolute bottom-0'>
+                            <div className='font-noto font-bold text-sm sm:text-xl mb-2 ml-2 text-white drop-shadow-lg '>{item.name}</div>
+                        </div>
+                        {/* </Link> */}
                     </div>
                 )
             })
