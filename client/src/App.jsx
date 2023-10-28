@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import './App.css';
-import Loading from './components/Loading';
+// import Loading from './components/Loading';
+import LoadingScreen from './components/LoadingScreen';
 import { SignInPage, SignUpPage } from './pages';
 import { fetchUser } from './redux/authSlice';
 
@@ -38,7 +39,7 @@ function App() {
 
   return (
     loading.fetch
-      ? <Loading height='h-screen' />
+      ? <LoadingScreen />
       : <>
         <Navbar signInHandler={signInHandler} />
         <SignInPage

@@ -8,8 +8,6 @@ import InteractioAnimal from '../assets/interaksi.jpg'
 import Playground from '../assets/wahana.jpg'
 
 const HomePage = () => {
-
-
   return (
     <MainContainer>
       <header className="h-screen relative">

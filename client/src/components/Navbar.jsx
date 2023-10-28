@@ -4,13 +4,18 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Profile from './Profile'
 import logoOri from '../assets/zoo feed-01.png'
-import { setnavbar } from '../redux/menuSlice';
+import { setnavbar, setmodalsignin } from '../redux/menuSlice';
 import Button from './Button'
 
-const Navbar = ({ signInHandler }) => {
+const Navbar = () => {
     const dispatch = useDispatch()
     const { links, isNavbarOpen } = useSelector((state) => state.menu)
     const { isLogin } = useSelector((state) => state.auth)
+
+    const signInHandler = () => {
+        dispatch(setnavbar(false))
+        dispatch(setmodalsignin(true))
+    }
 
     return (
         <header className={`z-20 w-full sticky top-0 flex items-center justify-between transition-all duration-500 shadow-md bg-white max-w-screen-2xl mx-auto py-4 px-3 md:px-10 lg:py-5 xl:py-7 `}>

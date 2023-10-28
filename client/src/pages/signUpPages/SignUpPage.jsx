@@ -1,14 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useParams, useNavigate } from 'react-router'
-import { createUser } from '../../axios/user'
-import Input from '../../components/Input'
-import Logo from '../../assets/zoo feed-01.png'
+import { useDispatch, useSelector } from 'react-redux'
 
-const SignUpPage = (props) => {
-    const params = useParams();
-    const navigate = useNavigate();
-    const { loginCbHandler } = props
+import Input from '../../components/Input'
+import { setmodalsignup, setmodalsignin } from '../../redux/menuSlice'
+import { createUser } from '../../redux/authSlice'
+
+const SignUpPage = () => {
+    const params = useParams()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { isModalSignUpOpen } = useSelector((state) => state.menu)
+    const { isLogin } = useSelector((state) => state.auth)
+
     const { roleId } = params;
     const [form, setForm] = useState({
         name: "",
@@ -19,25 +24,36 @@ const SignUpPage = (props) => {
     });
 
     const submitHandler = () => {
-        createUser(form, loginCbHandler);
-        // navigate('/')
+        dispatch(createUser(form))
     };
 
+    const signinHandler = () => {
+        dispatch(setmodalsignup(false))
+        dispatch(setmodalsignin(true))
+    }
+
     useEffect(() => {
-        if (props.isSignUp) {
-            document.body.style.overflow = 'hidden';
-        } else {
+        if (isModalSignUpOpen) document.body.style.overflow = 'hidden'
+
+        return () => {
             document.body.style.overflow = 'unset';
         }
-    }, [props.isSignUp])
+    }, [isModalSignUpOpen])
+
+    useEffect(() => {
+        if (isLogin) {
+            navigate("/")
+            dispatch(setmodalsignup(false))
+        }
+    }, [isLogin])
     return (
         <>
             {
-                props.isSignUp &&
+                isModalSignUpOpen &&
                 <>
                     <div className='fixed top-0 z-50 font-noto w-full h-screen overflow-y-scroll flex items-center justify-center'>
                         <div className="z-50 h-min w-[30rem] m-auto bg-white rounded-lg relative">
-                            <div onClick={props.signUpHandler} className='absolute top-2 right-2 cursor-pointer'>❌</div>
+                            <div onClick={() => dispatch(setmodalsignup(false))} className='absolute top-2 right-2 cursor-pointer'>❌</div>
                             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                                 <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                                     Sign up for an account
@@ -50,7 +66,7 @@ const SignUpPage = (props) => {
                                     <p className='text-[12px] text-slate-500 text-center font-light'>By creating an account you agree with our Terms of Service, Privacy Policy, and our default Notification Settings</p>
                                     <p className="text-center text-sm font-light text-gray-500">
                                         Already have an account?
-                                        <span onClick={props.signInHandler} className="cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500"> Sign In</span>
+                                        <span onClick={signinHandler} className="cursor-pointer font-medium text-primary-600 hover:underline dark:text-primary-500"> Sign In</span>
                                     </p>
                                 </form>
                             </div>

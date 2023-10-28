@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.403d52b0.css",
-    "main.js": "/static/js/main.317e3911.js",
+    "main.css": "/static/css/main.92414480.css",
+    "main.js": "/static/js/main.7b12b9dd.js",
     "static/media/lion-header.jpg": "/static/media/lion-header.2262e4beabfc888a55bf.jpg",
     "static/media/interaksi.jpg": "/static/media/interaksi.2d8704ed953f95359b3a.jpg",
     "static/media/bird.png": "/static/media/bird.ef5ce2f073f7ea3464d2.png",
@@ -9,11 +9,11 @@
     "static/media/wahana.jpg": "/static/media/wahana.cdd0eaecd1806b74e9b3.jpg",
     "static/media/zoo feed-01.png": "/static/media/zoo feed-01.e9ddad5527b13aaf7941.png",
     "index.html": "/index.html",
-    "main.403d52b0.css.map": "/static/css/main.403d52b0.css.map",
-    "main.317e3911.js.map": "/static/js/main.317e3911.js.map"
+    "main.92414480.css.map": "/static/css/main.92414480.css.map",
+    "main.7b12b9dd.js.map": "/static/js/main.7b12b9dd.js.map"
   },
   "entrypoints": [
-    "static/css/main.403d52b0.css",
-    "static/js/main.317e3911.js"
+    "static/css/main.92414480.css",
+    "static/js/main.7b12b9dd.js"
   ]
 }
