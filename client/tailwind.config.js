@@ -15,6 +15,7 @@ module.exports = {
       backgroundImage: {
         'bird': "url('assets/bird.png')",
         'lion': "url('assets/lion.png')",
+        'food': "url('assets/animals-eat.png')",
       }
     },
   },

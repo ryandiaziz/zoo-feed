@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Card from '../../components/Card'
 import Loading from '../../components/Loading'
 import MainContainer from '../../components/MainContainer'
+import SearchContainer from '../../components/SearchContainer'
 import { getLikeData } from '../../axios/animalUser'
 import Pagination from '../../components/Pagination'
 import { searchAnimals } from '../../redux/animalSlice'
@@ -33,10 +34,8 @@ const ShowAnimalPage = (props) => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             dispatch(searchAnimals(search))
-            console.log("SEARCH")
         }, 500)
         return () => {
-            console.log("CLEAR TIME")
             clearTimeout(timeout)
         }
 
@@ -44,7 +43,12 @@ const ShowAnimalPage = (props) => {
 
     return (
         <MainContainer>
-            <section className="py-10 w-full h-[40vh] sm:h-[50vh] bg-bird bg-center flex flex-col items-center justify-center">
+            <SearchContainer
+                bg={'bg-bird'}
+                title={'Search your favorite animal'}
+                onChange={(e) => setSearch(e.target.value)}
+            />
+            {/* <section className="py-10 w-full h-[40vh] sm:h-[50vh] bg-bird bg-center flex flex-col items-center justify-center">
                 <div className='w-full px-5 sm:px-10'>
                     <div className='text-center mb-5 text-white font-noto font-semibold text-xl'>Find your favorit animal</div>
                     <div className='max-w-xl m-auto'>
@@ -59,7 +63,7 @@ const ShowAnimalPage = (props) => {
                         </form>
                     </div>
                 </div>
-            </section>
+            </section> */}
             {
                 loading.fetch
                     ? <Loading height='h-screen' />

@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.92414480.css",
-    "main.js": "/static/js/main.58fb1fa7.js",
+    "main.css": "/static/css/main.878854d3.css",
+    "main.js": "/static/js/main.ebbc08f7.js",
     "static/media/lion-header.jpg": "/static/media/lion-header.2262e4beabfc888a55bf.jpg",
     "static/media/interaksi.jpg": "/static/media/interaksi.2d8704ed953f95359b3a.jpg",
     "static/media/bird.png": "/static/media/bird.ef5ce2f073f7ea3464d2.png",
+    "static/media/animals-eat.png": "/static/media/animals-eat.26d79c8acfc4f688ecb6.png",
     "static/media/berimakan.jpg": "/static/media/berimakan.7128ac8c275c5d212ab7.jpg",
     "static/media/wahana.jpg": "/static/media/wahana.cdd0eaecd1806b74e9b3.jpg",
     "static/media/zoo feed-01.png": "/static/media/zoo feed-01.e9ddad5527b13aaf7941.png",
     "index.html": "/index.html",
-    "main.92414480.css.map": "/static/css/main.92414480.css.map",
-    "main.58fb1fa7.js.map": "/static/js/main.58fb1fa7.js.map"
+    "main.878854d3.css.map": "/static/css/main.878854d3.css.map",
+    "main.ebbc08f7.js.map": "/static/js/main.ebbc08f7.js.map"
   },
   "entrypoints": [
-    "static/css/main.92414480.css",
-    "static/js/main.58fb1fa7.js"
+    "static/css/main.878854d3.css",
+    "static/js/main.ebbc08f7.js"
   ]
 }
