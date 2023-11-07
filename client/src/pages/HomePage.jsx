@@ -1,5 +1,3 @@
-import React from "react"
-
 import MainContainer from "../components/MainContainer"
 import HomeCard from "../components/HomeCard"
 import lionImage from '../assets/lion-header.jpg'

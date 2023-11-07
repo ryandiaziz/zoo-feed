@@ -22,7 +22,7 @@ export const fetchAnimals = createAsyncThunk('animal/fetchAnimals', async (data,
         })
         return response.data
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message)
+        return thunkAPI.rejectWithValue("Something went wrong")
     }
 })
 
