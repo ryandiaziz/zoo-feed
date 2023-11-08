@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { detailData } from '../../axios/food';
 import { readDataAnimal } from '../../axios/animal';
-import TableRow from '../animalPages/components/TableRow';
+import TableRow from '../animal/components/TableRow';
 import { FaPlus, FaRegEdit, FaWindowClose, FaReply } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { addFA, deleteFA } from "../../axios/animalfood";

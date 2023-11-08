@@ -1,31 +1,31 @@
 import HomePage from "./HomePage";
 import ImagePage from "./ImagePage";
 // Foods
-import FoodPage from "./foodPages/FoodPage";
-import ShowFoodPage from "./foodPages/ShowFoodPage";
-import DetailFoodPage from "./foodPages/DetailFoodPage";
-import CreateFoodPage from "./foodPages/CreateFoodPage";
-import EditBrandPage from "./foodPages/EditFoodPage";
+import FoodPage from "./food/FoodPage";
+import ShowFoodPage from "./food/ShowFoodPage";
+import DetailFoodPage from "./food/DetailFoodPage";
+import CreateFoodPage from "./food/CreateFoodPage";
+import EditBrandPage from "./food/EditFoodPage";
 // Animals
-import AnimalPage from "./animalPages/AnimalPage";
-import ShowAnimalPage from "./animalPages/ShowAnimalPage";
-import CreateAnimalPage from "./animalPages/CreateAnimalPage";
-import EditAnimalPage from "./animalPages/EditAnimalPage";
-import DetailAnimalPage from "./animalPages/DetailAnimalPage";
+import AnimalPage from "./animal/AnimalPage";
+import ShowAnimalPage from "./animal/ShowAnimalPage";
+import CreateAnimalPage from "./animal/CreateAnimalPage";
+import EditAnimalPage from "./animal/EditAnimalPage";
+import DetailAnimalPage from "./animal/DetailAnimalPage";
 // Class Types
-import ClassPage from "./classPages/ClassPage";
-import ClassDetail from "./classPages/ClassDetail";
-import ShowClassPage from "./classPages/ShowClassPage";
+import ClassPage from "./animalclass/ClassPage";
+import ClassDetail from "./animalclass/ClassDetail";
+import ShowClassPage from "./animalclass/ShowClassPage";
 // habitat
-import HabitatPage from "./habitatPage/HabitatPage";
-import HabitatDetail from "./habitatPage/HabitatDetail";
-import ShowHabitatPage from "./habitatPage/ShowHabitatPage";
+import HabitatPage from "./habitat/HabitatPage";
+import HabitatDetail from "./habitat/HabitatDetail";
+import ShowHabitatPage from "./habitat/ShowHabitatPage";
 
 // Auth
-import SignInPage from "./signInPages/SignInPage";
-import SignUpPage from "./signUpPages/SignUpPage";
+import SignInPage from "./signIn/SignInPage";
+import SignUpPage from "./signUp/SignUpPage";
 // Profile
-import ProfilePage from "./profilePages/ProfilePage";
+import ProfilePage from "./profile/ProfilePage";
 
 export {
     ProfilePage,
