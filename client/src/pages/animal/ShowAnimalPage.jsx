@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Card from '../../components/Card'
-import Loading from '../../components/Loading'
-import MainContainer from '../../components/MainContainer'
+import Card from '../../components/fragments/Card'
+import Loading from '../../components/elements/Loading'
+import MainLayout from '../../components/layouts/MainLayout'
 import SearchContainer from '../../components/SearchContainer'
 import Pagination from '../../components/Pagination'
-import useAnimal from './hooks/useAnimal'
+import useAnimal from '../../hooks/useAnimal'
 
 const ShowAnimalPage = () => {
     const {
@@ -19,7 +19,7 @@ const ShowAnimalPage = () => {
     } = useAnimal()
 
     return (
-        <MainContainer>
+        <MainLayout>
             <SearchContainer
                 bg={'bg-bird'}
                 title={'Search your favorite animal'}
@@ -45,7 +45,7 @@ const ShowAnimalPage = () => {
                         </div>
                     </>
             }
-        </MainContainer>
+        </MainLayout>
     )
 }
 

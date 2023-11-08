@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 
-import Input from '../../components/Input'
+import Input from '../../components/elements/Input'
 import { login } from '../../redux/authSlice'
 import { setmodalsignin, setmodalsignup } from '../../redux/menuSlice'
-import Loading from '../../components/Loading'
+import Loading from '../../components/elements/Loading'
 
 
 const SignInPage = () => {

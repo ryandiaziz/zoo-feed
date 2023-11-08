@@ -1,5 +1,5 @@
-import MainContainer from "../components/MainContainer"
-import HomeCard from "../components/HomeCard"
+import MainLayout from "../components/layouts/MainLayout"
+import HomeCard from "../components/fragments/HomeCard"
 import lionImage from '../assets/lion-header.jpg'
 import FeedAnimal from '../assets/berimakan.jpg'
 import InteractioAnimal from '../assets/interaksi.jpg'
@@ -7,7 +7,7 @@ import Playground from '../assets/wahana.jpg'
 
 const HomePage = () => {
   return (
-    <MainContainer>
+    <MainLayout>
       <header className="h-screen relative">
         <h1 className="w-28 sm:w-56 md:w-96 xl:w-fit text-5xl sm:text-6xl md:text-8xl mb-2 font-amatic font-black text-white absolute top-20 sm:top-40 left-5 ">
           Welcome to Zoo Feed !
@@ -38,7 +38,7 @@ const HomePage = () => {
           imgDesc={"play rides"}
         />
       </section>
-    </MainContainer>
+    </MainLayout>
   );
 };
 

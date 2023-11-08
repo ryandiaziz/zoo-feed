@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 
-import Profile from './Profile'
-import logoOri from '../assets/zoo feed-01.png'
-import { setnavbar, setmodalsignin } from '../redux/menuSlice';
-import Button from './Button'
+import Profile from '../Profile'
+import Button from '../elements/Button'
+import logoOri from '../../assets/zoo feed-01.png'
+import { setnavbar, setmodalsignin } from '../../redux/menuSlice';
 
 const Navbar = () => {
     const dispatch = useDispatch()

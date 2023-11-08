@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Input from '../../components/Input'
+import Input from '../../components/elements/Input'
 import { setmodalsignup, setmodalsignin } from '../../redux/menuSlice'
 import { createUser } from '../../redux/authSlice'
 

@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchFoods, searchFoods } from '../../redux/foodSlice'
-import Card from '../../components/Card'
+import Card from '../../components/fragments/Card'
 import Pagination from '../../components/Pagination'
-import MainContainer from '../../components/MainContainer'
+import MainLayout from '../../components/layouts/MainLayout'
 import SearchContainer from '../../components/SearchContainer'
-import Loading from '../../components/Loading'
+import Loading from '../../components/elements/Loading'
 
 const ShowFoodPage = () => {
     const postPerPage = 8
@@ -41,7 +41,7 @@ const ShowFoodPage = () => {
 
     }, [search])
     return (
-        <MainContainer>
+        <MainLayout>
             <SearchContainer
                 bg={'bg-food'}
                 title={'Search animal food'}
@@ -70,7 +70,7 @@ const ShowFoodPage = () => {
                         </div>
                     </>
             }
-        </MainContainer>
+        </MainLayout>
     )
 }
 

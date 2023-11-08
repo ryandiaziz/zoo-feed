@@ -1,12 +1,9 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
     HomePage,
     AnimalPage,
     ShowAnimalPage,
     CreateAnimalPage,
-    SignInPage,
-    SignUpPage,
     EditAnimalPage,
     DetailAnimalPage,
     FoodPage,
@@ -15,61 +12,34 @@ import {
     EditBrandPage,
     DetailFoodPage,
     ProfilePage,
-    ClassDetail,
-    HabitatPage,
-    HabitatDetail
 } from '../pages'
 
-const MainContent = (props) => {
-    const {
-        loginStatus,
-        loginCbHandler,
-        userData,
-        userCheck,
-        setUserCheck,
-    } = props;
+const MainContent = () => {
     return (
-        <>
-            <Routes>
-                <Route path='' element={
-                    <HomePage />
-                }></Route>
-                <Route path='animals' element={<AnimalPage></AnimalPage>}>
-                    <Route path='' element={<ShowAnimalPage loginStatus={loginStatus} userData={userData} />}></Route>
-                    <Route path='create' element={<CreateAnimalPage></CreateAnimalPage>}></Route>
-                    <Route path='detail'>
-                        <Route path=':id' element={<DetailAnimalPage loginStatus={loginStatus} userData={userData}></DetailAnimalPage>}></Route>
-                    </Route>
-                    <Route path='edit'>
-                        <Route path=':id' element={<EditAnimalPage></EditAnimalPage>}></Route>
-                    </Route>
+        <Routes>
+            <Route path='' element={<HomePage />} />
+            <Route path='animals' element={<AnimalPage />}>
+                <Route path='' element={<ShowAnimalPage />} />
+                <Route path='create' element={<CreateAnimalPage />} />
+                <Route path='detail'>
+                    <Route path=':id' element={<DetailAnimalPage />} />
                 </Route>
-                <Route path='foods' element={<FoodPage></FoodPage>}>
-                    <Route path='' element={<ShowFoodPage loginStatus={loginStatus} userData={userData} />}></Route>
-                    <Route path='create' element={<CreateFoodPage></CreateFoodPage>}></Route>
-                    <Route path='detail'>
-                        <Route path=':id' element={<DetailFoodPage loginStatus={loginStatus} userData={userData}></DetailFoodPage>}></Route>
-                    </Route>
-                    <Route path='edit'>
-                        <Route path=':id' element={<EditBrandPage></EditBrandPage>}></Route>
-                    </Route>
+                <Route path='edit'>
+                    <Route path=':id' element={<EditAnimalPage />} />
                 </Route>
-                <Route path='classType' >
-                    <Route path='' ></Route>
-                    <Route path='detail'>
-                        <Route path=':id' element={<ClassDetail loginStatus={loginStatus} userData={userData}></ClassDetail>}></Route>
-                    </Route>
+            </Route>
+            <Route path='foods' element={<FoodPage />}>
+                <Route path='' element={<ShowFoodPage />} />
+                <Route path='create' element={<CreateFoodPage />} />
+                <Route path='detail'>
+                    <Route path=':id' element={<DetailFoodPage />} />
                 </Route>
-
-                <Route path='habitats' element={<HabitatPage></HabitatPage>}>
-                    <Route path='' ></Route>
-                    <Route path='detail'>
-                        <Route path=':id' element={<HabitatDetail loginStatus={loginStatus} userData={userData}></HabitatDetail>}></Route>
-                    </Route>
+                <Route path='edit'>
+                    <Route path=':id' element={<EditBrandPage />} />
                 </Route>
-                <Route path='profile' element={<ProfilePage userData={userData} setUserCheck={setUserCheck} userCheck={userCheck} />}></Route>
-            </Routes>
-        </>
+            </Route>
+            <Route path='profile' element={<ProfilePage />} />
+        </Routes>
     )
 }
 

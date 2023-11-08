@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Loading from './Loading'
-import Logo from '../assets/zoo feed-01.png'
+import Loading from '../elements/Loading'
+import Logo from '../../assets/zoo feed-01.png'
 
 const LoadingScreen = () => {
     return (

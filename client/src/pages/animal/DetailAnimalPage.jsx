@@ -3,10 +3,10 @@ import { useParams } from "react-router";
 import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
 
+import TableRow from "./components/TableRow";
+import MainLayout from "../../components/layouts/MainLayout";
 import { detailData } from "../../axios/animal";
 import { readData } from "../../axios/food";
-import TableRow from "./components/TableRow";
-import MainContainer from "../../components/MainContainer";
 import { FaPlus, FaRegEdit, FaWindowClose, FaReply } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { addAF, deleteAF } from "../../axios/animalfood";
@@ -78,7 +78,7 @@ const DetailAnimalPage = (props) => {
   };
 
   return (
-    <MainContainer>
+    <MainLayout>
       <div className="border-2 my-10 mx-40 shadow-lg rounded-xl py-5 bg-white">
         <h3 className="font-noto font-bold text-3xl text-center mb-5 uppercase">
           {detail.data.name}
@@ -276,7 +276,7 @@ const DetailAnimalPage = (props) => {
           </div>
         </div>
       </div>
-    </MainContainer>
+    </MainLayout>
   );
 };
 

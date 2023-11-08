@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchAnimals, searchAnimals } from '../../../redux/animalSlice'
+import { fetchAnimals, searchAnimals } from '../redux/animalSlice'
 
 const useAnimal = () => {
     const dispatch = useDispatch()

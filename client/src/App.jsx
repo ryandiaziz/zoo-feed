@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
+import Navbar from './components/fragments/Navbar';
 import MainContent from './components/MainContent';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import './App.css';
 // import Loading from './components/Loading';
-import LoadingScreen from './components/LoadingScreen';
+import LoadingScreen from './components/layouts/LoadingScreen';
 import { SignInPage, SignUpPage } from './pages';
 import { fetchUser } from './redux/authSlice';
 

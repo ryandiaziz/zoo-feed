@@ -12,15 +12,6 @@ import ShowAnimalPage from "./animal/ShowAnimalPage";
 import CreateAnimalPage from "./animal/CreateAnimalPage";
 import EditAnimalPage from "./animal/EditAnimalPage";
 import DetailAnimalPage from "./animal/DetailAnimalPage";
-// Class Types
-import ClassPage from "./animalclass/ClassPage";
-import ClassDetail from "./animalclass/ClassDetail";
-import ShowClassPage from "./animalclass/ShowClassPage";
-// habitat
-import HabitatPage from "./habitat/HabitatPage";
-import HabitatDetail from "./habitat/HabitatDetail";
-import ShowHabitatPage from "./habitat/ShowHabitatPage";
-
 // Auth
 import SignInPage from "./signIn/SignInPage";
 import SignUpPage from "./signUp/SignUpPage";
@@ -43,8 +34,4 @@ export {
     CreateFoodPage,
     EditBrandPage,
     ImagePage,
-    ClassPage,
-    ClassDetail,
-    HabitatPage,
-    HabitatDetail
 }
