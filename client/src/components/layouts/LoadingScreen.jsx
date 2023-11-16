@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Loading from '../elements/Loading'
+import Loading from '../elements/loading'
 import Logo from '../../assets/zoo feed-01.png'
 
 const LoadingScreen = () => {

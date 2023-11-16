@@ -1,4 +1,4 @@
-import HomePage from "./HomePage";
+import HomePage from "./home/HomePage";
 import ImagePage from "./ImagePage";
 // Foods
 import FoodPage from "./food/FoodPage";
@@ -13,10 +13,12 @@ import CreateAnimalPage from "./animal/CreateAnimalPage";
 import EditAnimalPage from "./animal/EditAnimalPage";
 import DetailAnimalPage from "./animal/DetailAnimalPage";
 // Auth
-import SignInPage from "./signIn/SignInPage";
-import SignUpPage from "./signUp/SignUpPage";
+import SignInPage from "./auth/SignInPage";
+import SignUpPage from "./auth/SignUpPage";
 // Profile
 import ProfilePage from "./profile/ProfilePage";
+// Error
+import ErrorPage from "./error/ErrorPage";
 
 export {
     ProfilePage,
@@ -34,4 +36,5 @@ export {
     CreateFoodPage,
     EditBrandPage,
     ImagePage,
+    ErrorPage,
 }

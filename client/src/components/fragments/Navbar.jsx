@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 
 import Profile from '../Profile'
-import Button from '../elements/Button'
 import logoOri from '../../assets/zoo feed-01.png'
+import Button from '../elements/button';
 import { setnavbar, setmodalsignin } from '../../redux/menuSlice';
 
 const Navbar = () => {
@@ -37,9 +37,9 @@ const Navbar = () => {
                     <ion-icon name={isNavbarOpen ? 'close' : 'menu'} style={{ color: '#019267' }} />
                 </div>
                 <div className='font-bold text-2xl cursor-pointer flex items-center text-gray-800'>
-                    <Link to={'/'}>
+                    <NavLink to={'/'}>
                         <img src={logoOri} alt="Logo" className='w-16' />
-                    </Link>
+                    </NavLink>
                 </div>
                 <div className='md:hidden w-10 h-10'>
                     {
@@ -53,7 +53,7 @@ const Navbar = () => {
                         {
                             links.map((link) => (
                                 <li key={link.name} onClick={() => dispatch(setnavbar(false))} className='text-xl md:mr-5 xl:mr-7'>
-                                    <Link to={link.link} className={`uppercase font-amatic font-bold text-2xl lg:text-3xl hover:text-gray-400 duration-500 text-z-green`}>{link.name}</Link>
+                                    <NavLink to={link.link} className={`uppercase font-amatic font-bold text-2xl lg:text-3xl hover:text-gray-400 duration-500 text-z-green`}>{link.name}</NavLink>
                                 </li>
                             ))
                         }
@@ -64,13 +64,9 @@ const Navbar = () => {
                                 ? <div className='static max-md:hidden'>
                                     <Profile />
                                 </div>
-                                : <Button onClick={signInHandler} className={`border-[1px] transition-all duration-500 text-z-green border-z-green`}>
-                                    Login
-                                </Button>
+                                : <Button isBorder={true} onClick={signInHandler} >Login</Button>
                         }
-                        <Button className={`text-z-green border-z-green border-[1px] transition-all duration-500 md:mr-3 ${!isLogin && 'ml-3'}`}>
-                            Ticket
-                        </Button>
+                        <Button isBorder={true} className={`md:mr-3 ${!isLogin && 'ml-3'}`} >Ticket</Button>
                     </div>
                 </nav>
             </header>

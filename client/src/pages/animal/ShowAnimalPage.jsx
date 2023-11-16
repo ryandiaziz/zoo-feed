@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Card from '../../components/fragments/Card'
-import Loading from '../../components/elements/Loading'
+import Loading from '../../components/elements/loading'
 import MainLayout from '../../components/layouts/MainLayout'
 import SearchContainer from '../../components/SearchContainer'
 import Pagination from '../../components/Pagination'

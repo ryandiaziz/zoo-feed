@@ -7,7 +7,7 @@ const Card = ({ items }) => {
         items.map(item => {
             return (
                 <div key={item.id} className="flex-grow rounded-md hover:shadow-xl overflow-hidden bg-white w-[140px] max-w-[180px] h-[150px] sm:w-[200px] sm:mx-w-[250px] sm:h-[200px] md:w-[300px] md:max-w-[350px] md:h-[300px]  hover:bg-slate-100 relative">
-                    <Link to={`detail/${item.id}`}>
+                    <Link to={`${item.id}`}>
                         <img
                             src={`https://zoofeed-api-gamma.vercel.app/${item.imageUrl}`}
                             alt="Animal"

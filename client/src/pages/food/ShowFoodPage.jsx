@@ -7,7 +7,7 @@ import Card from '../../components/fragments/Card'
 import Pagination from '../../components/Pagination'
 import MainLayout from '../../components/layouts/MainLayout'
 import SearchContainer from '../../components/SearchContainer'
-import Loading from '../../components/elements/Loading'
+import Loading from '../../components/elements/loading'
 
 const ShowFoodPage = () => {
     const postPerPage = 8

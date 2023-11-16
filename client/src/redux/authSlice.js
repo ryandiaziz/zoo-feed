@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const URL = 'https://zoofeed-api-gamma.vercel.app/api/users'
-// const URL = 'http://localhost:5000/api/users'
+// const URL = 'https://zoofeed-api-gamma.vercel.app/api/users'
+const URL = 'http://localhost:3000/api/users'
 
 const initialState = {
     isLogin: false,
