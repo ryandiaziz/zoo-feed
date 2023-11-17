@@ -55,9 +55,10 @@ export const createUser = createAsyncThunk('auth/createUser', async (data, thunk
     try {
         await axios({
             method: 'POST',
-            url: URL,
+            url: `${URL}/create`,
             data
         })
+        // console.log(response)
         thunkAPI.dispatch(login({
             email: data.email,
             password: data.password
@@ -79,6 +80,7 @@ const authSlice = createSlice({
         },
         closealert: (state) => {
             state.error.status = false
+            state.error.message = ""
         }
     },
     extraReducers: (builder) => {

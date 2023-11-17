@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import CardSkeleton from '../../components/elements/cardskeleton'
 import Card from '../../components/fragments/Card'
-import Loading from '../../components/elements/loading'
-import MainLayout from '../../components/layouts/MainLayout'
 import SearchContainer from '../../components/SearchContainer'
+import MainLayout from '../../components/layouts/MainLayout'
+import CardsLayout from '../../components/layouts/CardsLayout'
 import Pagination from '../../components/Pagination'
 import useAnimal from '../../hooks/useAnimal'
 
@@ -28,13 +29,13 @@ const ShowAnimalPage = () => {
             />
             {
                 loading.fetch
-                    ? <div className={`m-auto h-[50vh] sm:h-[40vh] flex justify-center items-center`}>
-                        <Loading />
-                    </div>
+                    ? <CardsLayout>
+                        {Array(4).fill(0).map((d, i) => (<CardSkeleton key={i} />))}
+                    </CardsLayout>
                     : <>
-                        <div className="flex gap-2 sm:gap-4 justify-center flex-wrap p-3 md:p-10">
+                        <CardsLayout>
                             <Card items={currentPosts} />
-                        </div>
+                        </CardsLayout>
                         <div className='flex justify-center'>
                             <Pagination
                                 totalPosts={animals.length}

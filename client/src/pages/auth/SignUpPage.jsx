@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Input from '../../components/elements/input'
@@ -14,23 +14,22 @@ import { setmodalsignup, setmodalsignin } from '../../redux/menuSlice'
 import { createUser } from '../../redux/authSlice'
 
 const SignUpPage = () => {
-    const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { isModalSignUpOpen } = useSelector((state) => state.menu)
     const { isLogin, loading } = useSelector((state) => state.auth)
 
-    const { roleId } = params;
     const [form, setForm] = useState({
-        name: "",
-        age: 0,
-        email: "",
-        password: "",
-        roleId: roleId,
+        name: "joji",
+        age: 21,
+        email: "joji@gmail.com",
+        password: "123",
+        roleId: 1,
     });
 
-    const submitHandler = () => {
+    const submitHandler = (e) => {
         dispatch(createUser(form))
+        e.preventDefault()
     };
 
     const signinHandler = () => {
@@ -56,7 +55,7 @@ const SignUpPage = () => {
         isModalSignUpOpen &&
         <>
             <AuthLayout text='Sign up for an account' onClick={() => dispatch(setmodalsignup(false))}>
-                <FormAuth>
+                <FormAuth action={submitHandler}>
                     <Input
                         type='text'
                         label='Name'
@@ -81,10 +80,9 @@ const SignUpPage = () => {
                         name='Sign Up'
                         type='submit'
                         isFull={true}
-                        onClick={submitHandler}
-                        disabled={loading.create ? true : false}
+                        disabled={(loading.create || loading.login) ? true : false}
                     >
-                        {loading.create ? <Loading /> : "Sign Up"}
+                        {(loading.create || loading.login) ? <Loading /> : "Sign Up"}
                     </Button>
                     <p className='text-[12px] text-slate-500 text-center font-light'>By creating an account you agree with our Terms of Service, Privacy Policy, and our default Notification Settings</p>
                     <AuthFooter

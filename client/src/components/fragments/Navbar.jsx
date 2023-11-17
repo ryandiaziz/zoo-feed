@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Profile from '../Profile'
 import logoOri from '../../assets/zoo feed-01.png'
 import Button from '../elements/button';
+import NavItem from '../elements/navitem';
+import Overlay from '../../components/elements/overlay'
 import { setnavbar, setmodalsignin } from '../../redux/menuSlice';
 
 const Navbar = () => {
@@ -50,13 +52,9 @@ const Navbar = () => {
                 </div>
                 <nav className={`md:flex md:items-center max-md:py-5 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto max-md:px-5 transition-all duration-500 ease-in ${isNavbarOpen ? 'top-20 bg-white' : 'top-[-490px]'}`}>
                     <ul className='flex max-md:flex-col max-md:space-y-5'>
-                        {
-                            links.map((link) => (
-                                <li key={link.name} onClick={() => dispatch(setnavbar(false))} className='text-xl md:mr-5 xl:mr-7'>
-                                    <NavLink to={link.link} className={`uppercase font-amatic font-bold text-2xl lg:text-3xl hover:text-gray-400 duration-500 text-z-green`}>{link.name}</NavLink>
-                                </li>
-                            ))
-                        }
+                        {links.map((link, i) => (
+                            <NavItem key={i} link={link} onClick={() => dispatch(setnavbar(false))} />
+                        ))}
                     </ul>
                     <div className='max-md:mt-5 flex md:flex-row-reverse items-center'>
                         {
@@ -70,7 +68,7 @@ const Navbar = () => {
                     </div>
                 </nav>
             </header>
-            {isNavbarOpen && <div className="opacity-30 fixed inset-0 z-10 bg-black" />}
+            {isNavbarOpen && <Overlay />}
         </>
     )
 }

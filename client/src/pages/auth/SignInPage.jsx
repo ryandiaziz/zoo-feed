@@ -10,22 +10,24 @@ import Loading from '../../components/elements/loading'
 import Overlay from '../../components/elements/overlay';
 import AuthLayout from '../../components/layouts/AuthLayout';
 import AuthFooter from '../../components/elements/authFooter';
-import { login } from '../../redux/authSlice'
+import Alert from '../../components/fragments/Alert';
+import { login, closealert } from '../../redux/authSlice'
 import { setmodalsignin, setmodalsignup } from '../../redux/menuSlice'
 
 
 const SignInPage = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { isLogin, loading } = useSelector((state) => state.auth)
+    const { isLogin, loading, error } = useSelector((state) => state.auth)
     const { isModalSignInOpen } = useSelector((state) => state.menu)
     const [form, setForm] = useState({
         email: '',
         password: '',
     })
 
-    const submitHandler = () => {
+    const submitHandler = (e) => {
         dispatch(login(form))
+        e.preventDefault()
     }
 
     const signupHandler = () => {
@@ -42,6 +44,12 @@ const SignInPage = () => {
     }, [isModalSignInOpen])
 
     useEffect(() => {
+        setTimeout(() => {
+            dispatch(closealert())
+        }, 5000)
+    }, [error.status])
+
+    useEffect(() => {
         if (isLogin) {
             dispatch(setmodalsignin(false))
             navigate("/")
@@ -52,7 +60,7 @@ const SignInPage = () => {
         isModalSignInOpen &&
         <>
             <AuthLayout text='Welcome' onClick={() => dispatch(setmodalsignin(false))}>
-                <FormAuth >
+                <FormAuth action={submitHandler}>
                     <Input
                         type='email'
                         label='Email'
@@ -67,19 +75,19 @@ const SignInPage = () => {
                         name='Sign In'
                         type='submit'
                         isFull={true}
-                        onClick={submitHandler}
                         disabled={loading.login ? true : false}
                     >
                         {loading.login ? <Loading /> : "Sign in"}
                     </Button>
                     <AuthFooter
                         name='Sign Up'
-                        text='Don’t have an account yet?'
+                        text="Don’t have an account yet?"
                         onClick={signupHandler}
                     />
                 </FormAuth>
             </AuthLayout>
             <Overlay />
+            {error.status && <Alert message={error.message} />}
         </>
     )
 }

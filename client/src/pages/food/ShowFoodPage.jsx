@@ -2,12 +2,13 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchFoods, searchFoods } from '../../redux/foodSlice'
 import Card from '../../components/fragments/Card'
 import Pagination from '../../components/Pagination'
 import MainLayout from '../../components/layouts/MainLayout'
+import CardsLayout from '../../components/layouts/CardsLayout'
 import SearchContainer from '../../components/SearchContainer'
-import Loading from '../../components/elements/loading'
+import CardSkeleton from '../../components/elements/cardskeleton'
+import { fetchFoods, searchFoods } from '../../redux/foodSlice'
 
 const ShowFoodPage = () => {
     const postPerPage = 8
@@ -50,16 +51,13 @@ const ShowFoodPage = () => {
             />
             {
                 loading.fetch
-                    ? <div className={`m-auto h-[50vh] sm:h-[40vh] flex justify-center items-center`}>
-                        <Loading />
-                    </div>
+                    ? <CardsLayout>
+                        {Array(4).fill(0).map((d, i) => (<CardSkeleton key={i} />))}
+                    </CardsLayout>
                     : <>
-                        <div className="flex gap-4 justify-center flex-wrap py-4 px-4">
-                            <Card
-                                items={currentPosts}
-                                search={search}
-                            />
-                        </div>
+                        <CardsLayout>
+                            <Card items={currentPosts} search={search} />
+                        </CardsLayout>
                         <div className='flex justify-center'>
                             <Pagination
                                 totalPosts={foods.length}
