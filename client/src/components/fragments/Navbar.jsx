@@ -68,7 +68,6 @@ const Navbar = () => {
                     </div>
                 </nav>
             </header>
-            {isNavbarOpen && <Overlay />}
         </>
     )
 }
